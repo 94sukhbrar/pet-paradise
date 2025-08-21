@@ -75,7 +75,7 @@ class WebUser extends \yii\web\User
 		return parent::can($permissionName, $params, $allowCaching);
 	}
 
-	public function canRoute($module, $route = null, $allowCaching = true, $defaultValue)
+	public function canRoute($module, $route, $allowCaching, $defaultValue)
 	{
 		if (($accessChecker = $this->getAuthAccessChecker()) === false)
 		{

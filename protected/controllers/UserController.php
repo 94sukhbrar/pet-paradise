@@ -447,9 +447,16 @@ class UserController extends TController
         }
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack([
-                'dashboard/index'
-            ]);
+            //echo Yii::$app->user->identity->role_id;die;
+            if(Yii::$app->user->identity->role_id==User::ROLE_ADMIN)
+                
+                return $this->goBack([
+                    'dashboard/index'
+                ]);
+
+                return $this->goBack([
+                    'post/index'
+                ]);
         }
         return $this->render('login', [
             'model' => $model

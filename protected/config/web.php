@@ -123,7 +123,7 @@ $config = [
         ]
     ],
     'on beforeRequest' => function () {
-        \Yii::$app->getModule('maintenance')->init();
+       // \Yii::$app->getModule('maintenance')->init();
     }
 ];
 
@@ -181,9 +181,10 @@ $config['modules']['api'] = [
 $config['modules']['backup'] = [
     'class' => 'app\modules\backup\Module'
 ];
-$config['modules']['seo'] = [
-    'class' => 'app\modules\seo\Module'
+$config['modules']['tugii'] = [
+    'class' => 'app\modules\tugii\Module'
 ];
+
 $config['modules']['page'] = [
     'class' => 'app\modules\page\Module'
 ];

@@ -1007,3 +1007,14 @@ hr.center_line {
     left: 0;
     right: 0;
 }
+.panel {
+    margin-bottom: 30px;
+}
+.panel-body  {
+    background: #fff;
+    border-radius: 0.35rem;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}

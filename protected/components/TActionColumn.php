@@ -37,10 +37,10 @@ class TActionColumn extends \yii\grid\ActionColumn
                 ], $this->buttonOptions);
                 if ($this->showModal) {
                     $options = array_merge($options, [
-                        'class' => 'showActionModalButton btn btn-success',
-                        'value' => $url
+                        'class' => ' btn btn-success',
+                        'href' => $url
                     ]);
-                    return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', false, $options);
+                    return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, $options);
                 }
                 return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, $options);
             };
@@ -56,10 +56,10 @@ class TActionColumn extends \yii\grid\ActionColumn
                 ], $this->buttonOptions);
                 if ($this->showModal) {
                     $options = array_merge($options, [
-                        'class' => 'showActionModalButton btn btn-success',
-                        'value' => $url
+                        'class' => 'btn btn-success',
+                        'href' => $url
                     ]);
-                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', false, $options);
+                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, $options);
                 }
                 return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, $options);
             };

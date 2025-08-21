@@ -91,7 +91,14 @@ class TBaseController extends Controller
         $this->nav_left = [
             self::addMenu(Yii::t('app', 'Dashboard'), '//dashboard/index', 'home', ! User::isGuest()),
             self::addMenu(Yii::t('app', 'User'), '//user', 'user', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Feed'), '//post', 'rss', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Feed Category'), '//category', 'certificate', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Pet'), '//pet', 'dog', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Pet Category'), '//petcategory', 'paw', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Post'), '//post', 'plus', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Post Category'), '//petcategory', 'holly-berry', (User::isAdmin())),
 
+            
             'Manage' => self::addMenu(Yii::t('app', 'Manage'), '#', 'tasks', User::isAdmin(), [
                 self::addMenu(Yii::t('app', 'Email Queue'), '//email-queue/index', 'envelope', User::isAdmin()),
                 self::addMenu(Yii::t('app', 'Notices'), '//notice/index', 'tasks', User::isAdmin()),

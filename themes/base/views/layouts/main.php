@@ -284,22 +284,7 @@ yii\bootstrap4\Modal::begin([
 echo "<div id='modalContent'><div style='text-align:center'><img src='" . $this->theme->getUrl('img/ttt.gif') . "'></div></div>";
 yii\bootstrap4\Modal::end();
 ?>
-<script>
-$(document).on( 'click', '.showActionModalButton', function() {
-	
-	if ($('#modal').data('bs.modal').isShown) {
-		$('#modal').find('#modalContent').load($(this).attr('value'));
-	} else {
-		// if modal isn't open; open it and load content
-		$('#modal').modal('show').find('#modalContent').load(
-				$(this).attr('value'));
-		// dynamiclly set the header for the modal via title tag
-		document.getElementById('modalHeader').innerHTML = '<h4 class="modal-title">'
-			+ $(this).attr('title')
-			+ '</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-	}
-});
-</script>
+
 
 	<!-- Bootstrap tether Core JavaScript -->
 	<script

@@ -86,7 +86,7 @@ class SiteController extends TController
                 return $this->redirect('dashboard');
             } else {
                 $this->layout = User::LAYOUT_GUEST_MAIN;
-                return $this->redirect('dashboard');
+                return $this->redirect('post/index');
             }
         } else {
             $this->layout = User::LAYOUT_GUEST_MAIN;

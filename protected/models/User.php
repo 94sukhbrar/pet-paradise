@@ -80,6 +80,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
     const LAYOUT_MAIN = 'main';
 
     const LAYOUT_GUEST_MAIN = 'guest-main';
+    const LAYOUT_PET_MAIN = 'pet-main';
 
     const SCENARIO_CHANGEPASSWORD = 'changepassword';
 
@@ -823,9 +824,10 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
         $this->password = $this->hashPassword($password);
     }
 
+  
     public function hashPassword($password)
     {
-        $password = utf8_encode(Yii::$app->security->generatePasswordHash(yii::$app->name . $password));
+        $password = mb_convert_encoding(Yii::$app->security->generatePasswordHash(yii::$app->name . $password), 'UTF-8', 'ISO-8859-1'); // utf8_encode(Yii::$app->security->generatePasswordHash(yii::$app->name . $password));
         return $password;
     }
 
@@ -836,7 +838,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
      *            password to validate
      * @return boolean if password provided is valid for current user
      */
-    public function validatePassword($password)
+  public function validatePassword($password)
     {
         if (defined('DISABLED_PASSWORD_MATCH')) {
             return true;
@@ -856,7 +858,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
             }
         }
 
-        return Yii::$app->security->validatePassword(yii::$app->name . $password, utf8_decode($this->password));
+        return Yii::$app->security->validatePassword(yii::$app->name . $password, mb_convert_encoding($this->password, 'UTF-8', 'ISO-8859-1'));
     }
 
     /**

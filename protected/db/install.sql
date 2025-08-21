@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `ha_logins` (
 
 -- -------------------------------------------
 
--- TABLE `tbl_blog_category`
+-- TABLE `tbl_category`
 
 -- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_blog_category`;
-CREATE TABLE IF NOT EXISTS `tbl_blog_category` (
+DROP TABLE IF EXISTS `tbl_category`;
+CREATE TABLE IF NOT EXISTS `tbl_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `state_id` int(11) NOT NULL,
@@ -53,18 +53,18 @@ CREATE TABLE IF NOT EXISTS `tbl_blog_category` (
   PRIMARY KEY (`id`),
   KEY `title` (`title`),
   KEY `state_id` (`state_id`),
-  KEY `FK_blog_category_created_by_id` (`created_by_id`),
-  CONSTRAINT `FK_blog_category_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
+  KEY `FK_category_created_by_id` (`created_by_id`),
+  CONSTRAINT `FK_category_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- -------------------------------------------
 
--- TABLE `tbl_blog_post`
+-- TABLE `tbl_post`
 
 -- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_blog_post`;
-CREATE TABLE IF NOT EXISTS `tbl_blog_post` (
+DROP TABLE IF EXISTS `tbl_post`;
+CREATE TABLE IF NOT EXISTS `tbl_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
@@ -81,8 +81,8 @@ CREATE TABLE IF NOT EXISTS `tbl_blog_post` (
   KEY `keywords` (`keywords`),
   KEY `state_id` (`state_id`),
   KEY `created_on` (`created_on`),
-  KEY `FK_blog_created_by_id` (`created_by_id`),
-  CONSTRAINT `FK_blog_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
+  KEY `FK_post_created_by_id` (`created_by_id`),
+  CONSTRAINT `FK_post_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -106,29 +106,6 @@ CREATE TABLE IF NOT EXISTS `tbl_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
--- -------------------------------------------
-
--- TABLE `tbl_check`
-
--- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_check`;
-CREATE TABLE IF NOT EXISTS `tbl_check` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `street_name` text NOT NULL,
-  `created_by_id` int(11) NOT NULL,
-  `qweqweqwk` int(11) NOT NULL,
-  `eqweqwa` int(11) NOT NULL,
-  `eqweouiy` int(11) NOT NULL,
-  `weqweqwl` int(11) NOT NULL,
-  `eqweqwk` int(11) NOT NULL,
-  `weqwewer` int(11) NOT NULL,
-  `qweqweerq` int(11) NOT NULL,
-  `qweqwewq` int(11) NOT NULL,
-  `qweqwwq` int(11) NOT NULL,
-  `ewqeqwewqe` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 
 -- -------------------------------------------
@@ -232,26 +209,6 @@ CREATE TABLE IF NOT EXISTS `tbl_files` (
   CONSTRAINT `fk_files_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`),
   CONSTRAINT `fk_files_updated_by_id` FOREIGN KEY (`updated_by_id`) REFERENCES `tbl_user` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
--- -------------------------------------------
-
--- TABLE `tbl_language_option`
-
--- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_language_option`;
-CREATE TABLE IF NOT EXISTS `tbl_language_option` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `language_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `state_id` int(11) NOT NULL DEFAULT '1',
-  `type_id` int(11) NOT NULL DEFAULT '0',
-  `created_on` datetime DEFAULT NULL,
-  `updated_on` datetime DEFAULT NULL,
-  `created_by_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_language_option_created_by_id` (`created_by_id`),
-  CONSTRAINT `fk_language_option_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- -------------------------------------------
@@ -528,28 +485,6 @@ CREATE TABLE IF NOT EXISTS `tbl_setting` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
--- -------------------------------------------
-
--- TABLE `tbl_translator_language`
-
--- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_translator_language`;
-CREATE TABLE IF NOT EXISTS `tbl_translator_language` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text` text COLLATE utf8_unicode_ci,
-  `attribute_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `language` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `model_id` int(11) NOT NULL,
-  `model_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `state_id` int(11) NOT NULL DEFAULT '1',
-  `type_id` int(11) NOT NULL DEFAULT '0',
-  `created_on` datetime DEFAULT NULL,
-  `updated_on` datetime DEFAULT NULL,
-  `created_by_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_translator_language_created_by_id` (`created_by_id`),
-  CONSTRAINT `fk_translator_language_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- -------------------------------------------
@@ -594,27 +529,58 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
--- -------------------------------------------
-
--- TABLE `tbl_visitor`
 
 -- -------------------------------------------
-DROP TABLE IF EXISTS `tbl_visitor`;
-CREATE TABLE IF NOT EXISTS `tbl_visitor` (
-  `id` bigint(20) unsigned NOT NULL,
-  `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `visit_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `group_date` int(11) unsigned DEFAULT NULL,
-  `location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `browser` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `browser_version` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `os` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `os_version` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `device` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `device_model` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `referer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- TABLE `tbl_pet_category`
+
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_pet_category`;
+CREATE TABLE IF NOT EXISTS `tbl_pet_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `state_id` int(11) NOT NULL,
+  `type_id` int(11) DEFAULT '0',
+  `created_on` datetime NOT NULL,
+  `updated_on` datetime DEFAULT NULL,
+  `created_by_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pet_category_created_by` (`created_by_id`),
+  CONSTRAINT `fk_pet_category_created_by` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+-- -------------------------------------------
+
+-- TABLE `tbl_pet`
+
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_pet`;
+CREATE TABLE IF NOT EXISTS `tbl_pet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `content` TEXT NOT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `gender` int(11) DEFAULT '0',
+  `about_me` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contact_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `breed` VARCHAR(100),
+  `pet_category_id` INT NOT NULL,
+  `state_id` int(11) NOT NULL,
+  `type_id` int(11) DEFAULT '0',
+  `created_on` datetime NOT NULL,
+  `updated_on` datetime DEFAULT NULL,
+  `created_by_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pet_created_by` (`created_by_id`),
+  CONSTRAINT `fk_pet_created_by` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`),
+  KEY `fk_pet_category` (`pet_category_id`),
+  CONSTRAINT `fk_pet_category` FOREIGN KEY (`pet_category_id`) REFERENCES `tbl_pet_category` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+ALTER TABLE `tbl_pet` ADD `profile_picture` VARCHAR(255) NOT NULL AFTER `breed`;
 
 COMMIT;
 -- -------------------------------------------
