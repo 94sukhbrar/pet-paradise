@@ -21,6 +21,7 @@ use yii\widgets\Pjax;
 
             'id',
             'title',
+            'pet_icon',
             [
 			'attribute' => 'state_id','format'=>'raw','filter'=>isset($searchModel)?$searchModel->getStateOptions():null,
 			'value' => function ($data) { return $data->getStateBadge();  },],

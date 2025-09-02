@@ -22,7 +22,7 @@ class Petcategory extends PetcategoryModel
     {
         return [
             [['id', 'state_id', 'type_id', 'created_by_id'], 'integer'],
-            [['title', 'created_on', 'updated_on'], 'safe'],
+            [['title', 'pet_icon', 'created_on', 'updated_on'], 'safe'],
         ];
     }
 
@@ -70,7 +70,8 @@ class Petcategory extends PetcategoryModel
             'created_by_id' => $this->created_by_id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'pet_icon', $this->pet_icon]);
 
         return $dataProvider;
     }

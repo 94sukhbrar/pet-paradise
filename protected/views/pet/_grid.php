@@ -8,6 +8,7 @@ use app\models\User;
 
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
@@ -15,78 +16,102 @@ use yii\widgets\Pjax;
  */
 
 ?>
-<?php if (User::isAdmin()) echo Html::a('','#',['class'=>'multiple-delete glyphicon glyphicon-trash','id'=>"bulk_delete_pet-grid"])?>
-<?php Pjax::begin(['id'=>'pet-pjax-grid']); ?>
-    <?php echo TGridView::widget([
-    	'id' => 'pet-grid-view',
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'tableOptions'=>['class'=>'table table-bordered'],
-        'columns' => [
-           // ['class' => 'yii\grid\SerialColumn','header'=>'<a>S.No.<a/>'],
-           [ 
-								'name' => 'check',
-								'class' => 'yii\grid\CheckboxColumn',
-								'visible' => User::isAdmin () 
-						],
+<?php if (User::isAdmin()) echo Html::a('', '#', ['class' => 'multiple-delete glyphicon glyphicon-trash', 'id' => "bulk_delete_pet-grid"]) ?>
+<?php Pjax::begin(['id' => 'pet-pjax-grid']); ?>
+<?php echo TGridView::widget([
+	'id' => 'pet-grid-view',
+	'dataProvider' => $dataProvider,
+	'filterModel' => $searchModel,
+	'tableOptions' => ['class' => 'table table-bordered'],
+	'columns' => [
+		// ['class' => 'yii\grid\SerialColumn','header'=>'<a>S.No.<a/>'],
+		[
+			'name' => 'check',
+			'class' => 'yii\grid\CheckboxColumn',
+			'visible' => User::isAdmin()
+		],
 
-            'id',
-            'name',
-            /* 'content:html',*/
-            /* 'date_of_birth:date',*/
-            /* 'gender',*/
-            /* 'about_me',*/
-            /* 'contact_no',*/
-            /* 'address',*/
-            /* 'breed',*/
-            [
-				'attribute' => 'pet_category_id',
-				'format'=>'raw',
-				'value' => function ($data) { return $data->getRelatedDataLink('pet_category_id');  },
-				],
-            [
-			'attribute' => 'state_id','format'=>'raw','filter'=>isset($searchModel)?$searchModel->getStateOptions():null,
-			'value' => function ($data) { return $data->getStateBadge();  },],
-            /* ['attribute' => 'type_id','filter'=>isset($searchModel)?$searchModel->getTypeOptions():null,
+		'id',
+		'name',
+		/* 'content:html',*/
+		/* 'date_of_birth:date',*/
+		/* 'gender',*/
+		/* 'about_me',*/
+		/* 'contact_no',*/
+		/* 'address',*/
+		/* 'breed',*/
+		[
+			'attribute' => 'gender',
+			'format' => 'raw',
+			'filter' => isset($searchModel) ? $searchModel->getGenders() : null,
+			'value' => function ($data) {
+				return $data->getGender();
+			},
+		],
+		[
+			'attribute' => 'profile_picture',
+			'format' => 'raw',
+			//'filter' => isset($searchModel) ? $searchModel->getStateOptions() : null,
+			'value' => function ($data) {
+				return $data->displayImage($data->profile_picture, $options = [], $defaultImg = 'blog-header.jpg');
+			},
+		],
+		[
+			'attribute' => 'pet_category_id',
+			'format' => 'raw',
+			'value' => function ($data) {
+				return $data->getRelatedDataLink('pet_category_id');
+			},
+		],
+		
+		[
+			'attribute' => 'state_id',
+			'format' => 'raw',
+			'filter' => isset($searchModel) ? $searchModel->getStateOptions() : null,
+			'value' => function ($data) {
+				return $data->getStateBadge();
+			},
+		],
+		/* ['attribute' => 'type_id','filter'=>isset($searchModel)?$searchModel->getTypeOptions():null,
 			'value' => function ($data) { return $data->getType();  },],*/
-            'created_on:datetime',
-            /* 'updated_on:datetime',*/
-            /* [
+		'created_on:datetime',
+		/* 'updated_on:datetime',*/
+		/* [
 				'attribute' => 'created_by_id',
 				'format'=>'raw',
 				'value' => function ($data) { return $data->getRelatedDataLink('created_by_id');  },
 				],*/
 
-            ['class' => 'app\components\TActionColumn','header'=>'<a>Actions</a>'],
-        ],
-    ]); ?>
+		['class' => 'app\components\TActionColumn', 'header' => '<a>Actions</a>'],
+	],
+]); ?>
 <?php Pjax::end(); ?>
-<script> 
-$('#bulk_delete_pet-grid').click(function(e) {
-	e.preventDefault();
-	 var keys = $('#pet-grid-view').yiiGridView('getSelectedRows');
+<script>
+	$('#bulk_delete_pet-grid').click(function(e) {
+		e.preventDefault();
+		var keys = $('#pet-grid-view').yiiGridView('getSelectedRows');
 
-	 if ( keys != '' ) {
-		var ok = confirm("Do you really want to delete these items?");
+		if (keys != '') {
+			var ok = confirm("Do you really want to delete these items?");
 
-		if( ok ) {
-			$.ajax({
-				url  : '<?php echo Url::toRoute(['pet/mass','action'=>'delete','model'=>get_class($searchModel)])?>', 
-				type : "POST",
-				data : {
-					ids : keys,
-				},
-				success : function( response ) {
-					if ( response.status == "OK" ) {
-						 $.pjax.reload({container: '#pet-pjax-grid'});
+			if (ok) {
+				$.ajax({
+					url: '<?php echo Url::toRoute(['pet/mass', 'action' => 'delete', 'model' => get_class($searchModel)]) ?>',
+					type: "POST",
+					data: {
+						ids: keys,
+					},
+					success: function(response) {
+						if (response.status == "OK") {
+							$.pjax.reload({
+								container: '#pet-pjax-grid'
+							});
+						}
 					}
-				}
-		     });
+				});
+			}
+		} else {
+			alert('Please select items to delete');
 		}
-	 } else {
-		alert('Please select items to delete');
-	 }
-});
-
+	});
 </script>
-

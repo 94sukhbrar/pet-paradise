@@ -49,11 +49,11 @@ use app\components\TActiveForm;
 
 
 
-		<?php echo $form->field($model, 'gender')->textInput()  ?>
+		<?php echo $form->field($model, 'gender')->dropDownList($model->getGenderOptions(), ['prompt' => '']) ?>
 
 
 
-		<?php echo $form->field($model, 'about_me')->textInput(['maxlength' => 255])  ?>
+		<?php echo $form->field($model, 'about_me')->textarea(['rows' => 6,'placeholder'=>'About my like and dislike'])?>
 
 
 
@@ -79,10 +79,11 @@ use app\components\TActiveForm;
 
 
 		<?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
-
+		
 
 
 		<?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => ''])  ?>
+
 	</div>
 
 

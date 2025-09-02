@@ -52,6 +52,8 @@ class PostController extends TController
 						'actions' => [
 
 							'view',
+							'index',
+							'detail'
 						],
 						'allow' => true,
 						'roles' => [
@@ -80,7 +82,7 @@ class PostController extends TController
 	public function actionIndex()
 	{
 		$searchModel = new PostSearch();
-		if (Yii::$app->user->identity->role_id == User::ROLE_ADMIN) {
+		if ((!\Yii::$app->user->isGuest) && (Yii::$app->user->identity->role_id == User::ROLE_ADMIN)) {
 			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 			$this->updateMenuItems();
 			$this->layout = User::LAYOUT_MAIN;
@@ -88,7 +90,7 @@ class PostController extends TController
 				'searchModel' => $searchModel,
 				'dataProvider' => $dataProvider,
 			]);
-		} else {
+		} else if ((\Yii::$app->user->isGuest) || Yii::$app->user->identity->role_id == User::ROLE_USER) {
 			$dataProvider = new ActiveDataProvider([
 				'query' => Post::find()->orderBy(['created_on' => SORT_DESC]),
 				'pagination' => [
@@ -115,6 +117,20 @@ class PostController extends TController
 		return $this->render('view', ['model' => $model]);
 	}
 
+	
+	/**
+	 * Displays a single Post model.
+	 * @param integer $id
+	 * @return mixed
+	 */
+	public function actionDetail($id)
+	{
+		$this->layout = User::LAYOUT_PET_MAIN;
+		$model = $this->findModel($id);
+		//$this->updateMenuItems($model);
+		return $this->render('detail', ['model' => $model]);
+	}
+
 	/**
 	 * Creates a new Post model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -132,8 +148,11 @@ class PostController extends TController
 		}
 		if ($model->load($post)) {
 			$model->saveUploadedFile($model, 'image_file');
-			$model->save();
-			return $this->redirect($model->getUrl());
+			if ($model->save()) {
+				return $this->redirect($model->getUrl());
+			} else {
+				\Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
+			}
 		}
 		$this->updateMenuItems();
 		return $this->render('add', [
@@ -157,7 +176,7 @@ class PostController extends TController
 			return TActiveForm::validate($model);
 		}
 		if ($model->load($post)) {
-			if(isset($model->image_file)){
+			if (isset($model->image_file)) {
 				$model->saveUploadedFile($model, 'image_file');
 			}
 			$model->save();

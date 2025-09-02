@@ -11,7 +11,7 @@ $config = [
     'basePath' => PROTECTED_PATH,
     'runtimePath' => RUNTIME_PATH,
     'vendorPath' => VENDOR_PATH,
-     'defaultRoute' => 'site/index',
+     'defaultRoute' => 'site/adopt',
     'language' => 'en',
     'bootstrap' => [
         'log',

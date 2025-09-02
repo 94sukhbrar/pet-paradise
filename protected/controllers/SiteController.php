@@ -1,9 +1,10 @@
 <?php
 
 /**
-*@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
-*@author     : Ram mohamad Singh< er.amudeep@gmail.com >
-*/
+ *@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
+ *@author     : Ram mohamad Singh< er.amudeep@gmail.com >
+ */
+
 namespace app\controllers;
 
 use app\components\TActiveForm;
@@ -12,12 +13,16 @@ use app\models\ContactForm;
 use app\models\EmailQueue;
 use app\models\User;
 use Yii;
- use app\components\filters\AccessControl;
+use app\components\filters\AccessControl;
+use app\models\Pet;
+use app\models\Petcategory;
+use app\models\search\Pet as SearchPet;
 use yii\web\Response;
 use app\modules\page\models\Page;
 use bizley\contenttools\actions\UploadAction;
 use bizley\contenttools\actions\InsertAction;
 use bizley\contenttools\actions\RotateAction;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends TController
 {
@@ -38,7 +43,15 @@ class SiteController extends TController
                             'error',
                             'content-tools-image-upload',
                             'content-tools-image-insert',
-                            'content-tools-image-rotate'
+                            'content-tools-image-rotate',
+                            'discover',
+                            'pet-detail',
+                            'ready-to-adopt',
+                            'adopt',
+                            'contact-now',
+                            'local-services',
+                            'alerts',
+                            'events'
                         ],
                         'allow' => true,
                         'roles' => [
@@ -132,6 +145,90 @@ class SiteController extends TController
         ]);
     }
 
+    public function actionDiscover()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('discover');
+    }
+
+    public function actionAdopt()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        $searchModel = new SearchPet();
+        $dataProvider = new ActiveDataProvider([
+            'query' => Pet::find()->orderBy(['created_on' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+        $petCategory = Petcategory::find()->where(['state_id' => Petcategory::STATE_ACTIVE])->orderBy(['created_on' => SORT_DESC])->all();
+        //return $this->render('adopt');
+        return $this->render('adopt', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'petCategory' => $petCategory
+        ]);
+    }
+    public function actionContactNow($id)
+    {
+        $pet = Pet::findOne($id);
+        $model = new ContactForm();
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return TActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+
+
+                $sub = 'New Contact: ' . $model->subject;
+                $from = $model->email;
+                $message = \yii::$app->view->renderFile('@app/mail/contact.php', [
+                    'user' => $model
+                ]);
+                EmailQueue::sendEmailToAdmins([
+                    'from' => $from,
+                    'subject' => $sub,
+                    'html' => $message
+                ], true);
+                \Yii::$app->getSession()->setFlash('success', \Yii::t('app', 'Warm Greetings!! Thank you for contacting us. We have received your request. Our representative will contact you soon.'));
+                return $this->refresh();
+            } 
+            // else {
+            //     \Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
+            // }
+        }
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('adopt-now', ['pet' => $pet, 'model' => $model]);
+    }
+
+    public function actionLocalServices()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('local-services');
+    }
+    public function actionAlerts()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('alerts');
+    }
+
+    public function actionEvents()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('events');
+    }
+
+
+
+
+
+    public function actionPetDetail()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+
+        return $this->render('pet-detail');
+    }
     public function actionPrivacy()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;

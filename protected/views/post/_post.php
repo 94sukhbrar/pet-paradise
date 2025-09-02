@@ -1,57 +1,33 @@
 <?php
-
 /** @var $model app\models\Post */
-
+use yii\helpers\Html;
 use yii\helpers\Url;
-
 ?>
-
-<!-- <div class="card mb-3">
+<div class="card feed-card mb-4">
     <div class="card-body">
-        <h5><?= \yii\helpers\Html::encode($model->title) ?></h5>
-        <p><?= \yii\helpers\StringHelper::truncateWords($model->content, 30) ?></p>
-        <small class="text-muted">
-            Posted on <?= Yii::$app->formatter->asDate($model->created_on) ?>
-        </small>
-    </div>
-</div> -->
-
-<div class="col-md-4">
-    <div class="card feed-card mb-4">
-        <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-                <img src="https://via.placeholder.com/40" class="rounded-circle me-2">
-                <div>
-                    <strong>Buddy</strong><br>
-                    <?php
-
-                    $date1 = new DateTime($model->created_on);
-                    $date2 = new DateTime(date('Y-m-d h:i:sa'));
-
-                    // Difference
-                    $diff = $date1->diff($date2);
-
-                    // Convert to total hours
-                    $totalHours = ($diff->days * 24) + $diff->h + ($diff->i / 60);                  
-                    
-
-                    if ($totalHours < 24) {
-                        $data = round($totalHours ). " hours ago";
-                    } else {
-                         $data =$diff->days . " days ago";
-                    }
-
-                    ?>
-                    <small class="text-muted"><?= $data ?></small>
-                </div>
-            </div>
-
-            <?= $model->displayImage($model->image_file, $options = [], $defaultImg = 'blog-header.jpg'); ?>
-            <p><strong>Buddy</strong> <?= \yii\helpers\StringHelper::truncateWords($model->content, 30) ?></p>
-            <div>
-                <i class="fa-regular fa-heart me-3"></i>
-                <i class="fa-regular fa-comment"></i>
+        <div class="d-flex align-items-center mb-2">
+            <?= $model->displayImage($model->pet->profile_picture, ['class' => 'profile-pic pet-profile'], 'default.png', true); ?>
+        <div>
+                <strong><?= $model->pet->name ?></strong><br>
+                <small class="text-muted"><?= $model->calculateAge($model->created_on) ?></small>
             </div>
         </div>
+    </div>
+    <hr class="no-margin">
+    <div class="card-body py-0 px-0">
+        <div class="image-container bg-box ">
+            <?= $model->displayImage($model->image_file, $options = ['class' => 'w-100'], $defaultImg = 'blog-header.jpg'); ?>
+        </div>
+    </div>
+    <div class="card-body">
+         <div class="m-2">
+            <i class="fa-regular fa-heart"></i><span class="me-2">&nbsp;12</span>
+            <i class="fa-regular fa-comment"></i>&nbsp;<span>2</span>
+        </div>
+        <p class="m-2"><strong><?= Html::a(Html::encode($model->title), Url::toRoute(['post/detail', 'id' => $model->id,]),['class'=>'no-style']) ?></strong>
+            <br>
+            <?= \yii\helpers\StringHelper::truncateWords($model->content, 15) ?>
+        </p>
+       
     </div>
 </div>

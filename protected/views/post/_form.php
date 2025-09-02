@@ -24,6 +24,7 @@ use app\components\TActiveForm;
 
 
 
+	<?php echo $form->field($model, 'pet_id')->dropDownList($model->getPetList(), ['prompt' => '']) ?>
 
 
 	<?php echo $form->field($model, 'title')->textInput(['maxlength' => 256]) ?>
@@ -43,15 +44,17 @@ use app\components\TActiveForm;
 
 
 
-	<?php echo $form->field($model, 'view_count')->textInput() ?>
+	<?php //echo $form->field($model, 'view_count')->textInput() ?>
 
 
 
 	<?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
 
 
+	<?php echo $form->field($model, 'type')->dropDownList($model->getTypeOptions(), ['prompt' => '']) ?>
 
-	<?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => '']) ?>
+
+
 
 
 

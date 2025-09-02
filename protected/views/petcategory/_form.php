@@ -30,6 +30,10 @@ echo $form->errorSummary($model);
 	 		
 
 
+		 <?php echo $form->field($model, 'pet_icon')->fileInput(['maxlength' => 255]) ?>
+	 		
+
+
 		 <?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
 	 		
 

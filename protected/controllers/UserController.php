@@ -1,9 +1,10 @@
 <?php
 
 /**
-*@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
-*@author     : Ram mohamad Singh< er.amudeep@gmail.com >
-*/
+ *@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
+ *@author     : Ram mohamad Singh< er.amudeep@gmail.com >
+ */
+
 namespace app\controllers;
 
 use app\components\TActiveForm;
@@ -110,7 +111,7 @@ class UserController extends TController
      * @return string
      */
     public function actionMass($action = 'delete')
-    {   
+    {
         \Yii::$app->response->format = 'json';
         $response['status'] = 'NOK';
         $status = User::massDelete();
@@ -447,22 +448,21 @@ class UserController extends TController
         }
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            //echo Yii::$app->user->identity->role_id;die;
-            if(Yii::$app->user->identity->role_id==User::ROLE_ADMIN)
-                
+           
+           if (User::isAdmin()) {
                 return $this->goBack([
                     'dashboard/index'
                 ]);
-
+            } else {
                 return $this->goBack([
                     'post/index'
                 ]);
+            }
         }
         return $this->render('login', [
             'model' => $model
         ]);
     }
-
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -526,8 +526,7 @@ class UserController extends TController
     {
         switch (\Yii::$app->controller->action->id) {
 
-            case 'add':
-                {
+            case 'add': {
                     $this->menu['add'] = [
                         'label' => '<span class="glyphicon glyphicon-list"></span>',
                         'title' => Yii::t('app', 'Manage'),
@@ -538,8 +537,7 @@ class UserController extends TController
                     ];
                 }
                 break;
-            case 'index':
-                {
+            case 'index': {
                     $this->menu['add'] = [
                         'label' => '<span class="glyphicon glyphicon-plus"></span>',
                         'title' => Yii::t('app', 'Add'),
@@ -551,8 +549,7 @@ class UserController extends TController
                 }
 
                 break;
-            case 'update':
-                {
+            case 'update': {
                     $this->menu['add'] = [
                         'label' => '<span class="glyphicon glyphicon-plus"></span>',
                         'title' => Yii::t('app', 'add'),
@@ -563,8 +560,7 @@ class UserController extends TController
                     ];
                 }
                 break;
-            case 'view':
-                {
+            case 'view': {
                     if ($model != null && ($model->role_id != User::ROLE_ADMIN) && \Yii::$app->hasModule('shadow'))
                         $this->menu['shadow'] = [
                             'label' => '<span class="glyphicon glyphicon-refresh ">Shadow</span>',

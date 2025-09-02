@@ -26,18 +26,19 @@ $this->head()?>
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16"
 	href="../assets/images/favicon.png">
-<title><?=Html::encode($this->title)?></title>
+<title><?=Html::encode('Pet Paradise')?></title>
 
 
 <!-- Custom CSS -->
 <link href="<?=$this->theme->getUrl('css/style.css')?>" rel="stylesheet">
-<link href="<?=$this->theme->getUrl('css/customStyle.css')?>"
+<link href="<?=$this->theme->getUrl('css/guest.css')?>"
 	rel="stylesheet">
 <link href="<?=$this->theme->getUrl('css/glyphicon.css')?>"
 	rel="stylesheet">
 <!-- You can change the theme colors from here -->
 <link href="<?=$this->theme->getUrl('css/colors/blue.css')?>" id="theme"
 	rel="stylesheet">
+	<link href="<?= $this->theme->getUrl('css/petLayout.css') ?>" id="theme" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -62,7 +63,7 @@ $this->beginBody()?>
 	<!-- Main wrapper - style you can find in pages.scss -->
 	<!-- ============================================================== -->
 	<!-- ADD HEADER -->
-	<nav
+	<!-- <nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light ftco-navbar-light-2
 	"
 		id="ftco-navbar">
@@ -95,7 +96,31 @@ $this->beginBody()?>
 				</ul>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
+	 <header>
+    <h1>🐾 Pawfect Pets</h1>
+    <nav>
+      <a href="<?=Url::toRoute(['/site/index'])?>">Home</a>
+      <a href="<?=Url::toRoute(['/site/adopt'])?>">Adopt</a>
+      <a href="<?=Url::toRoute(['/site/about'])?>">About Us</a>
+      <a href="<?=Url::toRoute(['/site/contact'])?>">Contact</a>
+	  <a href="<?= Url::toRoute('/site/local-services') ?>">Local Services</a>
+	     <?php
+        if (Yii::$app->user->isGuest) {         
+          ?>          
+            <a href="<?= Url::toRoute('/user/login') ?>">Sign In</a>
+
+          <?php
+        } else {
+           ?>          
+            <a href="<?= Url::toRoute('/user/logout') ?>">Logout</a>
+       
+          <?php
+        }
+
+        ?>
+    </nav>
+  </header>
 	<section id="wrapper">
        	 <?=FlashMessage::widget()?>
          <?=$content?>

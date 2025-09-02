@@ -7,6 +7,7 @@
 *
     * @property integer $id
     * @property string $title
+    * @property string $pet_icon
     * @property integer $state_id
     * @property integer $type_id
     * @property string $created_on
@@ -102,13 +103,12 @@ class Petcategory extends \app\components\TActiveRecord
 	public function rules()
 	{
 		return [
-            [['title', 'state_id', 'created_on'], 'required'],
+            [['title', 'pet_icon', 'state_id', 'created_on'], 'required'],
             [['state_id', 'type_id', 'created_by_id'], 'integer'],
             [['created_on', 'updated_on'], 'safe'],
-            [['title'], 'string', 'max' => 255],
+            [['title', 'pet_icon'], 'string', 'max' => 255],
             [['created_by_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by_id' => 'id']],
-            [['title'], 'trim'],
-			[['title'], 'unique'],
+            [['title', 'pet_icon'], 'trim'],
             [['state_id'], 'in', 'range' => array_keys(self::getStateOptions())],
             [['type_id'], 'in', 'range' => array_keys (self::getTypeOptions())]
         ];
@@ -124,6 +124,7 @@ class Petcategory extends \app\components\TActiveRecord
 		return [
 				    'id' => Yii::t('app', 'ID'),
 				    'title' => Yii::t('app', 'Title'),
+				    'pet_icon' => Yii::t('app', 'Pet Icon'),
 				    'state_id' => Yii::t('app', 'State'),
 				    'type_id' => Yii::t('app', 'Type'),
 				    'created_on' => Yii::t('app', 'Created On'),
@@ -170,6 +171,7 @@ class Petcategory extends \app\components\TActiveRecord
 		$json = [];
 			$json['id'] 	= $this->id;
 			$json['title'] 	= $this->title;
+			$json['pet_icon'] 	= $this->pet_icon;
 			$json['state_id'] 	= $this->state_id;
 			$json['type_id'] 	= $this->type_id;
 			$json['created_on'] 	= $this->created_on;

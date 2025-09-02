@@ -3,7 +3,7 @@
 /assets/
 /.buildpath
 /protected/vendor
-/protected/runtime/
+/protected/runtime/*
 /protected/modules/*
 
 /protected/uploads/

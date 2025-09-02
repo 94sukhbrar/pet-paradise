@@ -2,6 +2,9 @@
 use app\components\notice\Notices;
 use app\controllers\DashboardController;
 use app\models\EmailQueue;
+use app\models\Pet;
+use app\models\Petcategory;
+use app\models\Post;
 use app\models\User;
 use app\modules\page\models\Page;
 use miloschuman\highcharts\Highcharts;
@@ -44,11 +47,11 @@ $this->params['breadcrumbs'][] = [
 	<!-- Column -->
 	<!-- Column -->
 	<div class="col-md-6 col-lg-3">
-		<a href='<?=Url::toRoute(['//page']);?>'>
+		<a href='<?=Url::toRoute(['//pet']);?>'>
 			<div class="card card-primary card-inverse">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=Page::find()->count();?></h1>
-					<h6 class="text-white"><?=Yii::t("app", 'Total Pages')?></h6>
+					<h1 class="font-light text-white"><?=Pet::find()->count();?></h1>
+					<h6 class="text-white"><?=Yii::t("app", 'Total Pet')?></h6>
 				</div>
 			</div>
 		</a>
@@ -56,11 +59,11 @@ $this->params['breadcrumbs'][] = [
 	<!-- Column -->
 	<!-- Column -->
 	<div class="col-md-6 col-lg-3">
-		<a href='<?=Url::toRoute(['email-queue/index']);?>'>
+		<a href='<?=Url::toRoute(['post/index']);?>'>
 			<div class="card card-inverse card-success">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=EmailQueue::find()->count();?></h1>
-					<h6 class="text-white"><?=Yii::t("app", 'Total Emails')?></h6>
+					<h1 class="font-light text-white"><?=Post::find()->count();?></h1>
+					<h6 class="text-white"><?=Yii::t("app", 'Total Post')?></h6>
 				</div>
 			</div>
 		</a>
@@ -68,11 +71,11 @@ $this->params['breadcrumbs'][] = [
 	<!-- Column -->
 	<!-- Column -->
 	<div class="col-md-6 col-lg-3">
-		<a href='<?=Url::toRoute(['user/index']);?>'>
+		<a href='<?=Url::toRoute(['petcategory/index']);?>'>
 			<div class="card card-inverse card-warning">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=Log::find()->count();?></h1>
-					<h6 class="text-white"><?=Yii::t("app", 'Total Logs')?></h6>
+					<h1 class="font-light text-white"><?=Petcategory::find()->count();?></h1>
+					<h6 class="text-white"><?=Yii::t("app", 'Total Pet category')?></h6>
 				</div>
 			</div>
 		</a>
