@@ -7,8 +7,7 @@
 
 namespace app\controllers;
 
-use app\components\filters\AccessControl;
-use app\components\filters\AccessRule;
+
 use Yii;
 use app\models\Post;
 use app\models\search\Post as PostSearch;
@@ -18,6 +17,8 @@ use app\models\User;
 use yii\web\HttpException;
 use app\components\TActiveForm;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\filters\AccessRule;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -58,7 +59,8 @@ class PostController extends TController
 						'allow' => true,
 						'roles' => [
 							'?',
-							'*'
+							'*',
+							'@'
 						]
 					]
 				]
@@ -117,7 +119,8 @@ class PostController extends TController
 		return $this->render('view', ['model' => $model]);
 	}
 
-	
+
+
 	/**
 	 * Displays a single Post model.
 	 * @param integer $id
@@ -125,10 +128,21 @@ class PostController extends TController
 	 */
 	public function actionDetail($id)
 	{
-		$this->layout = User::LAYOUT_PET_MAIN;
+		$this->layout = User::LAYOUT_GUEST_MAIN;
 		$model = $this->findModel($id);
+		$searchModel = new PostSearch();
+		$dataProvider = new ActiveDataProvider([
+			'query' => Post::find()->limit(4)->orderBy('id DESC'),
+			'pagination' => [
+				'pageSize' => 4,
+			],
+		]);
 		//$this->updateMenuItems($model);
-		return $this->render('detail', ['model' => $model]);
+		return $this->render('detail', [
+			'model' => $model,
+			'searchModel' => $searchModel,
+			'dataProvider' => $dataProvider
+		]);
 	}
 
 	/**

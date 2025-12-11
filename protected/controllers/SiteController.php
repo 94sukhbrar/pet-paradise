@@ -16,7 +16,9 @@ use Yii;
 use app\components\filters\AccessControl;
 use app\models\Pet;
 use app\models\Petcategory;
+use app\models\Post;
 use app\models\search\Pet as SearchPet;
+use app\models\search\Post as SearchPost;
 use yii\web\Response;
 use app\modules\page\models\Page;
 use bizley\contenttools\actions\UploadAction;
@@ -155,9 +157,14 @@ class SiteController extends TController
     public function actionFeed()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
-        return $this->render('feed');
+        $searchModel = new SearchPost();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('feed', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
-
+  
     public function actionAdopt()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
@@ -169,7 +176,7 @@ class SiteController extends TController
             ],
         ]);
         $petCategory = Petcategory::find()->where(['state_id' => Petcategory::STATE_ACTIVE])->orderBy(['created_on' => SORT_DESC])->all();
-        //return $this->render('adopt');
+
         return $this->render('adopt', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

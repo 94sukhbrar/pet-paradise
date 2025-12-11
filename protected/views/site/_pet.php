@@ -2,7 +2,7 @@
 use app\models\Pet;
 use yii\helpers\Url;
 ?>
-<div class="pet-item <?= $model->petCategory ?>">
+<div class="pet-item mt-4 <?= $model->petCategory ?>">
     <div class="card pet-card">
         <?= $model->displayImage($model->profile_picture, $options = [], $defaultImg = 'pp.png'); ?>
         <div class="card-body text-center">

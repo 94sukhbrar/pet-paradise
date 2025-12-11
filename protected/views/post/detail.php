@@ -1,14 +1,11 @@
 <?php
+
 /** @var $model app\models\Post */
 
 use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-
-<div class="container mt-5">
+<div class="container mt-5" style="display: none;">
     <div class="row">
         <div class="col-md-5">
             <div class="card feed-card mb-4">
@@ -32,8 +29,6 @@ use yii\helpers\Url;
             </div>
         </div>
         <div class="col-md-7">
-
-
             <!-- Profile Header -->
             <div class="profile-header d-flex align-items-center">
                 <div class="row">
@@ -121,4 +116,65 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
+</div>
+<div class="container py-4">
+    <div class="row">
+         <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <div class="card shadow-sm  p-4 mb-4">
+                <h2 class="font-weight-bold"><?= $model->title ?></h2>
+
+                <div class="text-muted mb-3">
+                    <small>By <?= $model->getRelatedDataLink('created_by_id') ?> | <?= Yii::$app->formatter->asDate($model->created_on, 'php:F d, Y'); ?></small>
+                </div>
+
+                <!-- Featured Image -->
+                <?= $model->displayImage($model->image_file, $options = [], $defaultImg = 'blog-header.jpg'); ?>
+                <!-- Post Content -->
+                <p class="lead">
+                    <?= \yii\helpers\StringHelper::truncateWords($model->content, 20) ?>
+
+                </p>
+
+                <blockquote class="blockquote pl-3 border-left border-primary">
+                    “A memorable quote from the post can go here to highlight something important.”
+                </blockquote>
+
+                <p>
+                    <?= $model->content ?>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 py-4">
+                <?= $this->render('//post/right_sidebar') ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Posts -->
+    <h4 class="font-weight-bold mb-3">Related Posts</h4>
+    <div class="row">
+        <!-- Related Post Card -->
+        <?= \yii\widgets\ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '/site/_item', // your view file for each record
+            'options' => [
+                'tag' => 'div',
+                'class' => 'row',   // remove main wrapper class
+            ],
+            'itemOptions' => [
+                'tag' => 'div',
+                'class' => 'col-md-3',  // or 'div' with empty class
+            ],
+            'summaryOptions' => [
+                'tag' => 'div',
+                'class' => 'row col-md-12',   // remove summary class
+            ],
+            'summary' => false,
+
+        ]) ?>
+    </div>
+
 </div>

@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container ">
   <h5 class="font-weight-bold">Nearby Pets</h5>
   <ul class="list-group pet-list">
     
