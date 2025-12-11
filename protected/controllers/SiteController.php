@@ -40,6 +40,7 @@ class SiteController extends TController
                             'about',
                             'privacy',
                             'terms',
+                            'feed',
                             'error',
                             'content-tools-image-upload',
                             'content-tools-image-insert',
@@ -93,22 +94,23 @@ class SiteController extends TController
     public function actionIndex()
     {
         $this->updateMenuItems();
-        if (! \Yii::$app->user->isGuest) {
-            if (User::isAdmin()) {
-                $this->layout = User::LAYOUT_MAIN;
-                return $this->redirect('dashboard');
-            } else {
-                $this->layout = User::LAYOUT_GUEST_MAIN;
-                return $this->redirect('post/index');
-            }
-        } else {
-            $this->layout = User::LAYOUT_GUEST_MAIN;
-            return $this->render('index');
-        }
+        // if (! \Yii::$app->user->isGuest) {
+        //     if (User::isAdmin()) {
+        //         $this->layout = User::LAYOUT_MAIN;
+        //         return $this->redirect('dashboard');
+        //     } else {
+        //         $this->layout = User::LAYOUT_GUEST_MAIN;
+        //         return $this->redirect('post/index');
+        //     }
+        // } else {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('index');
+        // }
     }
 
     public function actionContact()
     {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
         $model = new ContactForm();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -150,13 +152,18 @@ class SiteController extends TController
         $this->layout = User::LAYOUT_GUEST_MAIN;
         return $this->render('discover');
     }
+    public function actionFeed()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        return $this->render('feed');
+    }
 
     public function actionAdopt()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
         $searchModel = new SearchPet();
         $dataProvider = new ActiveDataProvider([
-            'query' => Pet::find()->orderBy(['created_on' => SORT_DESC]),
+            'query' => Pet::find()->orderBy(['id' => SORT_DESC]),
             'pagination' => [
                 'pageSize' => 10,
             ],
@@ -193,7 +200,7 @@ class SiteController extends TController
                 ], true);
                 \Yii::$app->getSession()->setFlash('success', \Yii::t('app', 'Warm Greetings!! Thank you for contacting us. We have received your request. Our representative will contact you soon.'));
                 return $this->refresh();
-            } 
+            }
             // else {
             //     \Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
             // }
@@ -218,10 +225,6 @@ class SiteController extends TController
         $this->layout = User::LAYOUT_GUEST_MAIN;
         return $this->render('events');
     }
-
-
-
-
 
     public function actionPetDetail()
     {

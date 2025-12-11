@@ -37,6 +37,7 @@ class Post extends \app\components\TActiveRecord
 	const STATE_INACTIVE 	= 0;
 	const STATE_ACTIVE	 	= 1;
 	const STATE_DELETED 	= 2;
+
 	const TYPE_PET 	= 1;
 	const TYPE_ARTICAL	 	= 2;
 
@@ -69,10 +70,14 @@ class Post extends \app\components\TActiveRecord
 	}
 
 
-	public static function getTypeOptions()
+	public function getTypeOptions()
 	{
-		return ["TYPE1", "TYPE2", "TYPE3"];
+		//return ["TYPE1", "TYPE2", "TYPE3"];
 		//return ArrayHelper::Map ( Type::findActive ()->all (), 'id', 'title' );
+		return [
+			self::TYPE_ARTICAL 		=> "Pet",
+			self::TYPE_PET 			=> "Artical",
+		];
 
 	}
 

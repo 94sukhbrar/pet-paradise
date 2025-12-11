@@ -76,13 +76,14 @@
           'class' => 'row',   // remove main wrapper class
         ],
         'itemOptions' => [
-          'tag' => 'p',
-          'class' => '',  // or 'div' with empty class
+          'tag' => 'div',
+          'class' => 'col-md-3',  // or 'div' with empty class
         ],
         'summaryOptions' => [
           'tag' => 'div',
           'class' => 'row col-md-12',   // remove summary class
         ],
+        'summary' => "Displaying {begin} - {end} of {totalCount} posts",
        'pager' => [
         'firstPageLabel' => 'First',
         'lastPageLabel'  => 'Last',

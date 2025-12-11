@@ -177,3 +177,7 @@ li.page-item.next.disabled,li.page-item.last.disabled,li.page-item.prev.disabled
     color: #007bff;
     background-color: #d9d0d0;
 }
+span.dark {
+    color: #000;
+    font-weight: bolder;
+}

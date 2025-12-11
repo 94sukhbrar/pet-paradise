@@ -1,6 +1,7 @@
 <?php
 use app\assets\AppAsset;
 use app\components\FlashMessage;
+use app\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this \yii\web\View */
@@ -100,20 +101,22 @@ $this->beginBody()?>
 	 <header>
     <h1>🐾 Pawfect Pets</h1>
     <nav>
-      <a href="<?=Url::toRoute(['/site/index'])?>">Home</a>
+      <a href="<?=Url::toRoute(['/site/index'])?>">Home</a>	  
+      <a href="<?=Url::toRoute(['/site/feed'])?>">Feed</a>
       <a href="<?=Url::toRoute(['/site/adopt'])?>">Adopt</a>
-      <a href="<?=Url::toRoute(['/site/about'])?>">About Us</a>
+      <a href="<?=Url::toRoute(['/site/about'])?>">About</a>
       <a href="<?=Url::toRoute(['/site/contact'])?>">Contact</a>
 	  <a href="<?= Url::toRoute('/site/local-services') ?>">Local Services</a>
 	     <?php
         if (Yii::$app->user->isGuest) {         
           ?>          
-            <a href="<?= Url::toRoute('/user/login') ?>">Sign In</a>
+            <a href="<?= Url::toRoute('/user/login') ?>"></a>
 
           <?php
-        } else {
+        } else{
+			if(User::isAdmin()){ ?> <a href="<?= Url::toRoute('/dashboard/index') ?>">Dashboard</a><?php }
            ?>          
-            <a href="<?= Url::toRoute('/user/logout') ?>">Logout</a>
+            <a href="<?= Url::toRoute('/user/logout') ?>"><i class="fa fa-power-off"></i></a>
        
           <?php
         }

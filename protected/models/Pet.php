@@ -158,7 +158,7 @@ class Pet extends \app\components\TActiveRecord
 	public function rules()
 	{
 		return [
-			[['name', 'content', 'pet_category_id', 'state_id', 'created_on'], 'required'],
+			[['name', 'content', 'pet_category_id', 'gender','breed','state_id', 'created_on'], 'required'],
 			[['content'], 'string'],
 			[['date_of_birth', 'created_on', 'updated_on'], 'safe'],
 			[['gender', 'price', 'pet_category_id', 'state_id', 'type_id', 'created_by_id'], 'integer'],

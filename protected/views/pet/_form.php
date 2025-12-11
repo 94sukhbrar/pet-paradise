@@ -49,7 +49,7 @@ use app\components\TActiveForm;
 
 
 
-		<?php echo $form->field($model, 'gender')->dropDownList($model->getGenderOptions(), ['prompt' => '']) ?>
+		<?php echo $form->field($model, 'gender')->dropDownList($model->getGenders(), ['prompt' => '-- Select Gender --']) ?>
 
 
 

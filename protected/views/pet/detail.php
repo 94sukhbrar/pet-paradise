@@ -54,11 +54,13 @@ use yii\helpers\Url;
 </style>
 <div class="row">
     <div class="col-md-9">
-        <div class="profile-card bg-white">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><div class="profile-card bg-white">
             <!-- Header with banner and pet photo -->
             <div class="profile-header">
-               
-        <?= $model->displayImage($model->profile_picture, $options = [], $defaultImg = 'pet.jpg'); ?>
+
+                <?= $model->displayImage($model->profile_picture, $options = [], $defaultImg = 'pet.jpg'); ?>
             </div>
 
             <!-- Body content -->
@@ -82,19 +84,22 @@ use yii\helpers\Url;
                     <li><strong>Location:</strong> <?= $model->address ?></li>
                     <li><strong>Price:</strong> <span class="text-success"><span class="symbol"></span><?= $model->price ?></span></li>
                     <li><strong>Vaccinated:</strong> Yes</li>
-                    <li><strong>About me:</strong> <?=$model->about_me?></li>
+                    <li><strong>About me:</strong> <?= $model->about_me ?></li>
                 </ul>
 
                 <!-- Description -->
                 <p class="mt-3">
-                   <?=$model->content?>
+                    <?= $model->content ?>
                 </p>
 
                 <!-- Buttons -->
                 <a href="#" class="btn btn-success btn-adopt">Adopt Now</a>
                 <a href="<?= Url::toRoute(['site/contact-now', 'id' => $model->id]) ?>" class="btn btn-outline-primary btn-adopt">Message Owner</a>
             </div>
+        </div></div>
+            <div class="col-md-2"></div>
         </div>
+        
 
     </div>
     <div class="col-md-3 bg-white">

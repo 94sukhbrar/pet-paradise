@@ -1,8 +1,10 @@
 <?php
+
 /**
  *@copyright : Amusoftech Pvt. Ltd. < www.amusoftech.com >
  *@author    : Amu < er.amu@live.com >
  */
+
 namespace app\models\search;
 
 use Yii;
@@ -34,8 +36,9 @@ class Pet extends PetModel
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
-    public function beforeValidate(){
-            return true;
+    public function beforeValidate()
+    {
+        return true;
     }
     /**
      * Creates data provider instance with search query applied
@@ -48,13 +51,13 @@ class Pet extends PetModel
     {
         $query = PetModel::find();
 
-		        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-						'defaultOrder' => [
-								'id' => SORT_DESC
-						]
-				]
+                'defaultOrder' => [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
         if (!($this->load($params) && $this->validate())) {

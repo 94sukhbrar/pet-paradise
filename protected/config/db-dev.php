@@ -1,7 +1,7 @@
 <?php
 				return [
 				'class' => 'yii\db\Connection',
-				'dsn' => 'mysql:host=127.0.0.1;dbname=base',
+				'dsn' => 'mysql:host=127.0.0.1;dbname=pet_paradise',
 				'emulatePrepare' => true,
 				'username' => 'root',
 				'password' => '',
