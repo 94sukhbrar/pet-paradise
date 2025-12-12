@@ -1,4 +1,5 @@
 <?php
+
 use app\assets\AppAsset;
 use app\components\FlashMessage;
 use app\models\User;
@@ -12,130 +13,86 @@ AppAsset::register($this);
 ?>
 <?php
 
-$this->beginPage()?>
+$this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?=Yii::$app->language?>">
+<html lang="<?= Yii::$app->language ?>">
 
 <head>
- <?php
+	<?php
 
-$this->head()?>
-   <meta charset="<?=Yii::$app->charset?>" />
-    <?=Html::csrfMetaTags()?>
-    <!-- Tell the browser to be responsive to screen width -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Favicon icon -->
-<link rel="icon" type="image/png" sizes="16x16"
-	href="../assets/images/favicon.png">
-<title><?=Html::encode('Pet Paradise')?></title>
+	$this->head() ?>
+	<meta charset="<?= Yii::$app->charset ?>" />
+	<?= Html::csrfMetaTags() ?>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16"	href="../assets/images/favicon.png">
+	<title><?= Html::encode('Pet Paradise') ?></title>
+
+	<link href="<?= $this->theme->getUrl('css/guestMain.css') ?>" rel="stylesheet">
+	<link href="<?= $this->theme->getUrl('css/glyphicon.css') ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-<!-- Custom CSS -->
-<link href="<?=$this->theme->getUrl('css/style.css')?>" rel="stylesheet">
-<link href="<?=$this->theme->getUrl('css/guest.css')?>"
-	rel="stylesheet">
-<link href="<?=$this->theme->getUrl('css/glyphicon.css')?>"
-	rel="stylesheet">
-<!-- You can change the theme colors from here -->
-<link href="<?=$this->theme->getUrl('css/colors/blue.css')?>" id="theme"
-	rel="stylesheet">
-	<link href="<?= $this->theme->getUrl('css/petLayout.css') ?>" id="theme" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
-<body>
-<?php
+<body  class="theme-turquoise">
+	<?php
 
-$this->beginBody()?>
-    <!-- ============================================================== -->
+	$this->beginBody() ?>
+	<!-- ============================================================== -->
 	<!-- Preloader - style you can find in spinners.css -->
 	<!-- ============================================================== -->
 	<div class="preloader">
 		<svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none"
-				stroke-width="2" stroke-miterlimit="10" /> </svg>
+			<circle class="path" cx="50" cy="50" r="20" fill="none"
+				stroke-width="2" stroke-miterlimit="10" />
+		</svg>
 	</div>
-	<!-- ============================================================== -->
-	<!-- Main wrapper - style you can find in pages.scss -->
-	<!-- ============================================================== -->
-	<!-- ADD HEADER -->
-	<!-- <nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light ftco-navbar-light-2
-	"
-		id="ftco-navbar">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container">
-			<a class="navbar-brand" href="<?=Url::home();?>"><img
-				src="<?=$this->theme->getUrl('img/dummylogo.png')?>"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation ">
-				<span class="oi oi-menu "> </span>Menu
+			<a class="navbar-brand" href="#">Pet<span >Paradise</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse " id="ftco-nav">
-				<ul class="navbar-nav ml-auto ">
-					<li class="nav-item active "><a href="<?=Url::home();?>" class="nav-link">Home </a></li>
-					<li class="nav-item"><a href="<?=Url::toRoute(['/site/about'])?> " class="nav-link">About
-							Us </a></li>
-					<li class="nav-item dropdown "><a class="nav-link dropdown-toggle "
-						href="shop.php " id="dropdown04" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Pages</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="<?=Url::toRoute(['/site/privacy'])?>">Privacy </a> <a
-								class="dropdown-item" href="<?=Url::toRoute(['/site/terms'])?>">Terms </a>
-						</div></li>
 
-					<li class="nav-item"><a href="<?=Url::toRoute(['/site/contact'])?>" class="nav-link">Contact Us</a></li>
-					<li class="nav-item cta cta-colored "><a
-						href="<?=Url::toRoute(['/user/login'])?>" class="nav-link">Log In
-							<i class="fas fa-sign-in-alt "> </i>
-					</a></li>
+			<div class="collapse navbar-collapse" id="navMenu">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['/site/index']) ?>">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['/site/feed']) ?>">Feed</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['/site/adopt']) ?>">Adopt</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute('/site/local-services') ?>">Local Services</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute(['/site/about']) ?>">About</a></li>
+					<?php
+					if (!Yii::$app->user->isGuest) { ?>
+						<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute('/dashboard/index') ?>">Dashboard</a></li>
+						<li class="nav-item"><a class="nav-link"  href="<?= Url::toRoute('/user/logout') ?>"><i class="fa fa-power-off" title="logout"></i></a></li>
+					<?php
+					} else {
+					?>
+						<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute('/user/login') ?>">Login</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
-	</nav> -->
-	 <header>
-    <h1>🐾 Pawfect Pets</h1>
-    <nav>
-      <a href="<?=Url::toRoute(['/site/index'])?>">Home</a>	  
-      <a href="<?=Url::toRoute(['/site/feed'])?>">Feed</a>
-      <a href="<?=Url::toRoute(['/site/adopt'])?>">Adopt</a>
-      <a href="<?=Url::toRoute(['/site/about'])?>">About</a>
-      <a href="<?=Url::toRoute(['/site/contact'])?>">Contact</a>
-	  <a href="<?= Url::toRoute('/site/local-services') ?>">Local Services</a>
-	     <?php
-        if (Yii::$app->user->isGuest) {         
-          ?>          
-            <a href="<?= Url::toRoute('/user/login') ?>"></a>
-
-          <?php
-        } else{
-			if(User::isAdmin()){ ?> <a href="<?= Url::toRoute('/dashboard/index') ?>">Dashboard</a><?php }
-           ?>          
-            <a href="<?= Url::toRoute('/user/logout') ?>"><i class="fa fa-power-off"></i></a>
-       
-          <?php
-        }
-
-        ?>
-    </nav>
-  </header>
+	</nav>
 	<section id="wrapper">
-       	 <?=FlashMessage::widget()?>
-         <?=$content?>
-        
-    </section>
-    
-    
-    <?=$this->render('_footer.php');?>
-    	
-			
-			
-    <!-- ADD FOOTER -->
+		<?= FlashMessage::widget() ?>
+		<?= $content ?>
+
+	</section>
+
+	<footer class="mt-4">
+		<div class="text-center py-3 meta">
+			© <strong>PetParadise</strong> — Made with <span style="color:var(--accent)">❤</span>
+		</div>
+	</footer>
+	<?php //$this->render('_footer.php');
+	?>
+
+
+
+	<!-- ADD FOOTER -->
 
 	<!-- ============================================================== -->
 	<!-- End Wrapper -->
@@ -144,30 +101,36 @@ $this->beginBody()?>
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
 	<script
-		src="<?=$this->theme->getUrl('assets/plugins/bootstrap/js/tether.min.js')?>"></script>
+		src="<?= $this->theme->getUrl('assets/plugins/bootstrap/js/tether.min.js') ?>"></script>
 	<!-- slimscrollbar scrollbar JavaScript -->
-	<script src="<?=$this->theme->getUrl('js/jquery.slimscroll.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('js/jquery.slimscroll.js') ?>"></script>
 	<!--Wave Effects -->
-	<script src="<?=$this->theme->getUrl('js/waves.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('js/waves.js') ?>"></script>
 	<!--Menu sidebar -->
-	<script src="<?=$this->theme->getUrl('js/sidebarmenu.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('js/sidebarmenu.js') ?>"></script>
 	<!--stickey kit -->
-	<script
-		src="<?=$this->theme->getUrl('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') ?>"></script>
 	<!--Custom JavaScript -->
-	<script src="<?=$this->theme->getUrl('js/custom.min.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('js/custom.min.js') ?>"></script>
 	<!-- ============================================================== -->
 	<!-- Style switcher -->
 	<!-- ============================================================== -->
-	<script
-		src="<?=$this->theme->getUrl('assets/plugins/styleswitcher/jQuery.style.switcher.js')?>"></script>
+	<script src="<?= $this->theme->getUrl('assets/plugins/styleswitcher/jQuery.style.switcher.js') ?>"></script>
+
+	<script>
+		// Switch theme by changing body class.
+		function setTheme(cls) {
+			document.body.className = cls;
+		}
+	</script>
 
 
-    <?php
+	<?php
 
-    $this->endBody()?>
+	$this->endBody() ?>
 </body>
 <?php
 
-$this->endPage()?>
+$this->endPage() ?>
+
 </html>

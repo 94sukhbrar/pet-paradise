@@ -3,8 +3,7 @@
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
   }
-
-  .filter-btns {
+.filter-btns {
     text-align: center;
     margin: 30px 0;
   }
@@ -47,10 +46,6 @@
     font-weight: 500;
   }
 </style>
-</head>
-
-<body>
-
   <div class="container">
     <!-- Filter Buttons -->
     <div class="filter-btns">
@@ -58,7 +53,7 @@
       <?php
       foreach ($petCategory as $key => $value) {
      ?>
-      <button class="btn btn-outline-primary" data-filter="<?=$value->title?>"><?=$value->title?></button>
+      <button class="btn btn-outline-primary" data-id="<?= $value->id?>" data-filter="<?=$value->title?>"><?=$value->title?></button>
      <?php
       }
       ?>
@@ -83,7 +78,6 @@
           'tag' => 'div',
           'class' => 'row col-md-12',   // remove summary class
         ],
-        'summary' => "Displaying {begin} - {end} of {totalCount} posts",
        'pager' => [
         'firstPageLabel' => 'First',
         'lastPageLabel'  => 'Last',
@@ -115,8 +109,10 @@
         if (filter === "all") {
           $(".pet-item").show();
         } else {
+          console.log("filter",filter);
+          
           $(".pet-item").hide();
-          $("." + filter).show();
+          $("." + filter).show()
         }
       });
     });

@@ -1,185 +1,178 @@
- <style>
-    body {
-      background: #f1f6ff;
-      font-family: Arial, sans-serif;
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    .lost-found-header {
+        background: #009688;
+        color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        margin-bottom: 40px;
     }
-    .search-bar {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+
+    .lost-found-header h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
     }
+
+    .pet-form-box {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
     .pet-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-      margin-bottom: 25px;
-      transition: 0.3s;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
     }
-    .pet-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    .pet-card img {
+        border-radius: 10px;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
-    .pet-img {
-      background: #ddd;
-      width: 100%;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 20px;
-    }
-    .pet-body {
-      padding: 15px;
-    }
+
     .badge-lost {
-      background: #ff4d4f;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 12px;
+        background: #e91e63 !important;
+        font-size: 12px;
     }
+
     .badge-found {
-      background: #52c41a;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 12px;
+        background: #4caf50 !important;
+        font-size: 12px;
     }
-    .btn-contact {
-      background: #6c63ff;
-      color: #fff;
-      border-radius: 8px;
-      font-weight: 500;
-      padding: 6px 15px;
-    }
-    .btn-contact:hover {
-      background: #574fd6;
-    }
-  </style>
-</head>
-<body>
 
-  <div class="container py-5">
-    <!-- Header -->
-    <div class="text-center mb-4">
-      <h3 class="font-weight-bold">Lost/Found Pet Alerts – Help Bring Them Home</h3>
-      <p class="text-muted">Browse pets in Berlin. If you have seen or have any important info relating to one, please click on it to see the owner’s post and contact them directly. Let’s help our furry friends return to safety.</p>
+    .form-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #009688;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="lost-found-header text-center">
+        <h2><i class="fa-solid fa-paw"></i> Lost & Found Pets</h2>
+        <p>Help the community by sharing details about missing or found pets.</p>
     </div>
 
-    <!-- Search & Filter -->
-    <div class="search-bar">
-      <div class="form-row align-items-center">
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Enter pet name...">
-        </div>
-        <div class="col-md-2 mb-2">
-          <select class="form-control">
-            <option>All Pet Types</option>
-            <option>Dog</option>
-            <option>Cat</option>
-            <option>Bird</option>
-          </select>
-        </div>
-        <div class="col-md-2 mb-2">
-          <select class="form-control">
-            <option>All Status</option>
-            <option>Lost</option>
-            <option>Found</option>
-          </select>
-        </div>
-        <div class="col-md-2 mb-2">
-          <button class="btn btn-primary btn-block">Search</button>
-        </div>
-        <div class="col-md-2 mb-2 text-right">
-          <button class="btn btn-danger btn-block">Report Lost/Found Pet</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Pets Grid -->
     <div class="row">
-      
-      <!-- Pet Card 1 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Max <span class="badge-lost">Lost</span></h6>
-            <p class="text-muted mb-1">Golden Retriever, last seen near Park Street</p>
-            <p class="mb-2">📞 Contact: (555) 123-4567</p>
-            <button class="btn btn-contact btn-sm">Contact Owner</button>
-          </div>
-        </div>
-      </div>
+        <!-- LOST PET FORM -->
+        <div class="col-md-6">
+            <div class="pet-form-box">
+                <div class="form-title"><i class="fa-solid fa-search"></i> Report Lost Pet</div>
 
-      <!-- Pet Card 2 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Chico <span class="badge-lost">Lost</span></h6>
-            <p class="text-muted mb-1">Small Chihuahua, brown coat</p>
-            <p class="mb-2">📞 Contact: (555) 234-5678</p>
-            <button class="btn btn-contact btn-sm">Contact Owner</button>
-          </div>
-        </div>
-      </div>
+                <form>
+                    <div class="form-group">
+                        <label>Pet Name</label>
+                        <input type="text" class="form-control" placeholder="Enter pet name">
+                    </div>
 
-      <!-- Pet Card 3 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Found Dog <span class="badge-found">Found</span></h6>
-            <p class="text-muted mb-1">Black Labrador found near Main Square</p>
-            <p class="mb-2">📞 Contact: (555) 345-6789</p>
-            <button class="btn btn-contact btn-sm">Contact Finder</button>
-          </div>
-        </div>
-      </div>
+                    <div class="form-group">
+                        <label>Pet Type</label>
+                        <select class="form-control">
+                            <option>Dog</option>
+                            <option>Cat</option>
+                            <option>Bird</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
 
-      <!-- Pet Card 4 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Bella <span class="badge-lost">Lost</span></h6>
-            <p class="text-muted mb-1">White Persian Cat, very friendly</p>
-            <p class="mb-2">📞 Contact: (555) 456-7890</p>
-            <button class="btn btn-contact btn-sm">Contact Owner</button>
-          </div>
-        </div>
-      </div>
+                    <div class="form-group">
+                        <label>Last Seen Location</label>
+                        <input type="text" class="form-control" placeholder="Example: Mall Road, Ferozepur">
+                    </div>
 
-      <!-- Pet Card 5 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Smokey <span class="badge-found">Found</span></h6>
-            <p class="text-muted mb-1">Grey Cat found in City Park</p>
-            <p class="mb-2">📞 Contact: (555) 567-8901</p>
-            <button class="btn btn-contact btn-sm">Contact Finder</button>
-          </div>
-        </div>
-      </div>
+                    <div class="form-group">
+                        <label>Date Lost</label>
+                        <input type="date" class="form-control">
+                    </div>
 
-      <!-- Pet Card 6 -->
-      <div class="col-md-4">
-        <div class="pet-card">
-          <div class="pet-img">400 x 300</div>
-          <div class="pet-body">
-            <h6 class="font-weight-bold">Mittens <span class="badge-lost">Lost</span></h6>
-            <p class="text-muted mb-1">Tabby Cat with collar</p>
-            <p class="mb-2">📞 Contact: (555) 678-9012</p>
-            <button class="btn btn-contact btn-sm">Contact Owner</button>
-          </div>
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <input type="file" class="form-control">
+                    </div>
+
+                    <button class="btn btn-success btn-block">Submit Lost Report</button>
+                </form>
+            </div>
         </div>
-      </div>
+
+        <!-- FOUND PET FORM -->
+        <div class="col-md-6">
+            <div class="pet-form-box">
+                <div class="form-title"><i class="fa-solid fa-dog"></i> Report Found Pet</div>
+
+                <form>
+                    <div class="form-group">
+                        <label>Pet Type</label>
+                        <select class="form-control">
+                            <option>Dog</option>
+                            <option>Cat</option>
+                            <option>Bird</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Found Location</label>
+                        <input type="text" class="form-control" placeholder="Example: Bus Stand, Ferozepur">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date Found</label>
+                        <input type="date" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <input type="file" class="form-control">
+                    </div>
+
+                    <button class="btn btn-primary btn-block">Submit Found Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- LIST OF LOST & FOUND PETS -->
+    <h3 class="mt-5 mb-3" style="color:#009688;">Recent Reports</h3>
+
+    <div class="row">
+
+        <!-- example cards -->
+        <div class="col-md-4">
+            <div class="pet-card">
+                <span class="badge badge-lost">LOST</span>
+                <img src="https://placekitten.com/400/300">
+                <h5 class="mt-3">Simba (Dog)</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Last seen: Model Town, Ferozepur</p>
+                <button class="btn btn-outline-danger btn-sm btn-block">View Details</button>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="pet-card">
+                <span class="badge badge-found">FOUND</span>
+                <img src="https://placekitten.com/401/300">
+                <h5 class="mt-3">Unknown Cat</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Found at: Railway Road</p>
+                <button class="btn btn-outline-success btn-sm btn-block">View Details</button>
+            </div>
+        </div>
 
     </div>
-  </div>
+
+</div>
+
+

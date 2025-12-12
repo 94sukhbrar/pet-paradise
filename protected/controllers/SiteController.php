@@ -95,19 +95,21 @@ class SiteController extends TController
 
     public function actionIndex()
     {
-        $this->updateMenuItems();
-        // if (! \Yii::$app->user->isGuest) {
-        //     if (User::isAdmin()) {
-        //         $this->layout = User::LAYOUT_MAIN;
-        //         return $this->redirect('dashboard');
-        //     } else {
-        //         $this->layout = User::LAYOUT_GUEST_MAIN;
-        //         return $this->redirect('post/index');
-        //     }
-        // } else {
+       
         $this->layout = User::LAYOUT_GUEST_MAIN;
-        return $this->render('index');
-        // }
+        $featured=Post::find()->orderBy(['id' => SORT_DESC])->limit(1)->one();
+        $searchModel = new SearchPost();
+		$dataProvider = new ActiveDataProvider([
+			'query' => Post::find()->limit(6)->orderBy('id DESC'),
+			'pagination' => [
+				'pageSize' => 6,
+			],
+		]);
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'model'=>$featured
+        ]);
     }
 
     public function actionContact()
@@ -164,7 +166,7 @@ class SiteController extends TController
             'dataProvider' => $dataProvider,
         ]);
     }
-  
+
     public function actionAdopt()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
@@ -219,7 +221,18 @@ class SiteController extends TController
     public function actionLocalServices()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
-        return $this->render('local-services');
+        $searchModel = new SearchPet();
+        $dataProvider = new ActiveDataProvider([
+            'query' => Pet::find()->limit(4)->orderBy('id DESC'),
+            'pagination' => [
+				'pageSize' => 4,
+			],
+        ]);
+
+        return $this->render('local-services',[
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider
+        ]);
     }
     public function actionAlerts()
     {

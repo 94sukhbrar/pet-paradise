@@ -1,9 +1,9 @@
 <?php
 
 /**
-*@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
-*@author     : Ram mohamad Singh< er.amudeep@gmail.com >
-*/
+ *@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
+ *@author     : Ram mohamad Singh< er.amudeep@gmail.com >
+ */
 
 /**
  * This is the model class for table "tbl_user".
@@ -39,6 +39,7 @@
  * @property integer $created_by_id === Related data ===
  * @property LoginHistory[] $loginHistories
  */
+
 namespace app\models;
 
 use Yii;
@@ -421,9 +422,15 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
 
         $scenarios['update'] = [
             'full_name',
-            'email',
-            'password',
-            'role_id',
+            'about_me',
+            'contact_no',
+            'date_of_birth',
+            'gender',
+            'city',
+            'country',
+            'zipcode',
+            'language',
+            'profile_file',
             'state_id'
         ];
 
@@ -687,7 +694,8 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
         $json['created_on'] = $this->created_on;
         $json['created_by_id'] = $this->created_by_id;
         $json['access_token'] = $this->access_token;
-        if ($with_relations) {}
+        if ($with_relations) {
+        }
         return $json;
     }
 
@@ -754,7 +762,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
         $alphabet = "abcdefghijklmnopqrstuwxyz0123456789";
         $pass = [];
         $alphaLength = strlen($alphabet) - 1;
-        for ($i = 0; $i < $count; $i ++) {
+        for ($i = 0; $i < $count; $i++) {
             $n = rand(0, $alphaLength);
             $pass[] = $alphabet[$n];
         }
@@ -824,7 +832,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
         $this->password = $this->hashPassword($password);
     }
 
-  
+
     public function hashPassword($password)
     {
         $password = mb_convert_encoding(Yii::$app->security->generatePasswordHash(yii::$app->name . $password), 'UTF-8', 'ISO-8859-1'); // utf8_encode(Yii::$app->security->generatePasswordHash(yii::$app->name . $password));
@@ -838,7 +846,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
      *            password to validate
      * @return boolean if password provided is valid for current user
      */
-  public function validatePassword($password)
+    public function validatePassword($password)
     {
         if (defined('DISABLED_PASSWORD_MATCH')) {
             return true;
@@ -895,7 +903,7 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
     }
 
     public static function isUser()
-    {  
+    {
         $user = Yii::$app->user->identity;
         if ($user == null)
             return false;
@@ -971,24 +979,21 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
     }
     public function isAllowed()
     {
-      
+
         if (User::isAdmin())
             return true;
-            
-            if ($this instanceof User)
-            {
-                return ($this->id == Yii::$app->user->id);
-            }
-            if ($this->hasAttribute('created_by_id'))
-            {
-                return ($this->created_by_id == Yii::$app->user->id);
-            }
-            
-            if ($this->hasAttribute('user_id'))
-            {
-                return ($this->user_id == Yii::$app->user->id);
-            }
-            
-            return false;
+
+        if ($this instanceof User) {
+            return ($this->id == Yii::$app->user->id);
+        }
+        if ($this->hasAttribute('created_by_id')) {
+            return ($this->created_by_id == Yii::$app->user->id);
+        }
+
+        if ($this->hasAttribute('user_id')) {
+            return ($this->user_id == Yii::$app->user->id);
+        }
+
+        return false;
     }
 }
