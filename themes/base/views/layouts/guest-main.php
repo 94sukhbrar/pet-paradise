@@ -51,7 +51,7 @@ $this->beginPage() ?>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container">
-			<a class="navbar-brand" href="#">Pet<span >Paradise</span></a>
+			<a class="navbar-brand" href="<?= Url::toRoute(['/site/index']) ?>">Pet<span >Paradise</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
 				<span class="navbar-toggler-icon"></span>
 			</button>

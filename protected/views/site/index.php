@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <div class="container py-4">
   <div class="hero">
     <div class="row align-items-center">
@@ -5,8 +9,8 @@
         <h1 class="mb-1" style="color:var(--text)">Welcome to PetParadise</h1>
         <p class="mb-1 meta">Friendly pet care, grooming tips and adorable stories. Theme preview using your brand colors.</p>
         <div class="mt-3">
-          <a href="#" class="btn btn-primary mr-2">Get Started</a>
-          <a href="#" class="btn btn-outline-primary">Learn More</a>
+          <a href="<?= Url::toRoute(['/site/adopt']) ?>" class="btn btn-primary mr-2">Get Started</a>
+          <a href="<?= Url::toRoute(['/site/local-services']) ?>" class="btn btn-outline-primary">Learn More</a>
         </div>
       </div>
 

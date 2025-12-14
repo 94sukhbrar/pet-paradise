@@ -26,9 +26,9 @@ class DashboardController extends TController
                             'default-data'
                         ],
                         'allow' => true,
-                        'matchCallback' => function () {
-                            return User::isAdmin();
-                        }
+						'roles' => [
+							'@'
+						]
                     ]
                 ]
             ]

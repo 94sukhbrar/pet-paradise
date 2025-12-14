@@ -17,6 +17,9 @@ use yii\filters\AccessRule;
 use app\models\User;
 use yii\web\HttpException;
 use app\components\TActiveForm;
+use app\models\Post;
+use app\models\search\Post as SearchPost;
+use yii\data\ActiveDataProvider;
 
 /**
  * PetController implements the CRUD actions for Pet model.
@@ -103,10 +106,33 @@ class PetController extends TController
 
 	public function actionDetail($id)
 	{
-		$this->layout = User::LAYOUT_PET_MAIN;
+		$this->layout = User::LAYOUT_GUEST_MAIN;
 		$model = $this->findModel($id);
 		$this->updateMenuItems($model);
-		return $this->render('detail', ['model' => $model]);
+		 $searchModel = new PetSearch();
+        $dataProvider = new ActiveDataProvider([
+            'query' => Pet::find()->limit(4)->orderBy('id DESC'),
+            'pagination' => [
+				'pageSize' => 4,
+			],
+        ]);
+
+		$searchModelPost = new SearchPost();
+		$dataProviderpost = new ActiveDataProvider([
+			'query' => Post::find()->limit(4)->orderBy('id DESC'),
+			'pagination' => [
+				'pageSize' => 4,
+			],
+		]);
+
+		return $this->render('detail', [
+			'model' => $model,
+			'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+			'dataProviderpost'=>$dataProviderpost,
+			'searchModelPost'=>$searchModelPost
+
+		]);
 	}
 
 
@@ -161,6 +187,7 @@ class PetController extends TController
                 $model->profile_picture = $old_image;
             }
 
+			print_r($post);die;
 			if (!$model->save()) {
 				\Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
 			} else {
@@ -181,6 +208,7 @@ class PetController extends TController
 	 */
 	public function actionDelete($id)
 	{
+		
 		$model = $this->findModel($id);
 
 		$model->delete();

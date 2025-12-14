@@ -454,8 +454,8 @@ class UserController extends TController
                     'dashboard/index'
                 ]);
             } else {
-                return $this->goBack([
-                    'post/index'
+                 return $this->goBack([
+                    'dashboard/index'
                 ]);
             }
         }

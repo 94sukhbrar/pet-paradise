@@ -1,113 +1,183 @@
-<?php
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-use app\models\Pet;
-use yii\helpers\Url;
-?>
 <style>
-    .profile-card {
-        max-width: 900px;
-        margin: 30px auto;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
+    body {
+        background: #f7fffd;
+        font-family: "Segoe UI", sans-serif;
     }
 
-    .profile-header {
-        position: relative;
-        background: url('https://placekitten.com/1000/400') center/cover no-repeat;
-        height: 250px;
-    }
-
-    .profile-header img {
-        width: 200px;
-        height: 180px;
-        border-radius: 50%;
-        border: 5px solid #fff;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #fff;
-    }
-
-    .profile-body {
-        padding: 10px 20px 30px;
-        text-align: center;
-    }
-
-    .profile-body h2 {
-        margin-bottom: 10px;
+    .pet-title {
+        font-size: 32px;
         font-weight: bold;
+        color: #009688;
     }
 
-    .pet-info {
-        text-align: left;
+    .pet-image {
+        width: 100%;
+        height: 350px;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .pet-info li {
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
+    .pet-info-box {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
     }
 
-    .btn-adopt {
-        margin-top: 20px;
+    .pet-attr {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    .sidebar-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .sidebar-card img {
+        height: 80px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .recent-post {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .recent-post img {
+        width: 100%;
+        height: 180px;
+        border-radius: 15px;
+        object-fit: cover;
     }
 </style>
-<div class="row">
-    <div class="col-md-9">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8"><div class="profile-card bg-white">
-            <!-- Header with banner and pet photo -->
-            <div class="profile-header">
 
-                <?= $model->displayImage($model->profile_picture, $options = [], $defaultImg = 'pet.jpg'); ?>
-            </div>
 
-            <!-- Body content -->
-            <div class="profile-body">
-                <h2>
-                    <?= !empty($model->name) ? $model->name : 'Buddy' ?>
-                    <?php if (!empty($model->gender) && ($model->gender == Pet::GENDER_MALE)) { ?>
-                        <span class="text-primary"><i class="fas fa-mars"></i></span>
-                    <?php } else { ?>
+<div class="container mt-5">
 
-                        <span class="text-primary">&#9794;</span>
-                    <?php }  ?>
-                </h2>
-                <p class="text-muted"><?= $model->breed . '.' ?> <?= $model->calculateAge($model->date_of_birth) ?> Old</p>
+    <div class="row">
 
-                <!-- Info Section -->
-                <ul class="list-unstyled pet-info">
-                    <li><strong>Breed:</strong> <?= $model->breed ?></li>
-                    <li><strong>Age:</strong> <?= $model->calculateAge($model->date_of_birth) ?></li>
-                    <li><strong>Gender:</strong> <?= $model->getGender() ?></li>
-                    <li><strong>Location:</strong> <?= $model->address ?></li>
-                    <li><strong>Price:</strong> <span class="text-success"><span class="symbol"></span><?= $model->price ?></span></li>
-                    <li><strong>Vaccinated:</strong> Yes</li>
-                    <li><strong>About me:</strong> <?= $model->about_me ?></li>
-                </ul>
+        <!-- MAIN PET DETAIL AREA -->
+        <div class="col-md-8">
 
-                <!-- Description -->
-                <p class="mt-3">
-                    <?= $model->content ?>
+            <!-- Pet Name -->
+            <h1 class="pet-title"><?= !empty($model->name) ? $model->name : 'Simba' ?><?= !empty($model->breed) ? $model->breed : ' (Golden Retriever)' ?> </h1>
+
+            <!-- Photo -->
+
+            <?= $model->displayImage($model->profile_picture, $options = ['class' => 'pet-image mb-4'], $defaultImg = 'pet.jpg'); ?>
+            <!-- Details Box -->
+            <div class="pet-info-box">
+
+                <h4 class="mb-3"><i class="fa-solid fa-paw"></i> Pet Information</h4>
+
+
+
+                <p class="pet-attr"> <strong>Breed:</strong> <?= !empty($model->breed) ? $model->breed : 'Golden Retriever' ?></p>
+                <p class="pet-attr"> <strong>Age:</strong> <?= $model->calculateAge($model->date_of_birth) ?></p>
+                <p class="pet-attr"> <strong>Gender:</strong> <?= $model->getGender() ?></p>
+                <p class="pet-attr"> <strong>Location:</strong> <?= $model->address ?></p>
+                <p class="pet-attr"> <strong>Price:</strong> <span class="text-success"><span class="symbol"></span><?= $model->price ?></span></p>
+                <p class="pet-attr"> <strong>Vaccinated:</strong> Yes</p>
+
+                <hr>
+
+                <h4 class="mt-4 mb-3">About <?= !empty($model->name) ? $model->name : 'Simba' ?></h4>
+                <p>
+                    <?= !empty($model->about_me) ? $model->about_me : "Simba is a friendly, energetic Golden Retriever who loves playing with kids
+                    and enjoys long walks. Vaccinations are up to date. He is trained and responds
+                    to basic commands." ?>
+
                 </p>
 
-                <!-- Buttons -->
-                <a href="#" class="btn btn-success btn-adopt">Adopt Now</a>
-                <a href="<?= Url::toRoute(['site/contact-now', 'id' => $model->id]) ?>" class="btn btn-outline-primary btn-adopt">Message Owner</a>
             </div>
-        </div></div>
-            <div class="col-md-2"></div>
+
         </div>
-        
+
+        <!-- SIDEBAR -->
+        <div class="col-md-4">
+
+            <!-- NEW PETS -->
+            <h4 class="mb-3" style="color:#009688;">New Pets</h4>
+
+            <!-- <div class="sidebar-card">
+                <img src="https://placekitten.com/300/200">
+                <h6 class="mt-2">Milo (Persian Cat)</h6>
+                <small>Added 1 day ago</small>
+            </div>
+
+            <div class="sidebar-card">
+                <img src="https://place-puppy.com/300x200">
+                <h6 class="mt-2">Bruno (Lab)</h6>
+                <small>Added 2 days ago</small>
+            </div>
+
+            <div class="sidebar-card">
+                <img src="https://placekeanu.com/300x200">
+                <h6 class="mt-2">Lucy (Beagle)</h6>
+                <small>Added 3 days ago</small>
+            </div> -->
+            <?= \yii\widgets\ListView::widget([
+                'dataProvider' => $dataProvider,
+                'itemView' => '/site/_new_pets', // your view file for each record
+                'options' => [
+                    'tag' => 'div',
+                    'class' => 'row',   // remove main wrapper class
+                ],
+                'itemOptions' => [
+                    'tag' => 'div',
+                    'class' => 'pet-card w-100',  // or 'div' with empty class
+                ],
+                'pager' => ['options' => ['style' => 'display:none']],
+                'summary' => false,
+
+
+            ]) ?>
+
+        </div>
 
     </div>
-    <div class="col-md-3 bg-white">
-        <?= $this->render('//post/right_sidebar') ?>
+
+
+
+
+    <!-- RECENT POSTS SECTION -->
+    <h3 class="mt-5 mb-3" style="color:#009688;">Recent Posts</h3>
+
+    <div class="row">
+        <?= \yii\widgets\ListView::widget([
+                'dataProvider' => $dataProviderpost,
+                'itemView' => '/site/_item', // your view file for each record
+                'options' => [
+                    'tag' => 'div',
+                    'class' => 'row',   // remove main wrapper class
+                ],
+                'itemOptions' => [
+                    'tag' => 'div',
+                    'class' => 'col-md-3',  // or 'div' with empty class
+                ],
+                'pager' => ['options' => ['style' => 'display:none']],
+                'summary' => false,
+
+
+            ]) ?>
+
     </div>
+
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 <script>
     fetch("https://ipapi.co/json/")

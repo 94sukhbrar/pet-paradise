@@ -19,6 +19,7 @@ use app\components\TActiveForm;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\AccessRule;
+use yii\helpers\Url;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -84,22 +85,21 @@ class PostController extends TController
 	public function actionIndex()
 	{
 		$searchModel = new PostSearch();
-		if ((!\Yii::$app->user->isGuest) && (Yii::$app->user->identity->role_id == User::ROLE_ADMIN)) {
+		if ((!\Yii::$app->user->isGuest) && (Yii::$app->user->identity->role_id === User::ROLE_ADMIN)) {
+			die('Admin');
 			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 			$this->updateMenuItems();
-			$this->layout = User::LAYOUT_MAIN;
 			return $this->render('index', [
 				'searchModel' => $searchModel,
 				'dataProvider' => $dataProvider,
 			]);
 		} else if ((\Yii::$app->user->isGuest) || Yii::$app->user->identity->role_id == User::ROLE_USER) {
 			$dataProvider = new ActiveDataProvider([
-				'query' => Post::find()->orderBy(['created_on' => SORT_DESC]),
+				'query' => Post::find()->orderBy(['created_on' => SORT_DESC])->andWhere(['created_by_id'=> Yii::$app->user->identity->id]),
 				'pagination' => [
 					'pageSize' => 10,
 				],
 			]);
-			$this->layout = User::LAYOUT_PET_MAIN;
 			return $this->render('feed', [
 				'searchModel' => $searchModel,
 				'dataProvider' => $dataProvider,
@@ -189,12 +189,18 @@ class PostController extends TController
 			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 			return TActiveForm::validate($model);
 		}
+		$old_image = $model->image_file;
 		if ($model->load($post)) {
-			if (isset($model->image_file)) {
-				$model->saveUploadedFile($model, 'image_file');
+
+			if (! $model->saveUploadedFile($model, 'image_file', $old_image)) {
+				$model->image_file = $old_image;
 			}
-			$model->save();
-			return $this->redirect($model->getUrl());
+			if (!$model->save()) {
+				\Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
+			} else {
+
+				return $this->redirect($model->getUrl());
+			}
 		}
 		$this->updateMenuItems($model);
 		return $this->render('update', [
@@ -295,7 +301,7 @@ class PostController extends TController
 						$this->menu['update'] = [
 							'label' => '<span class="glyphicon glyphicon-pencil"></span>',
 							'title' => Yii::t('app', 'Update'),
-							'url' => $model->getUrl(),
+							'url' => Url::toRoute(['post/update', 'id' => $model->id]),
 							//		'visible' => User::isAdmin ()
 						];
 						$this->menu['delete'] = [

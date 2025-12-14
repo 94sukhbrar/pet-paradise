@@ -30,19 +30,14 @@ use app\components\TActiveForm;
 	<?php echo $form->field($model, 'title')->textInput(['maxlength' => 256]) ?>
 
 
-
-	<?php echo  $form->field($model, 'content')->textarea(['rows' => 6]); 
-	?>
+	<?php echo  $form->field($model, 'content')->textarea(['rows' => 6]); ?>
 
 
 
 	<?php /*echo $form->field($model, 'keywords')->textInput(['maxlength' => 255]) */ ?>
 
 
-
 	<?php echo $form->field($model, 'image_file')->fileInput()  ?>
-
-
 
 	<?php //echo $form->field($model, 'view_count')->textInput() ?>
 
@@ -51,7 +46,7 @@ use app\components\TActiveForm;
 	<?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
 
 
-	<?php echo $form->field($model, 'type')->dropDownList($model->getTypeOptions(), ['prompt' => '']) ?>
+	<?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => '']) ?>
 
 
 

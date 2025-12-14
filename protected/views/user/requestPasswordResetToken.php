@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = Inflector::humanize(Yii::$app->controller->acti
 
 ?>
 <section class="main-content hero-wrap">
-	<div class="a" style="background-image:url(<?=$this->theme->getUrl('assets/images/background/login-register.jpg')?>);">
+	<div class="auth-container a">
 		<div class="overlay"></div>
 		<div class="inner-section ">
 			<div class="login-box">
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = Inflector::humanize(Yii::$app->controller->acti
             'enableAjaxValidation' => false
         ]);
         ?>
-            <div class="card panel-default">
+            <div class=" panel-default">
 
 						<div class="card-body">
 							<div class="text-center">
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = Inflector::humanize(Yii::$app->controller->acti
            
                 <?=$form->field($model, 'email')?>
                 
-                    <?=Html::submitButton('Send', ['class' => 'btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light','name' => 'send-button'])?>
+                    <?=Html::submitButton('Send', ['class' => 'auth-btn','name' => 'send-button'])?>
                 
            <?php
 

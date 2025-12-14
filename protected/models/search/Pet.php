@@ -49,7 +49,7 @@ class Pet extends PetModel
      */
     public function search($params)
     {
-        $query = PetModel::find();
+        $query = PetModel::find()->alias('p')->joinWith(['petCategory c']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -82,6 +82,7 @@ class Pet extends PetModel
             ->andFilterWhere(['like', 'contact_no', $this->contact_no])
             ->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'breed', $this->breed]);
+           // ->andWhere(['c.id' => $this->pet_category_id]);
 
         return $dataProvider;
     }

@@ -30,7 +30,7 @@
     		<?= $form->field($model, 'full_name')->textInput(['maxlength' => 55]) ?>
     	</div>
     	<div class="col-lg-6 col-md-12 col-sm-12">
-    		<?= $form->field($model, 'email')->textInput(['maxlength' => 128,'disabled'=>'disabled']) ?>
+    		<?= $form->field($model, 'email')->textInput(['maxlength' => 128]) ?>
 
     	</div>
 

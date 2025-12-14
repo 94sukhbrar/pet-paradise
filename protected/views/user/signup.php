@@ -5,11 +5,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
 <section class="main-content hero-wrap mt-4">
-	<div class="a mt-4">
+	<div class="auth-container a mt-4">
 		<div class="overlay"></div>
 		<div class="inner-section mt-4 mb-4 ">
 			<div class="container mt-4">
-				<div class="login-box card mt-4">
+				<div class="login-box  mt-4">
 					<div class="card-block">
 						<?php
 
@@ -28,7 +28,7 @@ use yii\helpers\Url;
 
 						<div class="form-group text-center m-t-20">
 							<div class="col-xs-12">
-								<?= Html::submitButton(Yii::t("app", 'Sign In'), ['class' => 'btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light', 'name' => 'signup-button']) ?>
+								<?= Html::submitButton(Yii::t("app", 'Sign In'), ['class' => 'auth-btn', 'name' => 'signup-button']) ?>
 							</div>
 						</div>
 						<div class="form-group m-b-0">

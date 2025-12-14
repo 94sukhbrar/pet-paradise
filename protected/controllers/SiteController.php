@@ -171,12 +171,14 @@ class SiteController extends TController
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
         $searchModel = new SearchPet();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Pet::find()->orderBy(['id' => SORT_DESC]),
-            'pagination' => [
-                'pageSize' => 10,
-            ],
-        ]);
+        // $dataProvider = new ActiveDataProvider([
+        //     'query' => Pet::find()->orderBy(['id' => SORT_DESC])
+        //     ->where(['state_id' => Pet::STATE_ACTIVE]),
+        //     'pagination' => [
+        //         'pageSize' => 10,
+        //     ],
+        // ]);
+         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $petCategory = Petcategory::find()->where(['state_id' => Petcategory::STATE_ACTIVE])->orderBy(['created_on' => SORT_DESC])->all();
 
         return $this->render('adopt', [

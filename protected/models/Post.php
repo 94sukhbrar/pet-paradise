@@ -72,8 +72,7 @@ class Post extends \app\components\TActiveRecord
 
 	public function getTypeOptions()
 	{
-		//return ["TYPE1", "TYPE2", "TYPE3"];
-		//return ArrayHelper::Map ( Type::findActive ()->all (), 'id', 'title' );
+		
 		return [
 			self::TYPE_ARTICAL 		=> "Pet",
 			self::TYPE_PET 			=> "Artical",
