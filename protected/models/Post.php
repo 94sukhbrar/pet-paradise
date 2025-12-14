@@ -66,7 +66,11 @@ class Post extends \app\components\TActiveRecord
 
 	public static function getPetList()
 	{
-		return ArrayHelper::Map(Pet::findActive()->all(), 'id', 'name');
+		if(Yii::$app->user->identity->role_id===User::ROLE_ADMIN){
+			return ArrayHelper::Map(Pet::findActive()->all(), 'id', 'name');
+		}else{
+			return ArrayHelper::Map(Pet::findActive()->where(['created_by_id'=>Yii::$app->user->identity->id])->all(), 'id', 'name');
+		}
 	}
 
 

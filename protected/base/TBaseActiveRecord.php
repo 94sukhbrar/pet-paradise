@@ -1,12 +1,12 @@
 <?php
 /**
  *
- *@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
-*@author     : Ram mohamad Singh< er.amudeep@gmail.com >
+ *@copyright :Amusoftech Pvt. Ltd. < www.queeny.me >
+*@author     : Ram mohamad Singh< webdev.sukh@gmail.com >
  *
  * All Rights Reserved.
  * Proprietary and confidential :  All information contained herein is, and remains
- * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * the property of Queeny  and its partners.
  * Unauthorized copying of this file, via any medium is strictly prohibited.
  */
 namespace app\base;

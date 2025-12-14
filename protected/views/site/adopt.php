@@ -15,7 +15,7 @@ use yii\helpers\Url;
     color: #003b5c;
   }
 
-  .filter-btns a {
+  .filter-btns button {
     border-radius: 30px;
     margin: 5px;
     padding: 8px 20px;
@@ -26,26 +26,32 @@ use yii\helpers\Url;
     transition: 0.3s;
   }
 
-  .filter-btns a.active,
-  .filter-btns a:hover {
+  .filter-btns button.active,
+  .filter-btns button:hover {
     background: #009688;
     color: #fff;
   }
 
-  .pet-card {
+  .pet-card-view {
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     transition: 0.3s;
     overflow: hidden;
   }
+  .pet-card-view img {
+      width: 100%;
+      /* height: 150px; */
+      object-fit: cover;
+      border-radius: 10px;
+  }
 
-  .pet-card:hover {
+  .pet-card-view:hover {
     transform: translateY(-5px);
   }
 
   .pet-icon {
-    height: 160px;
+    /* height: 160px; */
     background: #eaf6ff;
     display: flex;
     align-items: center;
@@ -115,12 +121,13 @@ use yii\helpers\Url;
 
     <!-- Filter Buttons -->
     <div class="text-center mb-4 filter-btns">
-      <a href='<?= Url::toRoute(['site/adopt']) ?>' class="active">All</a>
+      <button class="active" onclick="filterPets('all')">All</button>
       <?php
-      foreach ($petCategory as $key => $value) {
+      foreach ($petCategory as $value) {
       ?>
-        <a href="<?= Url::toRoute(['site/adopt',['Pet[pet_category_id]'=>$key]]) ?>" class="<?= isset(Yii::$app->request->queryParams['Pet']['pet_category_id']) &&  Yii::$app->request->queryParams['Pet']['pet_category_id'] ==  $key ? 'active' : '' ?>" onclick="filterPets('<?= $value ?>')"><?= $value ?></button>
-        <?php } ?>
+
+        <button onclick="filterPets('<?= $value['title'] ?>')"><?= $value['title'] ?></button>
+      <?php } ?>
 
     </div>
 
@@ -132,21 +139,26 @@ use yii\helpers\Url;
         'dataProvider' => $dataProvider,
         'itemView' => '_pet', // your view file for each record
         'layout' => "
-        <div class='row mt-3'>
-            <div class='col-12 text-center'>{summary}</div>
-        </div>
-        <div class='row'>{items}</div>
-       {pager}
-        </div>
-    ",
+              <div class='row mt-3 summaryDiv'>
+                  <div class='col-12 text-center'>{summary}</div>
+              </div>
+              <div class='row'>{items}</div>                
+              {pager}",
         'options' => [
           'tag' => 'div',
           'class' => 'row',   // remove main wrapper class
         ],
-        'itemOptions' => [
-          'tag' => 'div',
-          'class' => 'col-md-3 pet-item',  // or 'div' with empty class
-        ],
+        // 'itemOptions' => [
+        //   'tag' => 'div',
+        //   'class' => 'col-md-4 mb-4 pet-item',  // or 'div' with empty class
+
+        // ],
+        'itemOptions' => function ($model, $key, $index, $widget) {
+          return [
+            'class' => 'col-md-3 mb-4 pet-item',
+            'data-category' => $model->petCategory->title,
+          ];
+        },
         'summaryOptions' => [
           'tag' => 'div',
           'class' => 'row m-4',   // remove summary class
@@ -168,3 +180,21 @@ use yii\helpers\Url;
 
     </div>
   </div>
+  <script>
+    function filterPets(category) {
+      let pets = document.querySelectorAll('.pet-item');
+      let buttons = document.querySelectorAll('.filter-btns button');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      $(".summaryDiv").hide();
+      pets.forEach(pet => {
+        if (category === 'all' || pet.dataset.category === category) {
+          pet.style.display = 'block';
+          $(".summaryDiv").show();
+        } else {
+          pet.style.display = 'none';
+        }
+      });
+    }
+  </script>

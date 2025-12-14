@@ -34,6 +34,7 @@ use yii\helpers\Url;
           'dataProvider' => $dataProvider,
           'itemView' => '_post', // your view file for each record
           'summary' => false,
+          'pager'=>false,
           'options' => [
             'tag' => 'div',
             'class' => 'row',   // remove main wrapper class

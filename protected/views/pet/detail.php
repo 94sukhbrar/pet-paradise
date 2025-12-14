@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -17,7 +21,7 @@
         width: 100%;
         height: 350px;
         border-radius: 15px;
-        object-fit: cover;
+        object-fit: contain;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
@@ -101,6 +105,7 @@
                     to basic commands." ?>
 
                 </p>
+                <a href="<?= Url::toRoute(['site/contact-now', 'id' => $model->id]) ?>" class="btn btn-outline-primary btn-adopt">Message Owner</a>
 
             </div>
 
@@ -111,24 +116,6 @@
 
             <!-- NEW PETS -->
             <h4 class="mb-3" style="color:#009688;">New Pets</h4>
-
-            <!-- <div class="sidebar-card">
-                <img src="https://placekitten.com/300/200">
-                <h6 class="mt-2">Milo (Persian Cat)</h6>
-                <small>Added 1 day ago</small>
-            </div>
-
-            <div class="sidebar-card">
-                <img src="https://place-puppy.com/300x200">
-                <h6 class="mt-2">Bruno (Lab)</h6>
-                <small>Added 2 days ago</small>
-            </div>
-
-            <div class="sidebar-card">
-                <img src="https://placekeanu.com/300x200">
-                <h6 class="mt-2">Lucy (Beagle)</h6>
-                <small>Added 3 days ago</small>
-            </div> -->
             <?= \yii\widgets\ListView::widget([
                 'dataProvider' => $dataProvider,
                 'itemView' => '/site/_new_pets', // your view file for each record
@@ -158,21 +145,21 @@
 
     <div class="row">
         <?= \yii\widgets\ListView::widget([
-                'dataProvider' => $dataProviderpost,
-                'itemView' => '/site/_item', // your view file for each record
-                'options' => [
-                    'tag' => 'div',
-                    'class' => 'row',   // remove main wrapper class
-                ],
-                'itemOptions' => [
-                    'tag' => 'div',
-                    'class' => 'col-md-3',  // or 'div' with empty class
-                ],
-                'pager' => ['options' => ['style' => 'display:none']],
-                'summary' => false,
+            'dataProvider' => $dataProviderpost,
+            'itemView' => '/site/_item', // your view file for each record
+            'options' => [
+                'tag' => 'div',
+                'class' => 'row',   // remove main wrapper class
+            ],
+            'itemOptions' => [
+                'tag' => 'div',
+                'class' => 'col-md-3',  // or 'div' with empty class
+            ],
+            'pager' => ['options' => ['style' => 'display:none']],
+            'summary' => false,
 
 
-            ]) ?>
+        ]) ?>
 
     </div>
 

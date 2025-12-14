@@ -109,13 +109,13 @@ class PetController extends TController
 		$this->layout = User::LAYOUT_GUEST_MAIN;
 		$model = $this->findModel($id);
 		$this->updateMenuItems($model);
-		 $searchModel = new PetSearch();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Pet::find()->limit(4)->orderBy('id DESC'),
-            'pagination' => [
+		$searchModel = new PetSearch();
+		$dataProvider = new ActiveDataProvider([
+			'query' => Pet::find()->limit(4)->orderBy('id DESC'),
+			'pagination' => [
 				'pageSize' => 4,
 			],
-        ]);
+		]);
 
 		$searchModelPost = new SearchPost();
 		$dataProviderpost = new ActiveDataProvider([
@@ -128,9 +128,9 @@ class PetController extends TController
 		return $this->render('detail', [
 			'model' => $model,
 			'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-			'dataProviderpost'=>$dataProviderpost,
-			'searchModelPost'=>$searchModelPost
+			'dataProvider' => $dataProvider,
+			'dataProviderpost' => $dataProviderpost,
+			'searchModelPost' => $searchModelPost
 
 		]);
 	}
@@ -145,7 +145,7 @@ class PetController extends TController
 	{
 		$model = new Pet();
 		$model->loadDefaultValues();
-		$model->state_id = Pet::STATE_ACTIVE;
+		$model->state_id = (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) ? Pet::STATE_ACTIVE : Pet::STATE_INACTIVE;
 		$post = \yii::$app->request->post();
 		if (\yii::$app->request->isAjax && $model->load($post)) {
 			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -156,6 +156,9 @@ class PetController extends TController
 			if (!$model->save()) {
 				\Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
 			} else {
+				if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
+					\Yii::$app->getSession()->setFlash('success', "Your content is under admin review and will be published soon. ");
+				}
 				return $this->redirect($model->getUrl());
 			}
 		}
@@ -182,12 +185,13 @@ class PetController extends TController
 		}
 		$old_image = $model->profile_picture;
 		if ($model->load($post)) {
-				
-			 if (! $model->saveUploadedFile($model, 'profile_picture', $old_image)) {
-                $model->profile_picture = $old_image;
-            }
 
-			print_r($post);die;
+			if (! $model->saveUploadedFile($model, 'profile_picture', $old_image)) {
+				$model->profile_picture = $old_image;
+			}
+
+			print_r($post);
+			die;
 			if (!$model->save()) {
 				\Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
 			} else {
@@ -208,7 +212,7 @@ class PetController extends TController
 	 */
 	public function actionDelete($id)
 	{
-		
+
 		$model = $this->findModel($id);
 
 		$model->delete();
@@ -281,43 +285,43 @@ class PetController extends TController
 				}
 				break;
 			default:
-			 case 'view': {
-                  
-                    $this->menu['add'] = [
-                        'label' => '<span class="glyphicon glyphicon-plus"></span>',
-                        'title' => Yii::t('app', 'Add'),
-                        'url' => [
-                            'add'
-                        ],
-                        'visible' => User::isAdmin()
-                    ];
-                    if ($model != null)
-                        $this->menu['update'] = [
-                            'label' => '<span class="glyphicon glyphicon-pencil"></span>',
-                            'title' => Yii::t('app', 'Update'),
-                            'url' => $model->getUrl('update'),
+			case 'view': {
 
-                            'visible' => User::isAdmin()
-                        ];
-                    $this->menu['manage'] = [
-                        'label' => '<span class="glyphicon glyphicon-list"></span>',
-                        'title' => Yii::t('app', 'Manage'),
-                        'url' => [
-                            'index'
-                        ],
-                        'visible' => User::isAdmin()
-                    ];
-                    if ($model != null)
-                        $this->menu['delete'] = [
-                            'label' => '<span class="glyphicon glyphicon-trash"></span>',
-                            'title' => Yii::t('app', 'Delete'),
-                            'url' => $model->getUrl('delete'),
-                            'htmlOptions' => [
-                                'data-method' => 'post'
-                            ],
-                            'visible' => User::isAdmin()
-                        ];
-                }
+					$this->menu['add'] = [
+						'label' => '<span class="glyphicon glyphicon-plus"></span>',
+						'title' => Yii::t('app', 'Add'),
+						'url' => [
+							'add'
+						],
+						'visible' => User::isAdmin()
+					];
+					if ($model != null)
+						$this->menu['update'] = [
+							'label' => '<span class="glyphicon glyphicon-pencil"></span>',
+							'title' => Yii::t('app', 'Update'),
+							'url' => $model->getUrl('update'),
+
+							'visible' => User::isAdmin()
+						];
+					$this->menu['manage'] = [
+						'label' => '<span class="glyphicon glyphicon-list"></span>',
+						'title' => Yii::t('app', 'Manage'),
+						'url' => [
+							'index'
+						],
+						'visible' => User::isAdmin()
+					];
+					if ($model != null)
+						$this->menu['delete'] = [
+							'label' => '<span class="glyphicon glyphicon-trash"></span>',
+							'title' => Yii::t('app', 'Delete'),
+							'url' => $model->getUrl('delete'),
+							'htmlOptions' => [
+								'data-method' => 'post'
+							],
+							'visible' => User::isAdmin()
+						];
+				}
 		}
 	}
 }

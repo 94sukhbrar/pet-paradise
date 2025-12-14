@@ -1,8 +1,8 @@
 <?php
 
 /**
- *@copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
- *@author	 : Shiv Charan Panjeta < shiv@toxsl.com >
+ *@copyright : queeny Technologies Pvt. Ltd. < www.queeny.com >
+ *@author	 : Shiv Charan Panjeta < shiv@queeny.com >
  */
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */

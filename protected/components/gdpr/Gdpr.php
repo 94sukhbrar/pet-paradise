@@ -1,7 +1,7 @@
 <?php
 /**
  *@copyright : Amusoftech Pvt. Ltd. < www.amusoftech.com >
- *@author	 : Shiv Charan Panjeta < shiv@toxsl.com >
+ *@author	 : Sukhwinder Kaur< webdev.sukh@gmail.com >
  */
 namespace app\components\gdpr;
 

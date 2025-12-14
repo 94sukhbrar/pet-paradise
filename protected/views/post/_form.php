@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use app\components\TActiveForm;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -39,11 +40,16 @@ use app\components\TActiveForm;
 
 	<?php echo $form->field($model, 'image_file')->fileInput()  ?>
 
-	<?php //echo $form->field($model, 'view_count')->textInput() ?>
+	<?php //echo $form->field($model, 'view_count')->textInput() 
+	?>
 
 
 
-	<?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
+	<?php
+	if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) {
+		echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']);
+	}
+	?>
 
 
 	<?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => '']) ?>

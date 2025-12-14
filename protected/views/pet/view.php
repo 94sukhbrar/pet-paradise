@@ -1,6 +1,8 @@
 <?php
 
 use app\components\useraction\UserAction;
+use app\models\User;
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Pet */
 
@@ -74,11 +76,14 @@ $this->params['breadcrumbs'][] = (string)$model;
 			<?php echo $model->content; ?>
 
 
-			<?php echo UserAction::widget([
-				'model' => $model,
-				'attribute' => 'state_id',
-				'states' => $model->getStateOptions()
-			]);
+			<?php
+			if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) {
+				echo UserAction::widget([
+					'model' => $model,
+					'attribute' => 'state_id',
+					'states' => $model->getStateOptions()
+				]);
+			}
 			?>
 
 		</div>

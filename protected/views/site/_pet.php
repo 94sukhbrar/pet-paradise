@@ -1,9 +1,7 @@
 <?php
-
-use app\models\Pet;
-use yii\helpers\Url;
+    use yii\helpers\Url;
 ?>
-<div class="pet-card">
+<div class="pet-card-view">
     <div class="pet-icon">
         <?= $model->displayImage($model->profile_picture, $options = [], $defaultImg = 'pp.png'); ?>
     </div>

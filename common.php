@@ -4,8 +4,8 @@ date_default_timezone_set('Asia/Kolkata');
 define('PROJECT_ID', 'AdminProject');  //TODO:must change
 define('PROJECT_NAME', 'AdminProject'); //TODO:must change
 
-defined('YII_ENV') or define('YII_ENV', 'prod');
-//defined('YII_ENV') or define('YII_ENV', 'dev');
+//defined('YII_ENV') or define('YII_ENV', 'prod');
+defined('YII_ENV') or define('YII_ENV', 'dev');
 
 if (YII_ENV == 'dev') {
     error_reporting(E_ALL);

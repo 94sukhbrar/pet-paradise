@@ -1,6 +1,7 @@
 <?php
 
 use app\components\useraction\UserAction;
+use app\models\User;
 use app\modules\comment\widgets\CommentsWidget;
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -60,11 +61,15 @@ $this->params['breadcrumbs'][] = (string)$model;
 
 
 
-			<?php echo UserAction::widget([
-				'model' => $model,
-				'attribute' => 'state_id',
-				'states' => $model->getStateOptions()
-			]);
+			<?php
+
+			if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) {
+				echo UserAction::widget([
+					'model' => $model,
+					'attribute' => 'state_id',
+					'states' => $model->getStateOptions()
+				]);
+			}
 			?>
 
 		</div>

@@ -56,22 +56,22 @@ class Setting extends \app\components\TActiveRecord
                 'value' => [
                     'companyUrl' => [
                         'type' => self::KEY_TYPE_STRING,
-                        'value' => 'https://www.toxsl.com',
+                        'value' => 'https://www.queeny.me',
                         'required' => true
                     ],
                     'company' => [
                         'type' => self::KEY_TYPE_STRING,
-                        'value' => 'ToXSL Technologies',
+                        'value' => 'Queeny',
                         'required' => true
                     ],
                     'companyEmail' => [
                         'type' => self::KEY_TYPE_STRING,
-                        'value' => 'admin@toxsl.in',
+                        'value' => 'admin@queeny.me',
                         'required' => true
                     ],
                     'companyContactEmail' => [
                         'type' => self::KEY_TYPE_STRING,
-                        'value' => 'admin@toxsl.in',
+                        'value' => 'hello@queeny.me',
                         'required' => false
                     ],
                     'companyContactNo' => [

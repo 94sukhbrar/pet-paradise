@@ -85,8 +85,9 @@ class PostController extends TController
 	public function actionIndex()
 	{
 		$searchModel = new PostSearch();
+		
 		if ((!\Yii::$app->user->isGuest) && (Yii::$app->user->identity->role_id === User::ROLE_ADMIN)) {
-			die('Admin');
+			
 			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 			$this->updateMenuItems();
 			return $this->render('index', [
@@ -100,7 +101,8 @@ class PostController extends TController
 					'pageSize' => 10,
 				],
 			]);
-			return $this->render('feed', [
+			 $this->updateMenuItems();
+			return $this->render('index', [
 				'searchModel' => $searchModel,
 				'dataProvider' => $dataProvider,
 			]);
@@ -132,7 +134,7 @@ class PostController extends TController
 		$model = $this->findModel($id);
 		$searchModel = new PostSearch();
 		$dataProvider = new ActiveDataProvider([
-			'query' => Post::find()->limit(4)->orderBy('id DESC'),
+			'query' => Post::find()->limit(4)->where(['state_id'=>Post::STATE_ACTIVE])->orderBy('id DESC'),
 			'pagination' => [
 				'pageSize' => 4,
 			],
@@ -154,7 +156,7 @@ class PostController extends TController
 	{
 		$model = new Post();
 		$model->loadDefaultValues();
-		$model->state_id = Post::STATE_ACTIVE;
+		$model->state_id = (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) ?Post::STATE_ACTIVE:Post::STATE_INACTIVE;
 		$post = \yii::$app->request->post();
 		if (\yii::$app->request->isAjax && $model->load($post)) {
 			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -253,7 +255,7 @@ class PostController extends TController
 						'url' => [
 							'index'
 						],
-						//	'visible' => User::isAdmin ()
+						'visible' => !Yii::$app->user->isGuest,
 					];
 				}
 				break;
@@ -264,7 +266,7 @@ class PostController extends TController
 						'url' => [
 							'add'
 						],
-						//	'visible' => User::isAdmin ()
+						'visible' => !Yii::$app->user->isGuest,
 					];
 				}
 				break;
@@ -275,7 +277,7 @@ class PostController extends TController
 						'url' => [
 							'add'
 						],
-						//	'visible' => User::isAdmin ()
+						'visible' => User::isAdmin () || User::isUser()
 					];
 					$this->menu['manage'] = [
 						'label' => '<span class="glyphicon glyphicon-list"></span>',
@@ -283,7 +285,7 @@ class PostController extends TController
 						'url' => [
 							'index'
 						],
-						//	'visible' => User::isAdmin ()
+						!Yii::$app->user->isGuest,
 					];
 				}
 				break;
@@ -295,20 +297,20 @@ class PostController extends TController
 						'url' => [
 							'index'
 						],
-						//	'visible' => User::isAdmin ()
+						!Yii::$app->user->isGuest,
 					];
 					if ($model != null) {
 						$this->menu['update'] = [
 							'label' => '<span class="glyphicon glyphicon-pencil"></span>',
 							'title' => Yii::t('app', 'Update'),
 							'url' => Url::toRoute(['post/update', 'id' => $model->id]),
-							//		'visible' => User::isAdmin ()
+							!Yii::$app->user->isGuest,
 						];
 						$this->menu['delete'] = [
 							'label' => '<span class="glyphicon glyphicon-trash"></span>',
 							'title' => Yii::t('app', 'Delete'),
-							'url' => $model->getUrl()
-							//	 'visible' => User::isAdmin ()
+							'url' => $model->getUrl(),
+							'visible' =>!Yii::$app->user->isGuest,
 						];
 					}
 				}

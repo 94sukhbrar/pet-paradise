@@ -3,8 +3,8 @@ use yii\helpers\Inflector;
 
 /**
  *
- * @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
- * @author : Shiv Charan Panjeta < shiv@toxsl.com >
+ * @copyright : queeny Technologies Pvt. Ltd. < www.queeny.com >
+ * @author : Shiv Charan Panjeta < shiv@queeny.com >
  */
 
 /* @var $this yii\web\View */

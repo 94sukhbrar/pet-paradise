@@ -5,8 +5,8 @@ namespace app\components;
 use yii\grid\DataColumn;
 
 /**
- *@copyright : Amusoftech Pvt. Ltd. < www.amusoftech.com >
- *@author	 : Shiv Charan Panjeta < shiv@toxsl.com >
+ *@copyright : Queeny < www.amusoftech.com >
+ *@author	 : Sukhwinder Kaur < webdev.sukh@gmail.com >
  */
 class TSumColumn extends DataColumn {
     public function getDataCellValue($model, $key, $index)

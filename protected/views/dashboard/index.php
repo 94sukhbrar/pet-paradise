@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = [
 		<a href='<?=Url::toRoute(['user/index']);?>'>
 			<div class="card card-inverse card-info">
 				<div class="box  text-center">
-					<h1 class="font-light text-white"><?=User::find()->count();?></h1>
+					<h1 class="font-light text-white"><?=$users?></h1>
 					<h6 class="text-white"><?=Yii::t("app", 'Total Users')?></h6>
 				</div>
 			</div>
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = [
 		<a href='<?=Url::toRoute(['//pet']);?>'>
 			<div class="card card-primary card-inverse">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=Pet::find()->count();?></h1>
+					<h1 class="font-light text-white"><?=$pets?></h1>
 					<h6 class="text-white"><?=Yii::t("app", 'Total Pet')?></h6>
 				</div>
 			</div>
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = [
 		<a href='<?=Url::toRoute(['post/index']);?>'>
 			<div class="card card-inverse card-success">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=Post::find()->count();?></h1>
+					<h1 class="font-light text-white"><?=$posts?></h1>
 					<h6 class="text-white"><?=Yii::t("app", 'Total Post')?></h6>
 				</div>
 			</div>
@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = [
 		<a href='<?=Url::toRoute(['petcategory/index']);?>'>
 			<div class="card card-inverse card-warning">
 				<div class="box text-center">
-					<h1 class="font-light text-white"><?=Petcategory::find()->count();?></h1>
+					<h1 class="font-light text-white"><?=$petCat?></h1>
 					<h6 class="text-white"><?=Yii::t("app", 'Total Pet category')?></h6>
 				</div>
 			</div>
@@ -148,7 +148,7 @@ $this->params['breadcrumbs'][] = [
 								'type' => 'pie'
 							],
 							'title' => [
-								'text' => 'Statistics'
+								'text' => 'Posts Statistics'
 							],
 							'tooltip' => [
 								'valueSuffix' => ''
@@ -175,20 +175,21 @@ $this->params['breadcrumbs'][] = [
 
 									'data' => [
 										[
-											'name' => 'Inactive User',
+											'name' => 'Inactive Posts',
 											'color' => '#0096FF',
-											'y' => (int) User::findActive(0)->count(),
+											'y' => (int) Post::findActive(0)->count(),
 											'sliced' => true,
 											'selected' => true
 										],
 
 										[
-											'name' => 'Active User',
+											'name' => 'Active Post',
 											'color' => '#1FAE66',
-											'y' => (int) User::findActive()->count(),
+											'y' => (int) Post::findActive()->count(),
 											'sliced' => true,
 											'selected' => true
-										]
+										],
+										
 									]
 								]
 							]
@@ -200,7 +201,9 @@ $this->params['breadcrumbs'][] = [
 		</div>
 	</div>
 </div>
-
+<?php
+ if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) {
+?>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="card">
@@ -223,6 +226,7 @@ $this->params['breadcrumbs'][] = [
 		</div>
 	</div>
 </div>
+<?php } ?>
 <!-- Row -->
 
 <!-- .right-sidebar -->

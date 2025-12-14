@@ -61,6 +61,9 @@ class Post extends PostModel
             return $dataProvider;
         }
 
+         if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
+            $query = $query->andFilterWhere(['p.created_by_id' => Yii::$app->user->identity->id]);
+        }
         $query->andFilterWhere([
             'id' => $this->id,
             'view_count' => $this->view_count,

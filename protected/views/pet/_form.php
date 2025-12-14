@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use app\components\TActiveForm;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pet */
@@ -17,35 +18,28 @@ use app\components\TActiveForm;
 		// 'layout' => 'horizontal',
 		'id'	=> 'pet-form',
 	]);
-
-
 	echo $form->errorSummary($model);
 	?>
-
-
-
-
-
 	<div class="col-md-6">
-
-
 		<?php echo $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
-
-
-		<?php echo $form->field($model, 'content')->textarea(['rows' => 6]); 
-		?>
+		<?php echo $form->field($model, 'content')->textarea(['rows' => 6]);?>
 
 
 
-		<?php echo $form->field($model, 'date_of_birth')->widget(yii\jui\DatePicker::className(),
+		<?php echo $form->field($model, 'date_of_birth')->widget(
+			yii\jui\DatePicker::className(),
 			[
-					//'dateFormat' => 'php:Y-m-d',
-	 				'options' => [ 'class' => 'form-control' ],
-	 				'clientOptions' =>
-	 				[
-			//'minDate' => 0,
-			'changeMonth' => true,'changeYear' => true ] ])  ?>
+				//'dateFormat' => 'php:Y-m-d',
+				'options' => ['class' => 'form-control'],
+				'clientOptions' =>
+				[
+					//'minDate' => 0,
+					'changeMonth' => true,
+					'changeYear' => true
+				]
+			]
+		)  ?>
 
 
 
@@ -53,7 +47,7 @@ use app\components\TActiveForm;
 
 
 
-		<?php echo $form->field($model, 'about_me')->textarea(['rows' => 6,'placeholder'=>'About my like and dislike'])?>
+		<?php echo $form->field($model, 'about_me')->textarea(['rows' => 6, 'placeholder' => 'About my like and dislike']) ?>
 
 
 
@@ -78,8 +72,13 @@ use app\components\TActiveForm;
 
 
 
-		<?php echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']) ?>
+		<?php 
+		if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) {
+		echo $form->field($model, 'state_id')->dropDownList($model->getStateOptions(), ['prompt' => '']);
+		}
 		
+		 ?>
+
 
 
 		<?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => ''])  ?>

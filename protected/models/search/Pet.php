@@ -59,6 +59,12 @@ class Pet extends PetModel
                 ]
             ]
         ]);
+        if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN && Yii::$app->controller->id !='site') {
+            $query = $query->andFilterWhere(['p.created_by_id' => Yii::$app->user->identity->id]);
+        }
+         if ( Yii::$app->controller->id =='site') {
+            $query = $query->andFilterWhere(['p.state_id' => Pet::STATE_ACTIVE]);
+        }
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
@@ -82,7 +88,9 @@ class Pet extends PetModel
             ->andFilterWhere(['like', 'contact_no', $this->contact_no])
             ->andFilterWhere(['like', 'address', $this->address])
             ->andFilterWhere(['like', 'breed', $this->breed]);
-           // ->andWhere(['c.id' => $this->pet_category_id]);
+        //->andWhere(['c.id' => Yii::$app->request->get('pet_category_id')]);
+        $query->andFilterWhere(['pet_category_id' => Yii::$app->request->get('pet_category_id')]);
+
 
         return $dataProvider;
     }

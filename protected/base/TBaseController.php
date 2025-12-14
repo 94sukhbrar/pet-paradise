@@ -2,12 +2,12 @@
 
 /**
  *
- *@copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
- *@author	 : Shiv Charan Panjeta < shiv@toxsl.com >
+ *@copyright : Queeny < www.queeny.me >
+ *@author	 : Shiv Charan Panjeta < shiv@queeny.com >
  *
  * All Rights Reserved.
  * Proprietary and confidential :  All information contained herein is, and remains
- * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * the property of Queeny Technologies Pvt. Ltd. and its partners.
  * Unauthorized copying of this file, via any medium is strictly prohibited.
  */
 namespace app\base;
@@ -23,7 +23,7 @@ class TBaseController extends Controller
 
     public $menu = [];
 
-    public $_author = '@toxsl';
+    public $_author = '@queeny';
 
     public $top_menu = [];
 
@@ -91,9 +91,9 @@ class TBaseController extends Controller
         $this->nav_left = [
             self::addMenu(Yii::t('app', 'Dashboard'), '//dashboard/index', 'home', ! User::isGuest()),
             self::addMenu(Yii::t('app', 'User'), '//user', 'user', (User::isAdmin())),
-            self::addMenu(Yii::t('app', 'Feed'), '//post', 'rss', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Feed'), '//post', 'rss', (User::isAdmin())|| User::isUser()),
             self::addMenu(Yii::t('app', 'Feed Category'), '//category', 'certificate', (User::isAdmin())),
-            self::addMenu(Yii::t('app', 'Pet'), '//pet', 'dog', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Pet'), '//pet', 'dog', (User::isAdmin()) || User::isUser()),
             self::addMenu(Yii::t('app', 'Pet Category'), '//petcategory', 'paw', (User::isAdmin())),
             //self::addMenu(Yii::t('app', 'Post'), '//post', 'plus', (User::isAdmin())),
             self::addMenu(Yii::t('app', 'Post Category'), '//postcategory', 'holly-berry', (User::isAdmin())),
