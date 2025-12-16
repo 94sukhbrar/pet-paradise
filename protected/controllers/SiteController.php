@@ -14,9 +14,11 @@ use app\models\EmailQueue;
 use app\models\User;
 use Yii;
 use app\components\filters\AccessControl;
+use app\models\LostFoundPet;
 use app\models\Pet;
 use app\models\Petcategory;
 use app\models\Post;
+use app\models\search\LostFoundPet as SearchLostFoundPet;
 use app\models\search\Pet as SearchPet;
 use app\models\search\Post as SearchPost;
 use yii\web\Response;
@@ -95,20 +97,17 @@ class SiteController extends TController
 
     public function actionIndex()
     {
-       
+
         $this->layout = User::LAYOUT_GUEST_MAIN;
-        $featured=Post::find()->orderBy(['id' => SORT_DESC])->limit(1)->one();
+        $featured = Post::find()->orderBy(['id' => SORT_DESC])->limit(1)->one();
         $searchModel = new SearchPost();
-		$dataProvider = new ActiveDataProvider([
-			'query' => Post::find()->limit(6)->where(['state_id'=>Post::STATE_ACTIVE])->orderBy('id DESC'),
-			'pagination' => [
-				'pageSize' => 6,
-			],
-		]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Post::find()->limit(6)->where(['state_id' => Post::STATE_ACTIVE])->orderBy('id DESC'),
+        ]);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'model'=>$featured
+            'model' => $featured
         ]);
     }
 
@@ -173,7 +172,8 @@ class SiteController extends TController
         $searchModel = new SearchPet();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize = 10;
-        
+
+
         $petCategory = Petcategory::find()->where(['state_id' => Petcategory::STATE_ACTIVE])->orderBy(['created_on' => SORT_DESC])->all();
 
         return $this->render('adopt', [
@@ -222,11 +222,11 @@ class SiteController extends TController
         $dataProvider = new ActiveDataProvider([
             'query' => Pet::find()->limit(4)->orderBy('id DESC'),
             'pagination' => [
-				'pageSize' => 4,
-			],
+                'pageSize' => 4,
+            ],
         ]);
 
-        return $this->render('local-services',[
+        return $this->render('local-services', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider
         ]);
@@ -234,7 +234,47 @@ class SiteController extends TController
     public function actionAlerts()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
-        return $this->render('alerts');
+
+        $model = new LostFoundPet();
+        $model->loadDefaultValues();
+        $model->state_id = LostFoundPet::STATE_NEW;
+
+        $model->checkRelatedData([
+            'created_by_id' => User::class,
+            'updated_by_id' => User::class,
+        ]);
+
+        $post = \yii::$app->request->post();
+        if (\yii::$app->request->isAjax && $model->load($post)) {
+            \yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return TActiveForm::validate($model);
+        }
+        if ($model->load($post)) {
+            $model->saveUploadedFile($model, 'image');
+            if (!$model->save()) {
+                \Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
+            } else {
+                if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
+                    \Yii::$app->getSession()->setFlash('success', "Your content is under admin review and will be published soon. ");
+                }
+                return $this->render('alerts', [
+                    'model' => new LostFoundPet()
+                ]);
+            }
+        }
+
+        $searchModel = new SearchLostFoundPet();
+        $dataProvider = new ActiveDataProvider([
+            'query' => LostFoundPet::find()->limit(4)->orderBy('id DESC'),
+            'pagination' => [
+                'pageSize' => 4,
+            ],
+        ]);
+
+        return $this->render('alerts', [
+            'model' => $model,
+            'dataProvider' => $dataProvider
+        ]);
     }
 
     public function actionEvents()

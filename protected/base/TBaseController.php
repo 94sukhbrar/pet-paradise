@@ -95,7 +95,7 @@ class TBaseController extends Controller
             self::addMenu(Yii::t('app', 'Feed Category'), '//category', 'certificate', (User::isAdmin())),
             self::addMenu(Yii::t('app', 'Pet'), '//pet', 'dog', (User::isAdmin()) || User::isUser()),
             self::addMenu(Yii::t('app', 'Pet Category'), '//petcategory', 'paw', (User::isAdmin())),
-            //self::addMenu(Yii::t('app', 'Post'), '//post', 'plus', (User::isAdmin())),
+            self::addMenu(Yii::t('app', 'Pet Alerts'), '//lost-found-pet', 'warning', (User::isAdmin())),
             self::addMenu(Yii::t('app', 'Post Category'), '//postcategory', 'holly-berry', (User::isAdmin())),
 
             

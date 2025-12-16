@@ -577,3 +577,7 @@
       text-decoration: none;
       font-weight: bold;
   }
+
+  p.help-block.help-block-error {
+      color: red;
+  }

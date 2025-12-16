@@ -18,7 +18,7 @@
         background: #ffffff;
         border-radius: 12px;
         padding: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
     }
 
@@ -26,7 +26,7 @@
         background: #fff;
         border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         margin-bottom: 25px;
     }
 
@@ -54,7 +54,13 @@
         margin-bottom: 15px;
     }
 </style>
+<?php
 
+use app\components\TActiveForm;
+use app\models\LostFoundPet;
+use yii\helpers\Html;
+
+?>
 <div class="container">
 
     <!-- HEADER -->
@@ -70,39 +76,55 @@
             <div class="pet-form-box">
                 <div class="form-title"><i class="fa-solid fa-search"></i> Report Lost Pet</div>
 
-                <form>
-                    <div class="form-group">
-                        <label>Pet Name</label>
-                        <input type="text" class="form-control" placeholder="Enter pet name">
-                    </div>
+                <?php $form = TActiveForm::begin([
 
-                    <div class="form-group">
-                        <label>Pet Type</label>
-                        <select class="form-control">
-                            <option>Dog</option>
-                            <option>Cat</option>
-                            <option>Bird</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
+                    'id'    => 'lost-pet-form',
 
-                    <div class="form-group">
-                        <label>Last Seen Location</label>
-                        <input type="text" class="form-control" placeholder="Example: Mall Road, Ferozepur">
-                    </div>
+                ]);
+                //echo $form->errorSummary($model);	
+                ?>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'pet_name')->textInput(['maxlength' => 255]) ?>
+                </div>
 
-                    <div class="form-group">
-                        <label>Date Lost</label>
-                        <input type="date" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'pet_type')->dropDownList($model->getPetCategoryOptions(), ['prompt' => '']) ?>
+                </div>
 
-                    <div class="form-group">
-                        <label>Upload Image</label>
-                        <input type="file" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'last_seen_location')->textInput(['maxlength' => 255]); ?>
+                </div>
+                <?php echo $form->field($model, 'type_id')->hiddenInput(['maxlength' => 100, 'value' => LostFoundPet::TYPE_LOST])->label(false); ?>
 
-                    <button class="btn btn-success btn-block">Submit Lost Report</button>
-                </form>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'date_lost')->widget(
+                        yii\jui\DatePicker::class,
+                        [
+                            //'dateFormat' => 'php:Y-m-d',
+                            'options' => ['class' => 'form-control'],
+                            'clientOptions' =>
+                            [
+                                'minDate' => -15,
+                                'maxDate' => date('Y-m-d'),
+                                'changeMonth' => true,
+                                'changeYear' => true
+                            ]
+                        ]
+                    ) ?>
+
+                </div>
+
+                <div class="form-group">
+                    <?php echo $form->field($model, 'image')->fileInput(['class' => 'form-control'])  ?>
+                </div>
+               
+                <div class="form-group">
+                    <?php echo $form->field($model, 'contact_detail')->textarea(['rows' => 6]);?>
+                </div>
+
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Submit Lost Report') : Yii::t('app', 'Update'), ['id' => 'lost-found-pet-form-submit', 'class' => $model->isNewRecord ? 'btn btn-success btn-block' : 'btn btn-success btn-block']) ?>
+
+                <?php TActiveForm::end(); ?>
             </div>
         </div>
 
@@ -111,34 +133,48 @@
             <div class="pet-form-box">
                 <div class="form-title"><i class="fa-solid fa-dog"></i> Report Found Pet</div>
 
-                <form>
-                    <div class="form-group">
-                        <label>Pet Type</label>
-                        <select class="form-control">
-                            <option>Dog</option>
-                            <option>Cat</option>
-                            <option>Bird</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
+                <?php $form = TActiveForm::begin([
 
-                    <div class="form-group">
-                        <label>Found Location</label>
-                        <input type="text" class="form-control" placeholder="Example: Bus Stand, Ferozepur">
-                    </div>
+                    'id'    => 'found-pet-form',
 
-                    <div class="form-group">
-                        <label>Date Found</label>
-                        <input type="date" class="form-control">
-                    </div>
+                ]);
+                //echo $form->errorSummary($model);	
+                ?>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'pet_type')->dropDownList($model->getPetCategoryOptions(), ['prompt' => '']) ?>
+                </div>
+                <?php echo $form->field($model, 'type_id')->hiddenInput(['maxlength' => 100, 'value' => LostFoundPet::TYPE_FOUND])->label(false); ?>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'found_location')->textInput(['maxlength' => 255, "placeholder" => "Example: Bus Stand, Ferozepur"]); ?>
 
-                    <div class="form-group">
-                        <label>Upload Image</label>
-                        <input type="file" class="form-control">
-                    </div>
+                </div>
 
-                    <button class="btn btn-primary btn-block">Submit Found Report</button>
-                </form>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'date_found')->widget(
+                        yii\jui\DatePicker::class,
+                        [
+                            //'dateFormat' => 'php:Y-m-d',
+                            'options' => ['class' => 'form-control'],
+                            'clientOptions' =>
+                            [
+                                'minDate' => -15,
+                                'maxDate' => date('Y-m-d'),
+                                'changeMonth' => true,
+                                'changeYear' => true
+                            ]
+                        ]
+                    ); ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo $form->field($model, 'image')->fileInput(['class' => 'form-control'])  ?>
+                </div>
+                <div class="form-group">
+                    <?php echo $form->field($model, 'contact_detail')->textarea(['rows' => 6]);?>
+                </div>
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Submit Found Report') : Yii::t('app', 'Update'), ['id' => 'lost-found-pet-form-submit', 'class' => $model->isNewRecord ? 'btn btn-primary btn-block' : 'btn btn-primary btn-block']) ?>
+
+                <?php TActiveForm::end(); ?>
             </div>
         </div>
     </div>
@@ -151,28 +187,28 @@
     <div class="row">
 
         <!-- example cards -->
-        <div class="col-md-4">
-            <div class="pet-card">
-                <span class="badge badge-lost">LOST</span>
-                <img src="https://placekitten.com/400/300">
-                <h5 class="mt-3">Simba (Dog)</h5>
-                <p><i class="fa-solid fa-location-dot"></i> Last seen: Model Town, Ferozepur</p>
-                <button class="btn btn-outline-danger btn-sm btn-block">View Details</button>
-            </div>
-        </div>
+       <?= \yii\widgets\ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_alert', // your view file for each record
+            'options' => [
+                'tag' => 'div',
+                'class' => 'row',   // remove main wrapper class
+            ],
+            'itemOptions' => [
+                'tag' => 'div',
+                'class' => 'col-md-3',  // or 'div' with empty class
+            ],
+            'summaryOptions' => [
+                'tag' => 'div',
+                'class' => 'row col-md-12',   // remove summary class
+            ],
+            'summary' => false,
+            'pager' => ['options' => ['style' => 'display:none']],
+        ]) ?> 
 
-        <div class="col-md-4">
-            <div class="pet-card">
-                <span class="badge badge-found">FOUND</span>
-                <img src="https://placekitten.com/401/300">
-                <h5 class="mt-3">Unknown Cat</h5>
-                <p><i class="fa-solid fa-location-dot"></i> Found at: Railway Road</p>
-                <button class="btn btn-outline-success btn-sm btn-block">View Details</button>
-            </div>
-        </div>
+
+        
 
     </div>
 
 </div>
-
-

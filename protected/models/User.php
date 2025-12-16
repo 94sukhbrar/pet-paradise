@@ -389,9 +389,9 @@ class User extends \app\components\TActiveRecord implements \yii\web\IdentityInt
         Page::deleteRelatedAll([
             'created_by_id' => $this->id
         ]);
-        Comment::deleteRelatedAll([
-            'created_by_id' => $this->id
-        ]);
+        // Comment::deleteRelatedAll([
+        //     'created_by_id' => $this->id
+        // ]);
         Notice::deleteRelatedAll([
             'created_by_id' => $this->id
         ]);

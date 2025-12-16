@@ -59,7 +59,7 @@ class Pet extends PetModel
                 ]
             ]
         ]);
-        if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN && Yii::$app->controller->id !='site') {
+        if (!empty(Yii::$app->user->identity) && Yii::$app->user->identity->role_id !== User::ROLE_ADMIN && Yii::$app->controller->id !='site') {
             $query = $query->andFilterWhere(['p.created_by_id' => Yii::$app->user->identity->id]);
         }
          if ( Yii::$app->controller->id =='site') {

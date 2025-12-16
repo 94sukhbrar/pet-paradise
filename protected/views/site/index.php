@@ -28,13 +28,13 @@ use yii\helpers\Url;
         <small class="meta">Showing latest 6</small>
       </div>
 
+
       <div class="row">
         <!-- Example post card (repeat) -->
         <?= \yii\widgets\ListView::widget([
           'dataProvider' => $dataProvider,
           'itemView' => '_post', // your view file for each record
           'summary' => false,
-          'pager'=>false,
           'options' => [
             'tag' => 'div',
             'class' => 'row',   // remove main wrapper class
@@ -51,8 +51,8 @@ use yii\helpers\Url;
 
     <!-- SIDEBAR -->
     <div class="col-lg-4">
-      
-      <?= $this->render('_sidebar',['model'=>$model]) ?>
+
+      <?= $this->render('_sidebar', ['model' => $model]) ?>
     </div>
   </div>
 </div>

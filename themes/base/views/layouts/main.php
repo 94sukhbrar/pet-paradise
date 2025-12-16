@@ -35,8 +35,8 @@ $this->beginPage() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16"
-		href="<?= $this->theme->getUrl('assets/images/favicon.png') ?>">
+	<!-- <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->theme->getUrl('/assets/images/favicon-32x32.png') ?>"> -->
+	
 	<title><?= Html::encode($this->title) ?></title>
 
 	<!-- Custom CSS -->
@@ -86,12 +86,12 @@ $this->beginPage() ?>
 				<!-- Logo -->
 				<!-- ============================================================== -->
 				<div class="navbar-header">
-					<a class="navbar-brand logo-hidden" href="<?= Url::home() ?>"> <img
-							src="<?= $this->theme->getUrl('img/logoblack.png') ?>"
-							alt="homepage" class="dark-logo" /></a> <a
-						class="navbar-brand responsive-show" href="/tsaro-web-1181/"> <img
-							src="<?= $this->theme->getUrl('img/logoblack-small.png') ?>"
-							alt="homepage" class="dark-logo" /></a>
+					<a class="navbar-brand logo-hidden p-4" href="<?= Url::home() ?>"> 
+						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
+					</a> 
+					<a class="navbar-brand responsive-show" href="/tsaro-web-1181/"> 
+						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
+					</a>
 				</div>
 				<!-- ============================================================== -->
 				<!-- End Logo -->
@@ -107,7 +107,7 @@ $this->beginPage() ?>
 								class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
 								href="javascript:void(0)"><i class="icon-arrow-left-circle"></i></a>
 						</li>
-						<?= NotificationWidget::widget() ?>
+						<?php //NotificationWidget::widget() ?>
 					</ul>
 					<!-- ============================================================== -->
 					<!-- User profile and search -->
@@ -161,14 +161,14 @@ $this->beginPage() ?>
 
 
 						<?php
-
-						echo \lajax\languagepicker\widgets\LanguagePicker::widget([
-							'itemTemplate' => '<li class="nav-item dropdown"><a href="{link}" title="{language}"><i id="{language}"></i> {name}</a></li>',
-							'activeItemTemplate' => '<a href="{link}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" title="{language}"><i id="{language}"></i> {name}</a>',
-							'parentTemplate' => '<li class="language-picker nav-item dropdown dropdown-list {size}">{activeItem}<ul class="dropdown-menu dropdown-menu-right animated flipInY">{items}</ul></li>',
-							'languageAsset' => 'lajax\languagepicker\bundles\LanguageLargeIconsAsset', // StyleSheets
-							'languagePluginAsset' => 'lajax\languagepicker\bundles\LanguagePluginAsset' // JavaScripts
-						]);
+//language picker
+						// echo \lajax\languagepicker\widgets\LanguagePicker::widget([
+						// 	'itemTemplate' => '<li class="nav-item dropdown"><a href="{link}" title="{language}"><i id="{language}"></i> {name}</a></li>',
+						// 	'activeItemTemplate' => '<a href="{link}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" title="{language}"><i id="{language}"></i> {name}</a>',
+						// 	'parentTemplate' => '<li class="language-picker nav-item dropdown dropdown-list {size}">{activeItem}<ul class="dropdown-menu dropdown-menu-right animated flipInY">{items}</ul></li>',
+						// 	'languageAsset' => 'lajax\languagepicker\bundles\LanguageLargeIconsAsset', // StyleSheets
+						// 	'languagePluginAsset' => 'lajax\languagepicker\bundles\LanguagePluginAsset' // JavaScripts
+						// ]);
 						?>
 
 					</ul>
@@ -250,9 +250,9 @@ $this->beginPage() ?>
 				</div>
 
 				<?php
-				if (yii::$app->hasModule('shadow')) {
-					echo app\modules\shadow\components\ShadowWidget::widget();
-				}
+				// if (yii::$app->hasModule('shadow')) {
+				// 	echo app\modules\shadow\components\ShadowWidget::widget();
+				// }
 				?>
 				<?= FlashMessage::widget(['type' => 'toster' /* 'position' => 'bottom-right' */]) ?>
 

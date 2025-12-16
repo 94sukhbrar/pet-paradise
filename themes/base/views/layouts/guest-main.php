@@ -26,20 +26,17 @@ $this->beginPage() ?>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16"	href="../assets/images/favicon.png">
+	<!-- <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->theme->getUrl('/assets/images/favicon-32x32.png') ?>"> -->
 	<title><?= Html::encode('Pet Paradise') ?></title>
 
 	<link href="<?= $this->theme->getUrl('css/guestMain.css') ?>" rel="stylesheet">
 	<link href="<?= $this->theme->getUrl('css/glyphicon.css') ?>" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
 </head>
 
-<body  class="theme-turquoise">
-	<?php
-
-	$this->beginBody() ?>
+<body class="theme-turquoise">
+	<?php $this->beginBody() ?>
 	<!-- ============================================================== -->
 	<!-- Preloader - style you can find in spinners.css -->
 	<!-- ============================================================== -->
@@ -51,7 +48,11 @@ $this->beginPage() ?>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container">
-			<a class="navbar-brand" href="<?= Url::toRoute(['/site/index']) ?>">Pet<span >Paradise</span></a>
+			<a class="navbar-brand" href="<?= Url::toRoute(['/site/index']) ?>">Divine<span>Paws</span><br>
+				<p style="    font-size: 11px;
+    font-weight: 400;">Love, Care & Protection for Every Paw</p>
+			</a>
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -66,7 +67,7 @@ $this->beginPage() ?>
 					<?php
 					if (!Yii::$app->user->isGuest) { ?>
 						<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute('/dashboard/index') ?>">Dashboard</a></li>
-						<li class="nav-item"><a class="nav-link"  href="<?= Url::toRoute('/user/logout') ?>"><i class="fa fa-power-off" title="logout"></i></a></li>
+						<li class="nav-item"><a class="nav-link" href="<?= Url::toRoute('/user/logout') ?>"><i class="fa fa-power-off" title="logout"></i></a></li>
 					<?php
 					} else {
 					?>
@@ -77,7 +78,7 @@ $this->beginPage() ?>
 		</div>
 	</nav>
 	<section id="wrapper">
-		<?= FlashMessage::widget() ?>
+		<?= FlashMessage::widget(['type' => 'toster']) ?>
 		<?= $content ?>
 
 	</section>

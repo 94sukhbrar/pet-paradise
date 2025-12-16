@@ -51,7 +51,6 @@ use yii\widgets\Pjax;
 		[
 			'attribute' => 'profile_picture',
 			'format' => 'raw',
-			//'filter' => isset($searchModel) ? $searchModel->getStateOptions() : null,
 			'value' => function ($data) {
 				return $data->displayImage($data->profile_picture, $options = [], $defaultImg = 'blog-header.jpg');
 			},
@@ -63,7 +62,7 @@ use yii\widgets\Pjax;
 				return $data->getRelatedDataLink('pet_category_id');
 			},
 		],
-		
+
 		[
 			'attribute' => 'state_id',
 			'format' => 'raw',

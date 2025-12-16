@@ -470,6 +470,30 @@ CREATE TABLE `tbl_pet_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `tbl_post` CHANGE `pet_id` `pet_id` INT(11) NULL;
+CREATE TABLE `tbl_lost_found_pet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pet_name` varchar(255) DEFAULT NULL,
+  `pet_type` varchar(100) NOT NULL,
+  `last_seen_location` varchar(255) DEFAULT NULL,
+  `date_lost` date DEFAULT NULL,
+  `found_location` varchar(255) DEFAULT NULL,
+  `date_found` date DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `reward_amount` decimal(10,2) DEFAULT NULL,
+  `state_id` int(11) NOT NULL DEFAULT 1 COMMENT '1=Active, 0=Closed',
+  `type_id` int(11) DEFAULT 0 NOT NULL COMMENT 'lost or found',
+  `created_on` datetime NOT NULL,
+  `updated_on` datetime DEFAULT NULL,
+  `created_by_id` int(11) DEFAULT NULL,
+  `updated_by_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tbl_alert_data_created_by_id` (`created_by_id`),
+  KEY `fk_tbl_alert_data_updated_by_id` (`updated_by_id`),
+  CONSTRAINT `fk_tbl_alert_data_created_by_id` FOREIGN KEY (`created_by_id`) REFERENCES `tbl_user` (`id`),
+  CONSTRAINT `fk_tbl_alert_data_updated_by_id` FOREIGN KEY (`updated_by_id`) REFERENCES `tbl_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `tbl_lost_found_pet` ADD `contact_detail` TEXT NULL AFTER `reward_amount`;
 --
 -- Dumping data for table `tbl_pet_category`
 --

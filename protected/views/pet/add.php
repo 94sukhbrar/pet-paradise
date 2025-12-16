@@ -13,7 +13,6 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Add');
 
 <div class="wrapper">
 	<div class="panel">
-
 		<div
 			class="pet-create">
 	<?=  \app\components\PageHeader::widget(); ?>

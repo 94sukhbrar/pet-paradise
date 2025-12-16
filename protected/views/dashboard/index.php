@@ -2,6 +2,7 @@
 use app\components\notice\Notices;
 use app\controllers\DashboardController;
 use app\models\EmailQueue;
+use app\models\LostFoundPet;
 use app\models\Pet;
 use app\models\Petcategory;
 use app\models\Post;
@@ -48,7 +49,7 @@ $this->params['breadcrumbs'][] = [
 	<!-- Column -->
 	<div class="col-md-6 col-lg-3">
 		<a href='<?=Url::toRoute(['//pet']);?>'>
-			<div class="card card-primary card-inverse">
+			<div class="card card-warning card-inverse">
 				<div class="box text-center">
 					<h1 class="font-light text-white"><?=$pets?></h1>
 					<h6 class="text-white"><?=Yii::t("app", 'Total Pet')?></h6>
@@ -70,7 +71,7 @@ $this->params['breadcrumbs'][] = [
 	</div>
 	<!-- Column -->
 	<!-- Column -->
-	<div class="col-md-6 col-lg-3">
+	<!-- <div class="col-md-6 col-lg-3">
 		<a href='<?=Url::toRoute(['petcategory/index']);?>'>
 			<div class="card card-inverse card-warning">
 				<div class="box text-center">
@@ -79,7 +80,19 @@ $this->params['breadcrumbs'][] = [
 				</div>
 			</div>
 		</a>
+	</div> -->
+	<?php if(Yii::$app->user->identity->role_id===User::ROLE_ADMIN){?>
+	<div class="col-md-6 col-lg-3">
+		<a href='<?=Url::toRoute(['user/index']);?>'>
+			<div class="card card-inverse card-danger">
+				<div class="box  text-center">
+					<h1 class="font-light text-white"><?=LostFoundPet::find()->count()?></h1>
+					<h6 class="text-white"><?=Yii::t("app", 'Total Pet Alerts')?></h6>
+				</div>
+			</div>
+		</a>
 	</div>
+	<?php } ?>
 	<!-- Column -->
 </div>
 
