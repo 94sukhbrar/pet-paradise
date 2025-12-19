@@ -76,7 +76,9 @@ $config = [
                 '<controller:[A-Za-z-]+>/<id:\d+>/<title>' => '<controller>/view',
                 '<controller:[A-Za-z-]+>/<id:\d+>' => '<controller>/view',
                 '<controller:[A-Za-z-]+>/<action:[A-Za-z-]+>/<id:\d+>' => '<controller>/<action>',
-                '<action:about|contact|privacy|settings|copyright|terms>' => 'site/<action>',
+                // Site action Url Rewrite
+                '<action:about|contact|privacy|settings|copyright|terms|adopt|feed|alerts|local-services|index>' => 'site/<action>',
+                
                
             ]
         ],
@@ -117,7 +119,11 @@ $config = [
                 ],
                 [
                     'loc' => '/contact-us'
-                ]
+                ],
+                [
+                    'loc' => '/site/adopt'
+                ],
+
             ],
             'enableGzip' => true
         ]
