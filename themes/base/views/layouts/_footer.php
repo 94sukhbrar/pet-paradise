@@ -69,7 +69,7 @@ use yii\helpers\Url;
     <!-- Bottom Bar -->
     <div class="footer-bottom">
         <div class="container text-center">
-            © <?= date('Y') ?> Pet Paradise. All Rights Reserved.
+            © <?= date('Y') ?> <?= Yii::$app->params['websiteName'];?>. All Rights Reserved.
         </div>
     </div>
 </footer>
