@@ -88,9 +88,11 @@ $this->beginPage() ?>
 				<div class="navbar-header">
 					<a class="navbar-brand logo-hidden p-4" href="<?= Url::home() ?>"> 
 						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
+						 <?= Yii::$app->params['websiteName'];?>
 					</a> 
 					<a class="navbar-brand responsive-show" href="/tsaro-web-1181/"> 
 						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
+						 <?= Yii::$app->params['shortName'];?>
 					</a>
 				</div>
 				<!-- ============================================================== -->

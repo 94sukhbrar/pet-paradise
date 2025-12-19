@@ -8,6 +8,7 @@ return [
     'adminEmail' => 'webdev.sukh@gmail.com',
     'company' => 'Queeny',
     'websiteName'=>"Divine Paws",
+    'shortName'=>"DPaws",
     'companyUrl' => 'https://www.queeny.me',
     'user.passwordResetTokenExpire' => 60 * 1024,
     'bsVersion' => '4.3.1',
