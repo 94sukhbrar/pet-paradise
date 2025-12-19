@@ -3,7 +3,7 @@
 <div class="container testimonial-section">
     <div class="text-center mb-5">
         <h2 class="font-weight-bold" style="color: var(--primary);">What Our Customers Say</h2>
-        <p style="color: #555;">Real feedback from pet owners who trust Pet Paradise</p>
+        <p style="color: #555;">Real feedback from pet owners who trust <?= Yii::$app->params['websiteName']?></p>
     </div>
 
     <div class="row">

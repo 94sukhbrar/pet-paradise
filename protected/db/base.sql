@@ -494,6 +494,7 @@ CREATE TABLE `tbl_lost_found_pet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `tbl_lost_found_pet` ADD `contact_detail` TEXT NULL AFTER `reward_amount`;
+ALTER TABLE `tbl_lost_found_pet` ADD `location` VARCHAR(255) NULL AFTER `date_found`;
 --
 -- Dumping data for table `tbl_pet_category`
 --

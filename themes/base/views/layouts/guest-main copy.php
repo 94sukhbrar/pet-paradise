@@ -27,7 +27,7 @@ $this->head()?>
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16"
 	href="../assets/images/favicon.png">
-<title><?=Html::encode('Pet Paradise')?></title>
+<title><?=Html::encode(Yii::$app->params['websiteName'])?></title>
 
 
 <!-- Custom CSS -->

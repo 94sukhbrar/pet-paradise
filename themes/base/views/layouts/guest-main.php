@@ -27,7 +27,7 @@ $this->beginPage() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon icon -->
 	<!-- <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->theme->getUrl('/assets/images/favicon-32x32.png') ?>"> -->
-	<title><?= Html::encode('Pet Paradise') ?></title>
+	<title><?= Html::encode(Yii::$app->params['websiteName']) ?></title>
 
 	<link href="<?= $this->theme->getUrl('css/guestMain.css') ?>" rel="stylesheet">
 	<link href="<?= $this->theme->getUrl('css/glyphicon.css') ?>" rel="stylesheet">
@@ -35,7 +35,7 @@ $this->beginPage() ?>
 
 </head>
 
-<body class="theme-turquoise">
+<body class="theme-turquoise" style="background:#e8f8f5;">
 	<?php $this->beginBody() ?>
 	<!-- ============================================================== -->
 	<!-- Preloader - style you can find in spinners.css -->
@@ -83,12 +83,12 @@ $this->beginPage() ?>
 
 	</section>
 
-	<footer class="mt-4">
+	<!-- <footer class="mt-4">
 		<div class="text-center py-3 meta">
-			© <strong>PetParadise</strong> — Made with <span style="color:var(--accent)">❤</span>
+			© <strong><?= Yii::$app->params['websiteName']?></strong> — Made with <span style="color:var(--accent)">❤</span>
 		</div>
-	</footer>
-	<?php //$this->render('_footer.php');
+	</footer> -->
+	<?= $this->render('_footer.php');
 	?>
 
 

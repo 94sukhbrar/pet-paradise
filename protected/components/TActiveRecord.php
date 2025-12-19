@@ -166,16 +166,16 @@ class TActiveRecord extends TBaseActiveRecord
 
 	public function updateHistory($comment)
 	{
-		$model = new Comment();
-		$model->model_type = get_class($this);
-		$model->model_id = $this->id;
-		$model->comment = $comment;
-		$model->state_id = Comment::STATE_ACTIVE;
-		if (! $model->save())
-		{
-			VarDumper::dump($model->errors);
-			return false;
-		}
+		// $model = new Comment();
+		// $model->model_type = get_class($this);
+		// $model->model_id = $this->id;
+		// $model->comment = $comment;
+		// $model->state_id = Comment::STATE_ACTIVE;
+		// if (! $model->save())
+		// {
+		// 	VarDumper::dump($model->errors);
+		// 	return false;
+		// }
 		return true;
 	}
 

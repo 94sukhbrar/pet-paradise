@@ -56,7 +56,8 @@ class SiteController extends TController
                             'contact-now',
                             'local-services',
                             'alerts',
-                            'events'
+                            'events',
+                            'lost-found'
                         ],
                         'allow' => true,
                         'roles' => [
@@ -169,6 +170,7 @@ class SiteController extends TController
     public function actionAdopt()
     {
         $this->layout = User::LAYOUT_GUEST_MAIN;
+        $model=new Pet();
         $searchModel = new SearchPet();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize = 10;
@@ -177,6 +179,7 @@ class SiteController extends TController
         $petCategory = Petcategory::find()->where(['state_id' => Petcategory::STATE_ACTIVE])->orderBy(['created_on' => SORT_DESC])->all();
 
         return $this->render('adopt', [
+            'model'=>$model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'petCategory' => $petCategory
@@ -238,6 +241,12 @@ class SiteController extends TController
         $model = new LostFoundPet();
         $model->loadDefaultValues();
         $model->state_id = LostFoundPet::STATE_NEW;
+        $dataProvider = new ActiveDataProvider([
+            'query' => LostFoundPet::find()->limit(4)->orderBy('id DESC')->where(['state_id'=>LostFoundPet::STATE_ACTIVE]),
+            'pagination' => [
+                'pageSize' => 4,
+            ],
+        ]);
 
         $model->checkRelatedData([
             'created_by_id' => User::class,
@@ -254,23 +263,17 @@ class SiteController extends TController
             if (!$model->save()) {
                 \Yii::$app->getSession()->setFlash('error', "Error !!" . $model->getErrorsString());
             } else {
-                if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
+                if ((isset(Yii::$app->user->identity)) && Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
                     \Yii::$app->getSession()->setFlash('success', "Your content is under admin review and will be published soon. ");
                 }
                 return $this->render('alerts', [
-                    'model' => new LostFoundPet()
+                    'model' => new LostFoundPet(),
+                    'dataProvider'=>$dataProvider
                 ]);
             }
         }
 
-        $searchModel = new SearchLostFoundPet();
-        $dataProvider = new ActiveDataProvider([
-            'query' => LostFoundPet::find()->limit(4)->orderBy('id DESC'),
-            'pagination' => [
-                'pageSize' => 4,
-            ],
-        ]);
-
+      
         return $this->render('alerts', [
             'model' => $model,
             'dataProvider' => $dataProvider
@@ -309,6 +312,19 @@ class SiteController extends TController
         ])->one();
         return $this->render('term', [
             'model' => $model
+        ]);
+    }
+    public function actionLostFound()
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        $model = new LostFoundPet();
+        $searchModel = new SearchLostFoundPet();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize = 8;
+        return $this->render('lost-found', [
+            'model'=>$model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 }

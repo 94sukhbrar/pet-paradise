@@ -51,9 +51,11 @@ class LostFoundPet extends \app\components\TActiveRecord
 	{
 		return (string)$this->pet_name;
 	}
-	const STATE_NEW 	= 0;
+	const STATE_NEW 		= 0;
 	const STATE_FINDING	 	= 1;
-	const STATE_CLOSE 	= 2;
+	const STATE_CLOSE 		= 2;
+	const STATE_ACTIVE 		= 3;
+
 
 	const TYPE_LOST	 	= 0;
 	const TYPE_FOUND 	= 1;
@@ -64,6 +66,7 @@ class LostFoundPet extends \app\components\TActiveRecord
 			self::STATE_NEW			=> "New",
 			self::STATE_FINDING 	=> "Finding",
 			self::STATE_CLOSE 		=> "Close",
+			self::STATE_ACTIVE 		=> "Active",
 		];
 	}
 	public function getState()
@@ -74,9 +77,10 @@ class LostFoundPet extends \app\components\TActiveRecord
 	public function getStateBadge()
 	{
 		$list = [
-			self::STATE_NEW		=> "primary",
-			self::STATE_FINDING 			=> "success",
+			self::STATE_NEW			=> "primary",
+			self::STATE_FINDING 	=> "success",
 			self::STATE_CLOSE 		=> "danger",
+			self::STATE_ACTIVE 		=> "warning",
 		];
 		return isset($list[$this->state_id]) ? \yii\helpers\Html::tag('span', $this->getState(), ['class' => 'label label-' . $list[$this->state_id]]) : 'Not Defined';
 	}
@@ -85,7 +89,8 @@ class LostFoundPet extends \app\components\TActiveRecord
 		return [
 			self::STATE_NEW	 	=> "New",
 			self::STATE_FINDING => "Finding",
-			self::STATE_CLOSE 	=> "Close"
+			self::STATE_CLOSE 	=> "Close",
+			self::STATE_ACTIVE 	=> "Active",
 		];
 	}
 
@@ -112,7 +117,7 @@ class LostFoundPet extends \app\components\TActiveRecord
 	}
 	public static function getPetCategoryOptions()
 	{
-		return ArrayHelper::Map(PetCategory::findActive()->all(), 'id', 'title');
+		return ArrayHelper::Map(Petcategory::findActive()->all(), 'id', 'title');
 	}
 	public function getCategory()
 	{
@@ -159,18 +164,18 @@ class LostFoundPet extends \app\components\TActiveRecord
 	public function rules()
 	{
 		return [
-			[['pet_name', 'last_seen_location', 'date_lost', 'found_location', 'date_found', 'image', 'reward_amount', 'contact_detail','updated_on', 'created_by_id', 'updated_by_id'], 'default', 'value' => null],
+			[['pet_name',  'date_lost',  'date_found', 'image', 'reward_amount', 'contact_detail', 'updated_on', 'created_by_id', 'updated_by_id'], 'default', 'value' => null],
 			[['state_id'], 'default', 'value' => 1],
 			[['type_id'], 'default', 'value' => 0],
-			[['pet_type', 'created_on','image','contact_detail'], 'required'],
+			[['pet_type', 'created_on', 'image', 'contact_detail', 'location'], 'required'],
 			[['date_lost', 'date_found', 'created_on', 'updated_on'], 'safe'],
 			[['reward_amount'], 'number'],
 			[['state_id', 'type_id', 'created_by_id', 'updated_by_id'], 'integer'],
-			[['pet_name', 'last_seen_location', 'found_location', 'image'], 'string', 'max' => 255],
+			[['pet_name',  'image'], 'string', 'max' => 255],
 			[['pet_type'], 'string', 'max' => 100],
 			[['created_by_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by_id' => 'id']],
 			[['updated_by_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by_id' => 'id']],
-			[['pet_name', 'last_seen_location', 'found_location', 'image', 'pet_type'], 'trim'],
+			[['pet_name', 'image', 'pet_type'], 'trim'],
 			[['pet_name'], 'app\components\TNameValidator'],
 			[['state_id'], 'in', 'range' => array_keys(self::getStateOptions())],
 			[['type_id'], 'in', 'range' => array_keys(self::getTypeOptions())]
@@ -188,13 +193,12 @@ class LostFoundPet extends \app\components\TActiveRecord
 			'id' => Yii::t('app', 'ID'),
 			'pet_name' => Yii::t('app', 'Pet Name'),
 			'pet_type' => Yii::t('app', 'Pet Type'),
-			'last_seen_location' => Yii::t('app', 'Last Seen Location'),
 			'date_lost' => Yii::t('app', 'Date Lost'),
-			'found_location' => Yii::t('app', 'Found Location'),
 			'date_found' => Yii::t('app', 'Date Found'),
+			'location' => Yii::t('app', 'Location'),
 			'image' => Yii::t('app', 'Image'),
 			'reward_amount' => Yii::t('app', 'Reward Amount'),
-			'contact_detail'=>Yii::t('app', 'Contact Details'),
+			'contact_detail' => Yii::t('app', 'Contact Details'),
 			'state_id' => Yii::t('app', 'State'),
 			'type_id' => Yii::t('app', 'Type'),
 			'created_on' => Yii::t('app', 'Created On'),

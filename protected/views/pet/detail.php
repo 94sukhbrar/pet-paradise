@@ -77,7 +77,7 @@ use yii\helpers\Url;
         <div class="col-md-8">
 
             <!-- Pet Name -->
-            <h1 class="pet-title"><?= !empty($model->name) ? $model->name : 'Simba' ?><?= !empty($model->breed) ? $model->breed : ' (Golden Retriever)' ?> </h1>
+            <h1 class="pet-title  text-uppercase"><?= !empty($model->name) ? $model->name .' ': 'Simba ' ?><?= !empty($model->breed) ? $model->breed : ' (Golden Retriever)' ?> </h1>
 
             <!-- Photo -->
 

@@ -91,6 +91,14 @@ class Pet extends PetModel
         //->andWhere(['c.id' => Yii::$app->request->get('pet_category_id')]);
         $query->andFilterWhere(['pet_category_id' => Yii::$app->request->get('pet_category_id')]);
 
+        
+        if (!empty($params)) {
+            $query->andFilterWhere([
+                'gender' => $this->gender,
+                'pet_category_id' => $this->pet_category_id,
+                'type_id' => $this->type_id,
+            ]);
+        }
 
         return $dataProvider;
     }

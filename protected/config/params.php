@@ -6,7 +6,8 @@
 */
 return [
     'adminEmail' => 'webdev.sukh@gmail.com',
-    'company' => 'Queer nexus',
+    'company' => 'Queeny',
+    'websiteName'=>"Divine Paws",
     'companyUrl' => 'https://www.queeny.me',
     'user.passwordResetTokenExpire' => 60 * 1024,
     'bsVersion' => '4.3.1',

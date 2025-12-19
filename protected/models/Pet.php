@@ -52,8 +52,8 @@ class Pet extends \app\components\TActiveRecord
 	const STATE_DELETED 	= 2;
 	const GENDER_MALE 	= 1;
 	const GENDER_FEMALE 	= 2;
-	const TYPE_FREE 	= 1;
-	const TYPE_SALE 	= 2;
+	const TYPE_ADOPT 	= 1;
+	const TYPE_BUY 	= 2;
 
 	public static function getStateOptions()
 	{
@@ -83,8 +83,8 @@ class Pet extends \app\components\TActiveRecord
 	public static function getTypeOptions()
 	{
 		return [
-			self::TYPE_FREE		=> "Free",
-			self::TYPE_SALE 	=> "Sale"
+			self::TYPE_ADOPT		=> "Adoption",
+			self::TYPE_BUY 			=> "Buy"
 		];
 	}
 	public static function getGenderOptions()
@@ -136,6 +136,12 @@ class Pet extends \app\components\TActiveRecord
 		$totalHours = ($diff->days * 24) + $diff->h + ($diff->i / 60);
 
 
+		if(Yii::$app->controller->action->id=='adopt' && $totalHours > 24){
+			if($diff->days > 365){
+				return floor($diff->days/365). ' Year';
+			}
+			return floor( $diff->days/30).' months';
+		}
 		if ($totalHours < 24) {
 			return round($totalHours) . " hours ";
 		} else {

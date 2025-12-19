@@ -68,14 +68,14 @@
                 <img src="<?= $this->theme->getUrl('img/about.png') ?> " alt="" class="w-100">
             </div>
             <div class="col-md-6">
-                <h2 class="section-title">About Pet Paradise</h2>
+                <h2 class="section-title">About <?= Yii::$app->params['websiteName']?></h2>
 
                 <p class="text-justify">
-                    At Pet Paradise, we believe pets are not just animals — they are family.
+                    At <?= Yii::$app->params['websiteName']?>, we believe pets are not just animals — they are family.
                     Our mission is to provide a safe, loving, and trusted place where pet parents can find everything their furry companions need to live happy and healthy lives.
                 </p>
                 <p class="text-justify">
-                    From premium pet grooming and quality pet food to toys, clothing, and adoption support, we are committed to offering services that focus on comfort, care, and compassion. Every pet that walks into Pet Paradise is treated with love, patience, and professional attention. </p>
+                    From premium pet grooming and quality pet food to toys, clothing, and adoption support, we are committed to offering services that focus on comfort, care, and compassion. Every pet that walks into <?= Yii::$app->params['websiteName']?> is treated with love, patience, and professional attention. </p>
 
                 <p class="text-justify">
                     Based in Ferozepur, we proudly serve our local pet community while also connecting pet lovers through adoption, care guidance, and responsible pet parenting. Our team consists of trained professionals who truly understand pets and their unique needs.

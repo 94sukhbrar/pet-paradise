@@ -21,7 +21,7 @@ use yii\helpers\Url;
         <h1 class="post-title">Top Grooming Tips to Keep Your Pet Happy</h1>
 
         <p class="post-meta mb-4">
-            Posted on <strong><?= Yii::$app->formatter->asDate($model->created_on, 'php:d F Y'); ?></strong> • By <strong><?= $model->getRelatedDataLink('created_by_id') ?> (Pet Paradise Team)</strong>
+            Posted on <strong><?= Yii::$app->formatter->asDate($model->created_on, 'php:d F Y'); ?></strong> • By <strong><?= $model->getRelatedDataLink('created_by_id') ?> (<?= Yii::$app->params['websiteName']?> Team)</strong>
         </p>
 
         <p class="lead">

@@ -1,14 +1,16 @@
 <?php
+
 /**
  *
  *@copyright :Amusoftech Pvt. Ltd. < www.amusoftech.com >
-*@author     : Sukhwinder Kaur< er.brarsukh@gmail.com >
+ *@author     : Sukhwinder Kaur< er.brarsukh@gmail.com >
  *
  * All Rights Reserved.
  * Proprietary and confidential :  All information contained herein is, and remains
  * the property of Amusoftech Pvt. Ltd. and its partners.
  * Unauthorized copying of this file, via any medium is strictly prohibited.
  */
+
 namespace app\controllers;
 
 use Yii;
@@ -21,48 +23,63 @@ use app\components\filters\AccessControl;
 use app\models\User;
 use yii\web\HttpException;
 use app\components\TActiveForm;
+use yii\data\ActiveDataProvider;
+
 /**
  * LostFoundPetController implements the CRUD actions for LostFoundPet model.
  */
 class LostFoundPetController extends TController
 {
-  public function behaviors() {
-		return [
-				'access' => [
-						'class' => AccessControl::className (),
-						'ruleConfig' => [
-								'class' => AccessRule::className ()
-						],
-						'rules' => [
-								[
-										'actions' => [
-												'clear',
-												'delete',
-										],
-										'allow' => true,
-										'matchCallback' => function () {
-                                            return User::isAdmin();
-                                        }
-								],
-								[
-										'actions' => [
-												'index',
-												'add',
-												'view',
-												'update',
-												'clone',
-												'ajax',
-												'mass'
-										],
-										'allow' => true,
-										'roles' => [
-												'@'
-										]
-								]
-								
-						]
-				],
-				'verbs' => [
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'ruleConfig' => [
+                    'class' => AccessRule::className()
+                ],
+                'rules' => [
+                    [
+                        'actions' => [
+                            'clear',
+                            'delete',
+                        ],
+                        'allow' => true,
+                        'matchCallback' => function () {
+                            return User::isAdmin();
+                        }
+                    ],
+                    [
+                        'actions' => [
+                            'index',
+                            'add',
+                            'view',
+                            'update',
+                            'clone',
+                            'ajax',
+                            'mass',
+                            'detail'
+                        ],
+                        'allow' => true,
+                        'roles' => [
+                            '@'
+                        ]
+                    ],
+                    [
+                        'actions' => [
+                            'detail'
+                        ],
+                        'allow' => true,
+                        'roles' => [
+                            '@',
+                            '?',
+                            '*'
+                        ]
+                    ]
+
+                ]
+            ],
+            'verbs' => [
                 'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'delete' => [
@@ -70,8 +87,8 @@ class LostFoundPetController extends TController
                     ]
                 ]
             ]
-		];
-	}
+        ];
+    }
 
 
     /**
@@ -82,7 +99,7 @@ class LostFoundPetController extends TController
     {
         $searchModel = new LostFoundPetSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
- 		$this->updateMenuItems();
+        $this->updateMenuItems();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -98,14 +115,42 @@ class LostFoundPetController extends TController
     {
         $model = $this->findModel($id);
         $this->updateMenuItems($model);
-        if(Yii::$app->request->isAjax) 
-		{
-    		return $this->renderAjax('view', [
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('view', [
                 'model' => $model
             ]);
         }
         return $this->render('view', [
             'model' => $model
+        ]);
+    }
+
+    /**
+     * Displays a single LostFoundPet model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDetail($id)
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        $model = $this->findModel($id);
+        $this->updateMenuItems($model);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('view', [
+                'model' => $model
+            ]);
+        }
+        $searchModel = new LostFoundPetSearch();
+        $dataProvider = new ActiveDataProvider([
+            'query' => LostFoundPet::find()->limit(4)->orderBy('id DESC'),
+            'pagination' => [
+                'pageSize' => 4,
+            ],
+        ]);
+
+        return $this->render('detail', [
+            'model' => $model,
+            'dataProvider'=>$dataProvider
         ]);
     }
 
@@ -125,7 +170,7 @@ class LostFoundPetController extends TController
         }
         return $response;
     }
-    
+
     /**
      * Creates a new LostFoundPet model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -136,8 +181,8 @@ class LostFoundPetController extends TController
         $model = new LostFoundPet();
         $model->loadDefaultValues();
         $model->state_id = LostFoundPet::STATE_ACTIVE;
-        
-       /* if (is_numeric($id)) {
+
+        /* if (is_numeric($id)) {
             $post = Post::findOne($id);
             if ($post == null)
             {
@@ -146,25 +191,24 @@ class LostFoundPetController extends TController
             $model->id = $id;
                 
         }*/
-        
+
         $model->checkRelatedData([
-       	'created_by_id' => User::class,
-	'updated_by_id' => User::class,
+            'created_by_id' => User::class,
+            'updated_by_id' => User::class,
         ]);
-		$post = \yii::$app->request->post ();
-		if (\yii::$app->request->isAjax && $model->load ( $post )) {
-			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-			return TActiveForm::validate ( $model );
-		}
+        $post = \yii::$app->request->post();
+        if (\yii::$app->request->isAjax && $model->load($post)) {
+            \yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return TActiveForm::validate($model);
+        }
         if ($model->load($post) && $model->save()) {
-            \Yii::$app->getSession()->setFlash('success', \Yii::t('app', "Record has been added Successfully."));        
+            \Yii::$app->getSession()->setFlash('success', \Yii::t('app', "Record has been added Successfully."));
             return $this->redirect($model->getUrl());
         }
         $this->updateMenuItems();
         return $this->render('add', [
-                'model' => $model,
-            ]);
-
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -177,19 +221,18 @@ class LostFoundPetController extends TController
     {
         $model = $this->findModel($id);
 
- 		$post = \yii::$app->request->post ();
-		if (\yii::$app->request->isAjax && $model->load ( $post )) {
-			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-			return TActiveForm::validate ( $model );
-		}
+        $post = \yii::$app->request->post();
+        if (\yii::$app->request->isAjax && $model->load($post)) {
+            \yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return TActiveForm::validate($model);
+        }
         if ($model->load($post) && $model->save()) {
             \Yii::$app->getSession()->setFlash('success', \Yii::t('app', "Record has been updated Successfully."));
             return $this->redirect($model->getUrl());
         }
         $this->updateMenuItems($model);
-        if(Yii::$app->request->isAjax) 
-		{
-    		return $this->renderAjax('update', [
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('update', [
                 'model' => $model
             ]);
         }
@@ -197,7 +240,7 @@ class LostFoundPetController extends TController
             'model' => $model
         ]);
     }
-    
+
     /**
      * Clone an existing LostFoundPet model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -207,41 +250,40 @@ class LostFoundPetController extends TController
     public function actionClone($id)
     {
         $old = $this->findModel($id);
-        
+
         $model = new LostFoundPet();
         $model->loadDefaultValues();
         $model->state_id = LostFoundPet::STATE_ACTIVE;
-        
-        		 	 $model->pet_name  = $old->pet_name;
-				 	 $model->pet_type  = $old->pet_type;
-				 	 $model->last_seen_location  = $old->last_seen_location;
-				 	 $model->date_lost  = $old->date_lost;
-				 	 $model->found_location  = $old->found_location;
-				 	 $model->date_found  = $old->date_found;
-				 	 $model->image  = $old->image;
-				 	 $model->reward_amount  = $old->reward_amount;
-		//$model->state_id  = $old->state_id		 	 $model->state_id  = $old->state_id;
-				 	 $model->type_id  = $old->type_id;
-		//$model->created_on  = $old->created_on		 	 $model->created_on  = $old->created_on;
-				 	 $model->updated_on  = $old->updated_on;
-		//$model->created_by_id  = $old->created_by_id		 	 $model->created_by_id  = $old->created_by_id;
-				 	 $model->updated_by_id  = $old->updated_by_id;
-				
- 		$post = \yii::$app->request->post ();
-		if (\yii::$app->request->isAjax && $model->load ( $post )) {
-			\yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-			return TActiveForm::validate ( $model );
-		}
+
+        $model->pet_name  = $old->pet_name;
+        $model->pet_type  = $old->pet_type;
+        $model->last_seen_location  = $old->last_seen_location;
+        $model->date_lost  = $old->date_lost;
+        $model->found_location  = $old->found_location;
+        $model->date_found  = $old->date_found;
+        $model->image  = $old->image;
+        $model->reward_amount  = $old->reward_amount;
+        //$model->state_id  = $old->state_id		 	 $model->state_id  = $old->state_id;
+        $model->type_id  = $old->type_id;
+        //$model->created_on  = $old->created_on		 	 $model->created_on  = $old->created_on;
+        $model->updated_on  = $old->updated_on;
+        //$model->created_by_id  = $old->created_by_id		 	 $model->created_by_id  = $old->created_by_id;
+        $model->updated_by_id  = $old->updated_by_id;
+
+        $post = \yii::$app->request->post();
+        if (\yii::$app->request->isAjax && $model->load($post)) {
+            \yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return TActiveForm::validate($model);
+        }
         if ($model->load($post) && $model->save()) {
             return $this->redirect($model->getUrl());
         }
         $this->updateMenuItems($model);
         return $this->render('update', [
-                'model' => $model,
-            ]);
-
+            'model' => $model,
+        ]);
     }
-    
+
     /**
      * Deletes an existing LostFoundPet model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -252,15 +294,14 @@ class LostFoundPetController extends TController
     {
         $model = $this->findModel($id);
 
-		if(\yii::$app->request->post())
-		{
-			$model->delete();
-			\Yii::$app->getSession()->setFlash('success', \Yii::t('app', "Record has been deleted Successfully."));
-        	return $this->redirect(['index']);
-		}
-		return $this->render('delete', [
-                'model' => $model,
-            ]);
+        if (\yii::$app->request->post()) {
+            $model->delete();
+            \Yii::$app->getSession()->setFlash('success', \Yii::t('app', "Record has been deleted Successfully."));
+            return $this->redirect(['index']);
+        }
+        return $this->render('delete', [
+            'model' => $model,
+        ]);
     }
     /**
      * Truncate an existing LostFoundPet model.
@@ -294,21 +335,20 @@ class LostFoundPetController extends TController
     {
         if (($model = LostFoundPet::findOne($id)) !== null) {
 
-			if ($accessCheck && ! ($model->isAllowed ()))
-				throw new HttpException ( 403, Yii::t ( 'app', 'You are not allowed to access this page.' ) );
+            if ($accessCheck && ! ($model->isAllowed()))
+                throw new HttpException(403, Yii::t('app', 'You are not allowed to access this page.'));
 
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-  
- protected function updateMenuItems($model = null)
+
+    protected function updateMenuItems($model = null)
     {
         switch (\Yii::$app->controller->action->id) {
-            
-            case 'add':
-                {
+
+            case 'add': {
                     $this->menu['manage'] = [
                         'label' => '<span class="glyphicon glyphicon-list"></span>',
                         'title' => Yii::t('app', 'Manage'),
@@ -319,8 +359,7 @@ class LostFoundPetController extends TController
                     ];
                 }
                 break;
-            case 'index':
-                {
+            case 'index': {
                     $this->menu['add'] = [
                         'label' => '<span class="glyphicon glyphicon-plus"></span>',
                         'title' => Yii::t('app', 'Add'),
@@ -338,12 +377,11 @@ class LostFoundPetController extends TController
                         'htmlOptions' => [
                             'data-confirm' => "Are you sure to delete these items?"
                         ],
-                         'visible' => false
+                        'visible' => false
                     ];
                 }
                 break;
-            case 'update':
-                {
+            case 'update': {
                     $this->menu['add'] = [
                         'label' => '<span class="glyphicon glyphicon-plus"></span>',
                         'title' => Yii::t('app', 'add'),
@@ -362,10 +400,9 @@ class LostFoundPetController extends TController
                     ];
                 }
                 break;
- 
+
             default:
-            case 'view':
-                {
+            case 'view': {
                     $this->menu['manage'] = [
                         'label' => '<span class="glyphicon glyphicon-list"></span>',
                         'title' => Yii::t('app', 'Manage'),
@@ -381,7 +418,7 @@ class LostFoundPetController extends TController
                             'url' => $model->getUrl('clone'),
                             'visible' => false
                         );
-                      $this->menu['update'] = [
+                        $this->menu['update'] = [
                             'label' => '<span class="glyphicon glyphicon-pencil"></span>',
                             'title' => Yii::t('app', 'Update'),
                             'url' => $model->getUrl('update')
@@ -392,7 +429,7 @@ class LostFoundPetController extends TController
                             'title' => Yii::t('app', 'Delete'),
                             'htmlOptions' => [
                                 'data-method' => 'post'
-                             ],
+                            ],
                             'url' => $model->getUrl('delete')
                             // 'visible' => User::isAdmin ()
                         ];
@@ -400,6 +437,4 @@ class LostFoundPetController extends TController
                 }
         }
     }
-
-
- }
+}

@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = [
 	</div> -->
 	<?php if(Yii::$app->user->identity->role_id===User::ROLE_ADMIN){?>
 	<div class="col-md-6 col-lg-3">
-		<a href='<?=Url::toRoute(['user/index']);?>'>
+		<a href='<?=Url::toRoute(['lost-found-pet/index']);?>'>
 			<div class="card card-inverse card-danger">
 				<div class="box  text-center">
 					<h1 class="font-light text-white"><?=LostFoundPet::find()->count()?></h1>
