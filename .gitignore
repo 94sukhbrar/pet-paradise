@@ -3,12 +3,11 @@
 /assets/
 /.buildpath
 /protected/vendor
-/protected/runtime/*
+/protected/runtime
+/protected/runtime/debug/*
+/protected/runtime/log/*
 /protected/modules/*
-
 /protected/uploads/
-
-
 tests/_output/*
 /vendor
 /protected/config/db-dev.php
