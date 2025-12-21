@@ -90,8 +90,8 @@ class Pet extends \app\components\TActiveRecord
 	public static function getGenderOptions()
 	{
 		return [
-			self::GENDER_FEMALE		=> '<span class="text-primary">Female &#9794;</span>',
-			self::GENDER_MALE 		=> '<span class="text-primary">Male &#9794;</span>'
+			self::GENDER_FEMALE		=> '<span class="text-primary">Female <i class="fas fa-venus"></i></span>',
+			self::GENDER_MALE 		=> '<span class="text-primary">Male <i class="fas fa-mars"></i></span>'
 		];
 	}
 	public static function getGenders()

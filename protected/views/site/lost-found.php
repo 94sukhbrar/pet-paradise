@@ -23,24 +23,29 @@ use yii\widgets\ListView;
     ]); ?>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?= $form->field($model, 'type_id')
                 ->dropDownList([0 => 'Lost', 1 => 'Found'], ['prompt' => 'Lost / Found'])
-                ->label(false) ?>
+                ->label(false)->error(false) ?>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?= $form->field($model, 'pet_type')
-                ->dropDownList($model->getPetCategoryOptions(), ['prompt' => ''])
-                ->label(false) ?>
+                ->dropDownList($model->getPetCategoryOptions(), ['prompt' => '--Select --'])
+                ->label(false)->error(false) ?>
         </div>
         <div class="col-md-3">
-        <?= $form->field($model, 'location')
-            ->textInput(['placeholder' => 'Location'])
-            ->label(false) ?>
-    </div>
+            <?= $form->field($model, 'location')
+                ->textInput(['placeholder' => 'Location'])
+                ->label(false)->error(false) ?>
+        </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?= Html::submitButton('Search', ['class' => 'btn btn-turquoise btn-block']) ?>
+        </div>
+        <div class="col-md-2">
+            <a href="<?= \yii\helpers\Url::to(['site/lost-found']) ?>" class="btn btn-block btn-secondary">
+                Clear Filters
+            </a>
         </div>
 
     </div>
@@ -57,7 +62,7 @@ use yii\widgets\ListView;
         </div>
     ",
 
-        'options' => ['class' => 'container','id'=>'pet-list'],
+        'options' => ['class' => 'container', 'id' => 'pet-list'],
         'itemOptions' => ['class' => 'col-lg-3 col-md-4 mb-4'],
         'summary' => "Displaying {begin} - {end} of {totalCount} posts",
         'pager' => [

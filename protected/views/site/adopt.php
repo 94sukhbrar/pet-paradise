@@ -24,22 +24,27 @@ use yii\widgets\ListView;
   ]); ?>
 
   <div class="row">
-    <div class="col-md-3">
-      <?php echo $form->field($model, 'gender')->dropDownList($model->getGenders(), ['prompt' => '-- Select Gender --'])->label(false)->error(false)  ?>
-    </div>
-    <div class="col-md-3">
 
+    <div class="col-md-3">
       <?php echo $form->field($model, 'pet_category_id')->dropDownList($model->getPetCategoryOptions(), ['prompt' => '-- Select Pet Type --'])->label(false)->error(false)  ?>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
+      <?php echo $form->field($model, 'gender')->dropDownList($model->getGenders(), ['prompt' => '-- Gender --'])->label(false)->error(false)  ?>
+    </div>
+    <div class="col-md-2">
       <?php echo $form->field($model, 'type_id')->dropDownList($model->getTypeOptions(), ['prompt' => 'Adopt/Buy'])->label(false)->error(false)   ?>
 
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <?= Html::submitButton('Search', ['class' => 'btn btn-turquoise btn-block']) ?>
     </div>
-
+    <div class="col-md-2">
+      <a href="<?= \yii\helpers\Url::to(['site/adopt']) ?>" class="btn btn-block btn-secondary">
+        Clear Filters
+      </a>
+    </div>
+    <div class="col-md-1"></div>
   </div>
 
   <?php TActiveForm::end();

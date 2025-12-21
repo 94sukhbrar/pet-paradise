@@ -10,7 +10,13 @@ use yii\helpers\Url;
   <h5 class="mt-3 text-capitalize">
      <?= $model->name ?>
     </h5>
-   <p class="text-capitalize"><strong>Breed : </strong><?= !empty($model->breed) ? $model->breed : 'Mix' ?> <br><strong>Age: </strong><?= $model->calculateAge($model->date_of_birth) ?></p>
+   <p class="text-capitalize">
+    <strong>Breed : </strong><?= !empty($model->breed) ? $model->breed : 'Mix' ?> 
+    <br>
+    <strong>Age: </strong><?= $model->calculateAge($model->date_of_birth);?>
+  <br>
+    <strong>Gender: </strong><?= $model->getGender();?>
+  </p>
   <p>
    
   <div>
