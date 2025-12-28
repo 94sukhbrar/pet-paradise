@@ -25,10 +25,9 @@ use yii\helpers\Url;
 						<?= $form->field($model, 'email', ['template' => '<div class="col-xs-12">{input}{error}</div>'])->textInput(['maxlength' => true, 'placeholder' => 'Email'])->label(false) ?>
 						<?= $form->field($model, 'password', ['template' => '<div class="col-xs-12">{input}{error}</div>'])->passwordInput(['maxlength' => true, 'placeholder' => 'Password'])->label(false) ?>
 						<?= $form->field($model, 'confirm_password', ['template' => '<div class="col-xs-12">{input}{error}</div>'])->passwordInput(['maxlength' => true, 'placeholder' => 'Confirm Password'])->label(false) ?>
-
 						<div class="form-group text-center m-t-20">
 							<div class="col-xs-12">
-								<?= Html::submitButton(Yii::t("app", 'Sign In'), ['class' => 'auth-btn', 'name' => 'signup-button']) ?>
+								<?= Html::submitButton(Yii::t("app", 'Sign Up'), ['class' => 'auth-btn', 'name' => 'signup-button']) ?>
 							</div>
 						</div>
 						<div class="form-group m-b-0">

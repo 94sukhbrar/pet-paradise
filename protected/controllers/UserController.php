@@ -416,14 +416,15 @@ class UserController extends TController
             return TActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post())) {
-            $model->state_id = User::STATE_ACTIVE;
+            $model->state_id = User::STATE_INACTIVE;
             $model->role_id = User::ROLE_USER;
             $model->email_verified = User::EMAIL_NOT_VERIFIED;
             if ($model->validate()) {
                 $model->scenario = User::SCENARIO_ADD;
                 $model->setPassword($model->password);
                 $model->generatePasswordResetToken();
-                if ($model->save()) {
+                if ($model->save()) { 
+                   
                     \Yii::$app->getSession()->setFlash('success', "Signup Successfull.");
                     return $this->redirect([
                         '/site/index'

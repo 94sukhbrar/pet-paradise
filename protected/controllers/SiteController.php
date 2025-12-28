@@ -99,7 +99,7 @@ class SiteController extends TController
     public function actionIndex()
     {
 
-        $this->layout = User::LAYOUT_GUEST_MAIN;
+        $this->layout = User::LAYOUT_PET_MAIN;
         $featured = Post::find()->orderBy(['id' => SORT_DESC])->limit(1)->one();
         $searchModel = new SearchPost();
         $dataProvider = new ActiveDataProvider([

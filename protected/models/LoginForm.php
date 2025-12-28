@@ -86,12 +86,12 @@ class LoginForm extends Model {
 	 */
 	public function login() {
 		if ($this->validate ()) {
-			$user = $this->getUser ();
+			$user = $this->getUser();
 			if ($user) {
 				if (! $user->isActive ()) {
 					$this->addError ( 'username', 'User is ' . $user->state );
 				} elseif (! $user->validatePassword ( $this->password )) {
-					$this->addError ( 'password', 'Incorrect username or password.' );
+					$this->addError ( 'password', 'Incorrect email or password.' );
 				}
 				if (! $this->hasErrors ()) {
 					LoginHistory::add ( true, $user, null );
@@ -127,4 +127,13 @@ class LoginForm extends Model {
 	        }
 	    return $out;
 	}
+	public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'username' => Yii::t('app', 'Email'),
+            'email' => Yii::t('app', 'Email'),
+            'password' => Yii::t('app', 'Password'),
+        ];
+    }
 }

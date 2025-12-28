@@ -1,74 +1,171 @@
-<?php
-
-use app\components\FlashMessage;
-use yii\helpers\Url;
-?>
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetLink</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="<?= $this->theme->getUrl('css/petLayout.css') ?>" id="theme" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/animate.css')?>">
+    
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/owl.carousel.min.css')?>">
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/owl.theme.default.min.css')?>">
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/magnific-popup.css')?>">
 
-<body>
 
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-md-2 sidebar">
-        <h4 class="mb-4"><i class="fa fa-paw"></i>&nbsp;PetLink</h4>
-        <a href="<?= Url::toRoute('/post/index') ?>"><i class="fa fa-home"></i> Feed</a>
-        <a href="<?= Url::toRoute('/site/discover') ?>"><i class="fa fa-compass"></i> Discover</a>
-        <a href="<?= Url::toRoute('/site/adopt') ?>"><i class="fa fa-heart"></i> Ready to Adopt</a>
-        <a href="<?= Url::toRoute('/site/local-services') ?>"><i class="fa fa-map"></i> Local Services</a>
-        <!-- <hr class="bg-light"> -->
-        <!-- <a href="<?= Url::toRoute('/site/alerts') ?>"><i class="fa fa-exclamation-triangle"></i> Lost Pet Alerts</a> -->
-        <!-- <a href="#"><i class="fa fa-chart-line"></i> Pet Growth Tracker</a> -->
-        <!-- <a href="<?= Url::toRoute('/site/events') ?>"><i class="fa fa-users"></i> Events & Communities</a> -->
-        <!-- <a href="#"><i class="fa fa-newspaper"></i> Articles</a> -->
-        <a href="<?=Url::toRoute(['site/contact'])?>"><i class="fa fa-envelope"></i> Contact</a>
-      </div>
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/bootstrap-datepicker.css')?>">
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/jquery.timepicker.css')?>">
 
-      <!-- Main Content -->
-      <div class="col-md-10">
-        <!-- Top bar -->
-        <?php
-        if (Yii::$app->user->isGuest) {         
-          ?>
-           <div class="top-bar">
-            <a href="<?= Url::toRoute('/user/login') ?>">
-              <button class="btn-signin">Sign In</button>
-            </a>
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/flaticon.css')?>">
+    <link rel="stylesheet" href="<?= $this->theme->getUrl('/pet/css/style.css')?>">
+  </head>
+  <body>
+
+    <div class="wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 d-flex align-items-center">
+						<p class="mb-0 phone pl-md-2">
+							<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a> 
+							<a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+						</p>
+					</div>
+					<div class="col-md-6 d-flex justify-content-md-end">
+						<div class="social-media">
+			    		<p class="mb-0 d-flex">
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+			    		</p>
+		        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
+	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+   
+
+    
+
+    <footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Petsitting</h2>
+						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+						<ul class="ftco-footer-social p-0">
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+					</div>
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Latest News</h2>
+						<div class="block-21 mb-4 d-flex">
+              <a class="img mr-4 rounded" style="background-image: url(<?= $this->theme->getUrl("/pet")?>images/image_1.jpg);"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="block-21 mb-4 d-flex">
+              <a class="img mr-4 rounded" style="background-image: url(<?= $this->theme->getUrl("/pet")?>images/image_2.jpg);"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+						<h2 class="footer-heading">Quick Links</h2>
+						<ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Home</a></li>
+              <li><a href="#" class="py-2 d-block">About</a></li>
+              <li><a href="#" class="py-2 d-block">Services</a></li>
+              <li><a href="#" class="py-2 d-block">Works</a></li>
+              <li><a href="#" class="py-2 d-block">Blog</a></li>
+              <li><a href="#" class="py-2 d-block">Contact</a></li>
+            </ul>
+					</div>
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+              </ul>
+            </div>
+					</div>
+				</div>
+				<div class="row mt-5">
+          <div class="col-md-12 text-center">
+
+            <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
         </div>
+			</div>
+		</footer>
 
-          <?php
-        } else {
-           ?>
-           <div class="top-bar">
-            <a href="<?= Url::toRoute('/user/logout') ?>">
-          <button class="btn-signin">Logout</button>
-          </a>
-        </div>
+    
+  
 
-          <?php
-        }
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-        ?>
-       <hr class="no-margin">
-        <!-- Feed Section -->
-        <div class="row px-4">
-            <?=FlashMessage::widget(['type' => 'toster' /* 'position' => 'bottom-right' */])?>
-          <?= $content; ?>
-        </div>
-      </div>
-    </div>
-  </div>
 
-</body>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery-migrate-3.0.1.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/popper.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/bootstrap.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.easing.1.3.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.waypoints.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.stellar.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.animateNumber.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/bootstrap-datepicker.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.timepicker.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/owl.carousel.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/jquery.magnific-popup.min.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/scrollax.min.js')?>"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/google-map.js')?>"></script>
+  <script src="<?= $this->theme->getUrl('/pet/js/main.js')?>"></script>
 
+
+    
+  </body>
 </html>

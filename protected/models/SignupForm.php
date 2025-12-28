@@ -37,7 +37,7 @@ class SignupForm extends Model {
 						'username',
 						'unique',
 						'targetClass' => '\common\models\User',
-						'message' => 'This username has already been taken.' 
+						'message' => 'This email has already been taken.' 
 				],
 				[ 
 						'username',
