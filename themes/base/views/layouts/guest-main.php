@@ -11,16 +11,12 @@ use yii\helpers\Url;
 AppAsset::register($this);
 
 ?>
-<?php
-
-$this->beginPage() ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 
 <head>
-	<?php
-
-	$this->head() ?>
+	<?php $this->head() ?>
 	<meta charset="<?= Yii::$app->charset ?>" />
 	<?= Html::csrfMetaTags() ?>
 	<!-- Tell the browser to be responsive to screen width -->
@@ -35,7 +31,7 @@ $this->beginPage() ?>
 
 </head>
 
-<body class="theme-turquoise" style="background:#e8f8f5;">
+<body class="theme-turquoise" >
 	<?php $this->beginBody() ?>
 	<!-- ============================================================== -->
 	<!-- Preloader - style you can find in spinners.css -->
@@ -126,12 +122,8 @@ $this->beginPage() ?>
 	</script>
 
 
-	<?php
-
-	$this->endBody() ?>
+	<?php $this->endBody() ?>
 </body>
-<?php
-
-$this->endPage() ?>
+<?php $this->endPage() ?>
 
 </html>

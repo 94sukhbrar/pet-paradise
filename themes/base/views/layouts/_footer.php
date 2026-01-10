@@ -11,10 +11,8 @@ use yii\helpers\Url;
 	</div>
 
 </div> -->
-<br>
-<br>
-<br>
-<footer class="footer-section mt-4">
+
+<footer class="footer-section">
     <div class="container">
         <div class="row">
 

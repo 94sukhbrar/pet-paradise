@@ -57,7 +57,8 @@ class SiteController extends TController
                             'local-services',
                             'alerts',
                             'events',
-                            'lost-found'
+                            'lost-found',
+                            'profile'
                         ],
                         'allow' => true,
                         'roles' => [
@@ -99,7 +100,7 @@ class SiteController extends TController
     public function actionIndex()
     {
 
-        $this->layout = User::LAYOUT_PET_MAIN;
+        $this->layout = User::LAYOUT_GUEST_MAIN;
         $featured = Post::find()->orderBy(['id' => SORT_DESC])->limit(1)->one();
         $searchModel = new SearchPost();
         $dataProvider = new ActiveDataProvider([
@@ -109,6 +110,15 @@ class SiteController extends TController
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'model' => $featured
+        ]);
+    }
+     public function actionProfile($id)
+    {
+        $this->layout = User::LAYOUT_GUEST_MAIN;
+        $model = User::find()->where(['id'=>$id]);
+        // print_r($model);die;
+        return $this->render('profile', [
+           'model' => $model
         ]);
     }
 

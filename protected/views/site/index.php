@@ -1,627 +1,596 @@
- <div class="hero-wrap js-fullheight" style="background-image: url('<?= $this->theme->getUrl("/pet/images/bg_1.jpg") ?>');" data-stellar-background-ratio="0.5">
-   <div class="overlay"></div>
-   <div class="container">
-     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-       <div class="col-md-11 ftco-animate text-center">
-         <h1 class="mb-4">Highest Quality Care For Pets You'll Love </h1>
-         <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
-       </div>
-     </div>
-   </div>
- </div>
+<?php
 
- <section class="ftco-section bg-light ftco-no-pt ftco-intro">
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-            <div class="d-block services active text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-            		<span class="flaticon-blind"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Dog Walking</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
-              </div>
-            </div>      
+use yii\helpers\Url;
+?>
+<style>
+  .hero-fixed {
+    position: relative;
+    height: 90vh;
+    background:
+      linear-gradient(rgba(31, 191, 183, 0),
+        rgba(31, 191, 183, 0)),
+      url('<?= $this->theme->getUrl("/img/bg_1.jpg") ?>') center center / cover no-repeat;
+
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+
+  .hero-fixed h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    /* color: #009688; */
+  }
+
+  .hero-fixed p {
+    font-size: 1.15rem;
+    margin: 20px 0 30px;
+  }
+
+
+  .btn-hero:hover {
+    background: #0c3f3c;
+    color: #fff;
+  }
+
+  .services-style {
+    background: #f8f9fa;
+    padding: 80px 0;
+    margin-top: -120px;
+    /* pulls cards up near hero */
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 60px 35px 50px;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: .4s;
+    height: 100%;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .service-card.active {
+    background: #009688;
+    color: #fff;
+  }
+
+  .service-card h3 {
+    margin-top: 30px;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 15px;
+  }
+
+  .service-card.active p {
+    color: #eafff3;
+  }
+
+  /* ICON CIRCLE */
+  .icon-circle {
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .icon-circle i {
+    font-size: 34px;
+    color: #009688;
+  }
+
+  /* ARROW BUTTON */
+  .arrow-btn {
+    width: 50px;
+    height: 50px;
+    background: #009688;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .service-card.active .arrow-btn {
+    background: #fff;
+    color: #009688;
+  }
+
+  .why-choose-us {
+    padding: 90px 0;
+    background: #ffffff;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .why-img {
+    max-width: 90%;
+  }
+
+  .why-box {
+    display: flex;
+    gap: 18px;
+  }
+
+  .why-icon {
+    width: 65px;
+    height: 65px;
+    background: #009688;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-icon i {
+    color: #fff;
+    font-size: 26px;
+  }
+
+  .why-text h5 {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .why-text p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.6;
+  }
+
+  /* COUNTER BAR */
+  .counter-bar {
+    background: #009688;
+    padding: 60px 0;
+    color: #fff;
+  }
+
+  .counter-bar h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color:#fff
+  }
+
+  .counter-bar p {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  /* FAQ SECTION */
+  .faq-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+  }
+
+  .faq-title {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .faq-desc {
+    color: #777;
+    margin: 20px 0 40px;
+  }
+
+  /* FAQ ITEM */
+  .faq-item {
+    background: #fff;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-question {
+    padding: 18px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #009688;
+  }
+
+  .faq-question span {
+    font-size: 22px;
+    color: #009688;
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 0 25px 20px;
+    font-size: 15px;
+    color: #666;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  /* IMAGE + PLAY BUTTON */
+  .faq-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    background: #009688;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .faq-question span.toggle-icon{
+  font-size:26px;
+  color:#009688;
+  font-weight:700;
+  transition:0.3s;
+}
+
+/* When accordion is open */
+.faq-item.active .faq-question span.toggle-icon{
+  content:"-";
+  color: #009688;
+}
+.features-divine{
+  padding:90px 0;
+  background:#f7fbfa;
+}
+
+.feature-title{
+  font-size:34px;
+  font-weight:700;
+}
+
+.feature-subtitle{
+  max-width:750px;
+  margin:15px auto 0;
+  color:#666;
+}
+
+.feature-card{
+  background:#fff;
+  border-radius:16px;
+  padding:35px 25px;
+  text-align:center;
+  height:100%;
+  transition:0.3s;
+  box-shadow:0 8px 25px rgba(0,0,0,0.06);
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.1);
+}
+
+.feature-icon{
+  width:70px;
+  height:70px;
+  background:#009688;
+  color:#fff;
+  font-size:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 20px;
+}
+
+.feature-card h5{
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.feature-card p{
+  font-size:15px;
+  color:#555;
+  line-height:1.6;
+}
+
+
+</style>
+<!-- HERO FIXED BACKGROUND -->
+<section class="hero-fixed">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h1>Premium Pet Care Services</h1>
+        <p>
+          Trusted pet sitting, walking & grooming — because your pet deserves the best.
+        </p>
+        <a href="#services" class="btn ">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services-style">
+  <div class="container">
+    <div class="row">
+
+      <!-- Service 1 (Active / Green) -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card active">
+          <div class="icon-circle">
+            <i class="fas fa-walking"></i>
           </div>
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-            <div class="d-block services text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-            		<span class="flaticon-dog-eating"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Pet Daycare</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-            <div class="d-block services text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-            		<span class="flaticon-grooming"></span>
-              </div>
-              <div class="media-body">
-                <h3 class="heading">Pet Grooming</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
-              </div>
-            </div>      
+          <h3>Dog Walking</h3>
+          <p>
+            Professional, safe, and energetic walks tailored to your dog’s pace, improving physical health, mental stimulation, social behavior, and daily happiness with trusted handlers.
+          </p>
+          <div class="arrow-btn">
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
-    	</div>
-    </section>
+      </div>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
-    	<div class="container">
-    		<div class="row d-flex no-gutters">
-    			<div class="col-md-5 d-flex">
-    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(<?= $this->theme->getUrl("/pet/images/about-1.jpg")?>);">
-    				</div>
-    			</div>
-    			<div class="col-md-7 pl-md-5 py-md-5">
-    				<div class="heading-section pt-md-5">
-	            <h2 class="mb-4">Why Choose Us?</h2>
-    				</div>
-    				<div class="row">
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Care Advices</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-customer-service"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Customer Supports</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-emergency-call"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Emergency Services</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Veterinary Help</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
-	    					</div>
-	    				</div>
-	    			</div>
-	        </div>
+      <!-- Service 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <div class="icon-circle">
+            <i class="fas fa-dog"></i>
+          </div>
+          <h3>Pet Daycare</h3>
+          <p>
+            A secure, playful daycare environment where pets socialize, exercise, and relax under expert supervision, giving owners complete peace of mind during busy schedules.
+          </p>
+          <div class="arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+          </div>
         </div>
-    	</div>
-    </section>
+      </div>
 
-    <section class="ftco-counter" id="section-counter">
-    	<div class="container">
-				<div class="row">
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="50">0</strong>
+      <!-- Service 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <div class="icon-circle">
+            <i class="fas fa-cut"></i>
+          </div>
+          <h3>Pet Grooming</h3>
+          <p>
+           Premium grooming services including bathing, trimming, nail care, and hygiene treatments, ensuring your pet looks great, feels comfortable, and stays healthy year-round.
+          </p>
+          <div class="arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-choose-us">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT IMAGE -->
+      <div class="col-md-5 mb-4 mb-md-0 text-center">
+        <img src="<?= $this->theme->getUrl("/img/about-1.jpg") ?>"
+          alt="Happy Dog"
+          class="img-fluid why-img">
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="col-md-7">
+        <h2 class="section-title">Why Choose Us?</h2>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-4">
+            <div class="why-box">
+              <div class="why-icon">
+                <i class="fas fa-stethoscope"></i>
               </div>
-              <div class="text">
-              	<span>Customer</span>
+              <div class="why-text">
+                <h5>Care Advices</h5>
+                <p>Expert tips on nutrition, hygiene, training, and wellness to keep your pet healthy, happy, and safe every day.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="8500">0</strong>
+
+          <div class="col-md-6 mb-4">
+            <div class="why-box">
+              <div class="why-icon">
+                <i class="fas fa-headset"></i>
               </div>
-              <div class="text">
-              	<span>Professionals</span>
+              <div class="why-text">
+                <h5>Customer Supports</h5>
+                <p>Our dedicated support team is always available to assist pet parents with questions, services, bookings, and community support needs.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="20">0</strong>
+
+          <div class="col-md-6 mb-4">
+            <div class="why-box">
+              <div class="why-icon">
+                <i class="fas fa-ambulance"></i>
               </div>
-              <div class="text">
-              	<span>Products</span>
+              <div class="why-text">
+                <h5>Emergency Services</h5>
+                <p>24/7 rapid-response support for pet emergencies, connecting you instantly with nearby vets, clinics, and lifesaving assistance.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="50">0</strong>
-              </div>
-              <div class="text">
-              	<span>Pets Hosted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
 
-    <section class="ftco-section bg-light ftco-faqs">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-lg-6 order-md-last">
-    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(<?= $this->theme->getUrl("/pet/images/about.jpg")?>);">
-    					<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-    						<span class="fa fa-play"></span>
-    					</a>
-    				</div>
-    				<div class="d-flex mt-3">
-    					<div class="img img-2 mr-md-2" style="background-image:url('<?= $this->theme->getUrl("/pet/images/about-2.jpg")?>');"></div>
-    					<div class="img img-2 ml-md-2" style="background-image:url('<?= $this->theme->getUrl("/pet/images/about-3.jpg")?>');"></div>
-    				</div>
-    			</div>
-
-    			<div class="col-lg-6">
-    				<div class="heading-section mb-5 mt-5 mt-lg-0">
-	            <h2 class="mb-3">Frequently Asks Questions</h2>
-	            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-    				</div>
-    				<div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
-						  <div class="card">
-						    <div class="card-header p-0" id="headingOne">
-						      <h2 class="mb-0">
-						        <button href="#collapseOne" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
-						        	<p class="mb-0">How to train your pet dog?</p>
-						          <i class="fa" aria-hidden="true"></i>
-						        </button>
-						      </h2>
-						    </div>
-						    <div class="collapse show" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
-						      <div class="card-body py-3 px-0">
-						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
-						      	</ol>
-						      </div>
-						    </div>
-						  </div>
-
-						  <div class="card">
-						    <div class="card-header p-0" id="headingTwo" role="tab">
-						      <h2 class="mb-0">
-						        <button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-						        	<p class="mb-0">How to manage your pets?</p>
-						          <i class="fa" aria-hidden="true"></i>
-						        </button>
-						      </h2>
-						    </div>
-						    <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo">
-						      <div class="card-body py-3 px-0">
-						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
-						      	</ol>
-						      </div>
-						    </div>
-						  </div>
-
-						  <div class="card">
-						    <div class="card-header p-0" id="headingThree" role="tab">
-						      <h2 class="mb-0">
-						        <button href="#collapseThree" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
-						        	<p class="mb-0">What is the best grooming for your pets?</p>
-						          <i class="fa" aria-hidden="true"></i>
-						        </button>
-						      </h2>
-						    </div>
-						    <div class="collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingTwo">
-						      <div class="card-body py-3 px-0">
-						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
-						      	</ol>
-						      </div>
-						    </div>
-						  </div>
-
-						  <div class="card">
-						    <div class="card-header p-0" id="headingFour" role="tab">
-						      <h2 class="mb-0">
-						        <button href="#collapseFour" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
-						        	<p class="mb-0">What are those requirements for sitting pets?</p>
-						          <i class="fa" aria-hidden="true"></i>
-						        </button>
-						      </h2>
-						    </div>
-						    <div class="collapse" id="collapseFour" role="tabpanel" aria-labelledby="headingTwo">
-						      <div class="card-body py-3 px-0">
-						      	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-	        </div>
-        </div>
-    	</div>
-    </section>
-    
-
-    <section class="ftco-section testimony-section" style="background-image: url('<?= $this->theme->getUrl("/pet/images/bg_2.jpg")?>');">
-    	<div class="overlay"></div>
-      <div class="container">
-        <div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>Happy Clients &amp; Feedbacks</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/person_1.jpg")?>)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
+          <div class="col-md-6 mb-4">
+            <div class="why-box">
+              <div class="why-icon">
+                <i class="fas fa-user-md"></i>
               </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/person_2.jpg")?>)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/person_3.jpg")?>)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/person_1.jpg")?>)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/person_2.jpg")?>)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
+              <div class="why-text">
+                <h5>Veterinary Help</h5>
+                <p>Access trusted veterinarians for checkups, vaccinations, emergency care, and expert medical guidance to keep pets healthy always.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+<?= $this->render('_features') ?>
+<!-- COUNTER BAR -->
+<section class="counter-bar">
+  <div class="container">
+    <div class="row text-center">
 
-    <section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>Affordable Packages</h2>
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <h2>50</h2>
+        <p>Customer</p>
+      </div>
+
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <h2>8,500</h2>
+        <p>Professionals</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <h2>20</h2>
+        <p>Products</p>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <h2>50</h2>
+        <p>Pets Hosted</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT FAQ -->
+      <div class="col-md-6 mb-5 mb-md-0">
+        <h2 class="faq-title">Frequently Asks Questions</h2>
+        <p class="faq-desc">
+          Far far away, behind the word mountains, far from the countries
+          Vokalia and Consonantia, there live the blind texts.
+        </p>
+
+        <div class="faq-item active">
+          <div class="faq-question">
+            Can pet owners post their pets and content for free?
+            <span class="toggle-icon">-</span>
+          </div>
+          <div class="faq-answer">
+            Yes, pet owners can create pet profiles and share posts on Divine Paws completely free of charge.
           </div>
         </div>
-    		<div class="row">
-    			<div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<div class="img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/pricing-1.jpg")?>);"></div>
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Personal</span>
-	            	<span class="price"><sup>$</sup> <span class="number">49</span> <sub>/mos</sub></span>
-	            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-		              <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-		            </ul>
 
-	            	<a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<div class="img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/pricing-2.jpg")?>);"></div>
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Business</span>
-		            <span class="price"><sup>$</sup> <span class="number">79</span> <sub>/mos</sub></span>
-		            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-		              <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-		            </ul>
-
-		            <a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<div class="img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/pricing-3.jpg")?>);"></div>
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Ultimate</span>
-		            <span class="price"><sup>$</sup> <span class="number">109</span> <sub>/mos</sub></span>
-		            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>5 Dog Walk</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
-		              <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
-		              <li><span class="fa fa-check mr-2"></span>Free Supports</li>
-		            </ul>
-
-		            <a href="#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-    	</div>
-    </section>
-		
-		<section class="ftco-section">
-			<div class="container">
-				<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>Pets Gallery</h2>
+        <div class="faq-item">
+          <div class="faq-question">
+           Are pet service providers verified on Divine Paws?
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+           Yes, all listed service providers go through a verification process for safety and trust.
           </div>
         </div>
-				<div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-1.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-1.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Cat</span>
-	              	<h2><a href="work-single.html">Persian Cat</a></h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-2.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-2.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Dog</span>
-	              	<h2><a href="work-single.html">Pomeranian</a></h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-3.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-3.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Cat</span>
-	              	<h2><a href="work-single.html">Sphynx Cat</a></h2>
-	              </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-4.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-4.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Cat</span>
-	              	<h2><a href="work-single.html">British Shorthair</a></h2>
-	              </div>
-              </div>
-            </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            How does the lost and found pet feature work?
+            <span class="toggle-icon">+</span>
           </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-5.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-5.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Dog</span>
-	              	<h2><a href="work-single.html">Beagle</a></h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(<?= $this->theme->getUrl("/pet/images/gallery-6.jpg")?>);">
-            	<a href="<?= $this->theme->getUrl("/pet/images/gallery-6.jpg")?>" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Dog</span>
-	              	<h2><a href="work-single.html">Pug</a></h2>
-	              </div>
-              </div>
-            </div>
+          <div class="faq-answer">
+           Users can instantly post lost or found pet alerts to reach nearby community members.
           </div>
         </div>
-			</div>
-		</section>
-
-    <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>Latest news from our blog</h2>
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I book pet grooming and daycare services through the platform?
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+           Yes, Divine Paws allows easy discovery and booking of local pet services in one place.
           </div>
         </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('<?= $this->theme->getUrl("/pet/images/image_1.jpg")?>');">
-              </a>
-              <div class="text p-4">
-              	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('<?= $this->theme->getUrl("/pet/images/image_2.jpg")?>');">
-              </a>
-              <div class="text p-4">
-              	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('<?= $this->theme->getUrl("/pet/images/image_3.jpg")?>');">
-              </a>
-              <div class="text p-4">
-              	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-              </div>
-            </div>
+
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="col-md-6 text-center">
+        <div class="faq-image">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b" class="img-fluid" alt="">
+          <div class="play-btn">
+            <i class="fas fa-play"></i>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(<?= $this->theme->getUrl("/pet/images/bg_3.jpg")?>);">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-end">
-    			<div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-    				<h2 class="mb-4">Free Consultation</h2>
-    				<form action="#" class="appointment">
-    					<div class="row">
-    						<div class="col-md-12">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Select services</option>
-	                        <option value="">Cat Sitting</option>
-	                        <option value="">Dog Walk</option>
-	                        <option value="">Pet Spa</option>
-	                        <option value="">Pet Grooming</option>
-	                        <option value="">Pet Daycare</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			              <input type="text" class="form-control" placeholder="Your Name">
-			            </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			              <input type="text" class="form-control" placeholder="Vehicle number">
-			            </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="fa fa-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date" placeholder="Date">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="fa fa-clock-o"></span></div>
-			            		<input type="text" class="form-control appointment_time" placeholder="Time">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-			            </div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			              <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
-			            </div>
-								</div>
-    					</div>
-	          </form>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+    </div>
+  </div>
+</section>
+<!-- FEATURES SECTION -->
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+
+    const parent = question.parentElement;
+    const icon = question.querySelector('.toggle-icon');
+
+    // Close other accordions (optional)
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if(item !== parent){
+        item.classList.remove('active');
+        item.querySelector('.toggle-icon').textContent = '+';
+      }
+    });
+
+    // Toggle current
+    parent.classList.toggle('active');
+
+    if(parent.classList.contains('active')){
+      icon.textContent = '−'; // minus
+    }else{
+      icon.textContent = '+';
+    }
+
+  });
+});
+</script>

@@ -83,7 +83,7 @@ class UserController extends TController
                             'resetpassword',
                             'recover',
                             'add-admin',
-                            'confirm-email'
+                            'confirm-email',
                         ],
                         'allow' => true,
                         'roles' => [
