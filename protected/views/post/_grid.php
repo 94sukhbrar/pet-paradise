@@ -5,8 +5,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 use app\models\User;
-
-use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /**

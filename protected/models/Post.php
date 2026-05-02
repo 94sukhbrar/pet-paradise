@@ -79,7 +79,7 @@ class Post extends \app\components\TActiveRecord
 		
 		return [
 			self::TYPE_ARTICAL 		=> "Pet",
-			self::TYPE_PET 			=> "Artical",
+			self::TYPE_PET 			=> "Article",
 		];
 
 	}
@@ -133,8 +133,8 @@ class Post extends \app\components\TActiveRecord
 	public function rules()
 	{
 		return [
-			[['title', 'content', 'state_id', 'created_on', 'updated_on', 'created_by_id'], 'required'],
-			[['content'], 'string'],
+			[['title', 'content', 'type_id','state_id', 'created_on', 'updated_on', 'created_by_id'], 'required'],
+			[['content'], 'string','min' => 150],
 			[['view_count', 'state_id', 'type_id', 'created_by_id', 'pet_id'], 'integer'],
 			[['created_on', 'updated_on'], 'safe'],
 			[['title'], 'string', 'max' => 256],

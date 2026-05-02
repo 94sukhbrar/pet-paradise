@@ -2,6 +2,7 @@
 
 use app\assets\AppAsset;
 use app\components\FlashMessage;
+use app\models\User;
 use app\modules\notification\widgets\NotificationWidget;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -36,7 +37,7 @@ $this->beginPage() ?>
 
 	<!-- Favicon icon -->
 	<!-- <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->theme->getUrl('/assets/images/favicon-32x32.png') ?>"> -->
-	
+
 	<title><?= Html::encode($this->title) ?></title>
 
 	<!-- Custom CSS -->
@@ -86,13 +87,13 @@ $this->beginPage() ?>
 				<!-- Logo -->
 				<!-- ============================================================== -->
 				<div class="navbar-header">
-					<a class="navbar-brand logo-hidden p-4" href="<?= Url::home() ?>"> 
+					<a class="navbar-brand logo-hidden p-4" href="<?= Url::home() ?>">
 						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
-						 <?= Yii::$app->params['websiteName'];?>
-					</a> 
-					<a class="navbar-brand responsive-show" href="/tsaro-web-1181/"> 
+						<?= Yii::$app->params['websiteName']; ?>
+					</a>
+					<a class="navbar-brand responsive-show" href="/tsaro-web-1181/">
 						<!-- <img src="<?= $this->theme->getUrl('img/blacklogo.png') ?>"	alt="homepage" class="dark-logo" /> -->
-						 <?= Yii::$app->params['shortName'];?>
+						<?= Yii::$app->params['shortName']; ?>
 					</a>
 				</div>
 				<!-- ============================================================== -->
@@ -109,7 +110,8 @@ $this->beginPage() ?>
 								class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
 								href="javascript:void(0)"><i class="icon-arrow-left-circle"></i></a>
 						</li>
-						<?php //NotificationWidget::widget() ?>
+						<?php //NotificationWidget::widget() 
+						?>
 					</ul>
 					<!-- ============================================================== -->
 					<!-- User profile and search -->
@@ -121,9 +123,10 @@ $this->beginPage() ?>
 								href="" data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false">
 								<?= $user->displayImage($user->profile_file, ['class' => 'profile-pic'], 'default.png', true); ?>
-							
+
 							</a>
-								<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="<?= Url::toRoute(['/site/index']); ?>"> <?= Yii::t("app", 'Visit Site') ?></a>
+							<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="<?= Url::toRoute(['/site/index']); ?>"> <?= Yii::t("app", 'Visit Site') ?></a>
+							<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="<?= Url::toRoute(['/user/logout']) ?>"><i class="mdi mdi-power"></i></a>
 							<div class="dropdown-menu dropdown-menu-right animated flipInY">
 								<ul class="dropdown-user">
 									<li>
@@ -163,7 +166,7 @@ $this->beginPage() ?>
 
 
 						<?php
-//language picker
+						//language picker
 						// echo \lajax\languagepicker\widgets\LanguagePicker::widget([
 						// 	'itemTemplate' => '<li class="nav-item dropdown"><a href="{link}" title="{language}"><i id="{language}"></i> {name}</a></li>',
 						// 	'activeItemTemplate' => '<a href="{link}" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" title="{language}"><i id="{language}"></i> {name}</a>',
@@ -212,16 +215,16 @@ $this->beginPage() ?>
 			</div>
 			<!-- End Sidebar scroll-->
 			<!-- Bottom points-->
-			<div class="sidebar-footer">
-				<!-- items-->
-				<a href="<?= Url::toRoute(['/setting']) ?>" class="link"
-					data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-				<a href="<?= Url::toRoute(['/email-queue/index']) ?>" class="link"
-					data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-				<a href="<?= Url::toRoute(['/user/logout']) ?>" class="link"
-					data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-
-			</div>
+			<?php if (Yii::$app->user->identity->role_id === User::ROLE_ADMIN) { ?>
+				<div class="sidebar-footer">
+					<a href="<?= Url::toRoute(['/setting']) ?>" class="link"
+						data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+					<a href="<?= Url::toRoute(['/email-queue/index']) ?>" class="link"
+						data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+					<a href="<?= Url::toRoute(['/user/logout']) ?>" class="link"
+						data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+				</div>
+			<?php } ?>
 			<!-- End Bottom points-->
 		</aside>
 		<!-- ============================================================== -->

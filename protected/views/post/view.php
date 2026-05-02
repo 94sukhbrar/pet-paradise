@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = (string)$model;
 					/*'content:html',*/
 					'keywords',
 					'image_file',
-					'view_count',
+					//'view_count',
 					[
 						'attribute' => 'state_id',
 						'format' => 'raw',
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = (string)$model;
 			]) ?>
 
 
-			<?php echo $model->content; ?>
+			<?php echo strip_tags($model->content); ?>
 
 
 

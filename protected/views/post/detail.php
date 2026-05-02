@@ -18,10 +18,10 @@ use yii\helpers\Url;
 <div class="container">
     <div class="post-container">
 
-        <h1 class="post-title">Top Grooming Tips to Keep Your Pet Happy</h1>
+        <h1 class="post-title"><?= $model->title?></h1>
 
         <p class="post-meta mb-4">
-            Posted on <strong><?= Yii::$app->formatter->asDate($model->created_on, 'php:d F Y'); ?></strong> • By <strong><?= $model->getRelatedDataLink('created_by_id') ?> (<?= Yii::$app->params['websiteName']?> Team)</strong>
+            Posted on <strong><?= Yii::$app->formatter->asDate($model->created_on, 'php:d F Y'); ?></strong> • By <strong><a href="<?= Url::toRoute(['site/profile','id'=>$model->createdBy->id])?>"><?= $model->createdBy->full_name ?> </a>(<?= Yii::$app->params['websiteName']?> Team)</strong>
         </p>
 
         <p class="lead">

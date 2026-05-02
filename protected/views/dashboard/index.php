@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = [
 
 <div class="row">
 	<!-- Column -->
+	<?php if(Yii::$app->user->identity->role_id===User::ROLE_ADMIN){?>
 	<div class="col-md-6 col-lg-3">
 		<a href='<?=Url::toRoute(['user/index']);?>'>
 			<div class="card card-inverse card-info">
@@ -45,6 +46,7 @@ $this->params['breadcrumbs'][] = [
 			</div>
 		</a>
 	</div>
+	<?php } ?>
 	<!-- Column -->
 	<!-- Column -->
 	<div class="col-md-6 col-lg-3">

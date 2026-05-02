@@ -11,6 +11,7 @@
             'options' => [
                 'tag' => 'div',
                 'class' => 'row',   // remove main wrapper class
+                'style'=>['max-width'=>'100%']
             ],
             'itemOptions' => [
                 'tag' => 'div',

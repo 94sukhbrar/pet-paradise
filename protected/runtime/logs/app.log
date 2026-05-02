@@ -19256,3 +19256,1955 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1767868862.1134
     'REQUEST_TIME' => 1767868862
 ]
+2026-02-12 21:21:11 [::1][-][-][error][yii\web\HttpException:400] yii\web\BadRequestHttpException: Unable to verify your data submission. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Controller.php:320
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\protected\base\TBaseController.php(55): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(226): app\base\TBaseController->beforeAction(Object(yii\base\InlineAction))
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(182): app\components\TController->beforeAction(Object(yii\base\InlineAction))
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('signup', Array)
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('user/signup', Array)
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#6 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#7 {main}
+2026-02-12 21:21:10 [::1][-][-][info][application] $_GET = []
+
+$_POST = [
+    '_csrf_AdminProject' => 'elhvVKxtosm2VrppYiY7jTaP0bhRymKzNFkAIDY_fycJMi4A5AL3q8QVwgIoSV36Af24_DSOE8thHVB1aXgSYw=='
+    'User' => [
+        'full_name' => ''
+        'email' => 'admin@pp.org'
+        'password' => 'admin123'
+        'confirm_password' => ''
+    ]
+    'ajax' => 'form-signup'
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '236'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_X_CSRF_TOKEN' => 'elhvVKxtosm2VrppYiY7jTaP0bhRymKzNFkAIDY_fycJMi4A5AL3q8QVwgIoSV36Af24_DSOE8thHVB1aXgSYw=='
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/user/signup'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '63739'
+    'REDIRECT_URL' => '/pet-paradise/user/signup'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/user/signup'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1770911470.444
+    'REQUEST_TIME' => 1770911470
+]
+2026-02-12 21:22:45 [::1][1][6f093v13vgonjvp1bj0dk536q1][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "assets/743f223/ui/i18n/datepicker-en.js". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('assets/743f223/...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-02-12 21:22:44 [::1][1][6f093v13vgonjvp1bj0dk536q1][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => '6f093v13vgonjvp1bj0dk536q1'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => '27e15e97f37ebab306cdac3767df5ccd22a3700f62c41d56ad4aa1d557373b58a:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"BPL6ZuPGTVwIdp67P_B12JWKc4i0toF9\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1770997965
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'script'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=6f093v13vgonjvp1bj0dk536q1; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=27e15e97f37ebab306cdac3767df5ccd22a3700f62c41d56ad4aa1d557373b58a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22BPL6ZuPGTVwIdp67P_B12JWKc4i0toF9%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '63760'
+    'REDIRECT_URL' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1770911564.9031
+    'REQUEST_TIME' => 1770911564
+]
+2026-04-30 15:40:54 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: app\models\User::name in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\BaseActiveRecord.php(296): yii\base\Component->__get('name')
+#1 D:\xampp\htdocs\pet-paradise\protected\views\post\detail.php(24): yii\db\BaseActiveRecord->__get('name')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(348): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(258): yii\base\View->renderPhpFile('D:\\xampp\\htdocs...', Array)
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(157): yii\base\View->renderFile('D:\\xampp\\htdocs...', Array, Object(app\controllers\PostController))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(413): yii\base\View->render('detail', Array, Object(app\controllers\PostController))
+#6 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(395): yii\base\Controller->render('detail', Array)
+#7 D:\xampp\htdocs\pet-paradise\protected\controllers\PostController.php(143): app\components\TController->render('detail', Array)
+#8 [internal function]: app\controllers\PostController->actionDetail('7')
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('detail', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('post/detail', Array)
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#14 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#15 {main}
+2026-04-30 15:40:54 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][info][application] $_GET = [
+    'id' => '7'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'o3va4o3bg8au5h3utmmllpt4cn'
+    '_csrf_AdminProject' => '3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/feed'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=o3va4o3bg8au5h3utmmllpt4cn; _csrf_AdminProject=3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '54558'
+    'REDIRECT_URL' => '/pet-paradise/post/detail/7'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/post/detail/7'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777543854.6441
+    'REQUEST_TIME' => 1777543854
+]
+2026-04-30 15:45:00 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: app\models\User::full_names in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\BaseActiveRecord.php(296): yii\base\Component->__get('full_names')
+#1 D:\xampp\htdocs\pet-paradise\protected\views\post\detail.php(24): yii\db\BaseActiveRecord->__get('full_names')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(348): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(258): yii\base\View->renderPhpFile('D:\\xampp\\htdocs...', Array)
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(157): yii\base\View->renderFile('D:\\xampp\\htdocs...', Array, Object(app\controllers\PostController))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(413): yii\base\View->render('detail', Array, Object(app\controllers\PostController))
+#6 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(395): yii\base\Controller->render('detail', Array)
+#7 D:\xampp\htdocs\pet-paradise\protected\controllers\PostController.php(143): app\components\TController->render('detail', Array)
+#8 [internal function]: app\controllers\PostController->actionDetail('7')
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('detail', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('post/detail', Array)
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#14 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#15 {main}
+2026-04-30 15:45:00 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][info][application] $_GET = [
+    'id' => '7'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'o3va4o3bg8au5h3utmmllpt4cn'
+    '_csrf_AdminProject' => '3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/feed'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=o3va4o3bg8au5h3utmmllpt4cn; _csrf_AdminProject=3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '54607'
+    'REDIRECT_URL' => '/pet-paradise/post/detail/7'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/post/detail/7'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777544100.6427
+    'REQUEST_TIME' => 1777544100
+]
+2026-04-30 15:47:31 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/img/blog-header.jpg". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/img...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 15:47:31 [::1][-][o3va4o3bg8au5h3utmmllpt4cn][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'o3va4o3bg8au5h3utmmllpt4cn'
+    '_csrf_AdminProject' => '3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/post/detail/1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=o3va4o3bg8au5h3utmmllpt4cn; _csrf_AdminProject=3a6fd722a9d873689baadc9e1c70ed4c61510d1fb89106e8e7561fa42814e5cea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22qh033SjbF0QDcSrQ-tKi8OdiUHhdB6rK%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '54671'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/img/blog-header.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/img/blog-header.jpg'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777544251.5617
+    'REQUEST_TIME' => 1777544251
+]
+2026-04-30 15:50:52 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "assets/743f223/ui/i18n/datepicker-en.js". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('assets/743f223/...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 15:50:52 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'f4nuq0u2duivuhtb40kb2pkufo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => '066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777630852
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'script'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=f4nuq0u2duivuhtb40kb2pkufo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '54748'
+    'REDIRECT_URL' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777544452.1386
+    'REQUEST_TIME' => 1777544452
+]
+2026-04-30 15:50:55 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 15:50:53 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'f4nuq0u2duivuhtb40kb2pkufo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => '066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777630855
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=f4nuq0u2duivuhtb40kb2pkufo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '54751'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777544453.1742
+    'REQUEST_TIME' => 1777544453
+]
+2026-04-30 16:41:12 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/img/blog-header.jpg". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/img...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 16:41:11 [::1][1][f4nuq0u2duivuhtb40kb2pkufo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'f4nuq0u2duivuhtb40kb2pkufo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => '066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/pet-paradise/user/view/4/pet-owner'
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777633872
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/pet'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=f4nuq0u2duivuhtb40kb2pkufo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=066c6d91c99619779be16290f0ad9b553b9b937d67f7949366366019c78189e2a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22uIUnlWK9L3J85Z5x9_T3Q2Agmil4R2_j%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55032'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/img/blog-header.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/img/blog-header.jpg'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777547471.6976
+    'REQUEST_TIME' => 1777547471
+]
+2026-04-30 16:49:05 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\filters\AccessControl.php:158
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\filters\AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(app\components\WebUser))
+#1 D:\xampp\htdocs\pet-paradise\protected\components\filters\AccessControl.php(36): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\ActionFilter.php(77): app\components\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Component.php(648): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(303): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Controller.php(318): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 D:\xampp\htdocs\pet-paradise\protected\base\TBaseController.php(55): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#8 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(226): app\base\TBaseController->beforeAction(Object(yii\base\InlineAction))
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(182): app\components\TController->beforeAction(Object(yii\base\InlineAction))
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('', Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('setting', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#13 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#14 {main}
+2026-04-30 16:49:05 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'nnsdj5g7tbrcq6m35bsinablkg'
+    '_user_AdminProject' => '6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[4,\"2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185\",2592000]\";}'
+    '_csrf_AdminProject' => 'bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"n2iCeanvPVMRjEpZM39agsSC8C-X_S1C\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 4
+    '__authKey' => '2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185'
+    '__expire' => 1777634345
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=nnsdj5g7tbrcq6m35bsinablkg; _user_AdminProject=6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B4%2C%222JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22n2iCeanvPVMRjEpZM39agsSC8C-X_S1C%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55137'
+    'REDIRECT_URL' => '/pet-paradise/setting'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/setting'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777547945.369
+    'REQUEST_TIME' => 1777547945
+]
+2026-04-30 16:50:38 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\filters\AccessControl.php:158
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\filters\AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(app\components\WebUser))
+#1 D:\xampp\htdocs\pet-paradise\protected\components\filters\AccessControl.php(36): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\ActionFilter.php(77): app\components\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#3 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Component.php(648): call_user_func(Array, Object(yii\base\ActionEvent))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(303): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#6 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Controller.php(318): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 D:\xampp\htdocs\pet-paradise\protected\base\TBaseController.php(55): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#8 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(226): app\base\TBaseController->beforeAction(Object(yii\base\InlineAction))
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(182): app\components\TController->beforeAction(Object(yii\base\InlineAction))
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('', Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('setting', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#13 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#14 {main}
+2026-04-30 16:50:38 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'nnsdj5g7tbrcq6m35bsinablkg'
+    '_user_AdminProject' => '6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[4,\"2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185\",2592000]\";}'
+    '_csrf_AdminProject' => 'bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"n2iCeanvPVMRjEpZM39agsSC8C-X_S1C\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 4
+    '__authKey' => '2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185'
+    '__expire' => 1777634438
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=nnsdj5g7tbrcq6m35bsinablkg; _user_AdminProject=6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B4%2C%222JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22n2iCeanvPVMRjEpZM39agsSC8C-X_S1C%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55156'
+    'REDIRECT_URL' => '/pet-paradise/setting'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/setting'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777548038.4099
+    'REQUEST_TIME' => 1777548038
+]
+2026-04-30 16:57:16 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'type_id' cannot be null in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php:1320
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1320): PDOStatement->execute()
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1120): yii\db\Command->internalExecute('INSERT INTO `tb...')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Schema.php(431): yii\db\Command->execute()
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveRecord.php(610): yii\db\Schema->insert('{{%post}}', Array)
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveRecord.php(576): yii\db\ActiveRecord->insertInternal(NULL)
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\BaseActiveRecord.php(688): yii\db\ActiveRecord->insert(true, NULL)
+#6 D:\xampp\htdocs\pet-paradise\protected\components\TActiveRecord.php(453): yii\db\BaseActiveRecord->save(true, NULL)
+#7 D:\xampp\htdocs\pet-paradise\protected\controllers\PostController.php(167): app\components\TActiveRecord->save()
+#8 [internal function]: app\controllers\PostController->actionAdd()
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('add', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('post/add', Array)
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#14 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'type_id' cannot be null
+The SQL being executed was: INSERT INTO `tbl_post` (`view_count`, `state_id`, `pet_id`, `title`, `content`, `image_file`, `type_id`, `created_on`, `updated_on`, `created_by_id`, `keywords`) VALUES (0, 0, 18, 'Grooming Day at Pet Paradise', 'Please fix the following errors:\r\n\r\nContent cannot be blank.\r\nPet', 'post-1777548436-image_file-user_id_4.webp', NULL, '2026-04-30 16:57:16', '2026-04-30 16:57:16', 4, '') in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Schema.php:676
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1325): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `tb...')
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1120): yii\db\Command->internalExecute('INSERT INTO `tb...')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Schema.php(431): yii\db\Command->execute()
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveRecord.php(610): yii\db\Schema->insert('{{%post}}', Array)
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveRecord.php(576): yii\db\ActiveRecord->insertInternal(NULL)
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\BaseActiveRecord.php(688): yii\db\ActiveRecord->insert(true, NULL)
+#6 D:\xampp\htdocs\pet-paradise\protected\components\TActiveRecord.php(453): yii\db\BaseActiveRecord->save(true, NULL)
+#7 D:\xampp\htdocs\pet-paradise\protected\controllers\PostController.php(167): app\components\TActiveRecord->save()
+#8 [internal function]: app\controllers\PostController->actionAdd()
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('add', Array)
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('post/add', Array)
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#14 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1048
+    [2] => Column 'type_id' cannot be null
+)
+
+2026-04-30 16:57:15 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][info][application] $_GET = []
+
+$_POST = [
+    '_csrf_AdminProject' => '3XJ58oj4Adhl29doKFeOfGix1DZAA9ZapVNJSWVhHVWzQBCx7ZlvrjWNmjpCEv4mJYLtVydwhRmdEGQROjIsFg=='
+    'Post' => [
+        'pet_id' => '18'
+        'title' => 'Grooming Day at Pet Paradise'
+        'content' => 'Please fix the following errors:
+
+Content cannot be blank.
+Pet'
+        'image_file' => ''
+        'type_id' => ''
+    ]
+]
+
+$_FILES = [
+    'Post' => [
+        'name' => [
+            'image_file' => '1280w-fK6T4QtoUMI.webp'
+        ]
+        'full_path' => [
+            'image_file' => '1280w-fK6T4QtoUMI.webp'
+        ]
+        'type' => [
+            'image_file' => 'image/webp'
+        ]
+        'tmp_name' => [
+            'image_file' => 'D:\\xampp\\tmp\\phpDBC1.tmp'
+        ]
+        'error' => [
+            'image_file' => 0
+        ]
+        'size' => [
+            'image_file' => 148984
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_session_AdminProject' => 'nnsdj5g7tbrcq6m35bsinablkg'
+    '_user_AdminProject' => '6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[4,\"2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185\",2592000]\";}'
+    '_csrf_AdminProject' => 'bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"n2iCeanvPVMRjEpZM39agsSC8C-X_S1C\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 4
+    '__authKey' => '2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185'
+    '__expire' => 1777634836
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '149980'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryTEmnkEZ8ZppHRapw'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/post/add'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=nnsdj5g7tbrcq6m35bsinablkg; _user_AdminProject=6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B4%2C%222JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22n2iCeanvPVMRjEpZM39agsSC8C-X_S1C%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55287'
+    'REDIRECT_URL' => '/pet-paradise/post/add'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/post/add'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777548435.8686
+    'REQUEST_TIME' => 1777548435
+]
+2026-04-30 17:04:07 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][error][yii\db\Exception] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.created_by_id' in 'where clause' in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php:1320
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1320): PDOStatement->execute()
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1186): yii\db\Command->internalExecute('SELECT COUNT(*)...')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(443): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Query.php(497): yii\db\Command->queryScalar()
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveQuery.php(373): yii\db\Query->queryScalar('COUNT(*)', Object(yii\db\Connection))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Query.php(368): yii\db\ActiveQuery->queryScalar('COUNT(*)', Object(yii\db\Connection))
+#6 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\ActiveDataProvider.php(168): yii\db\Query->count('*', NULL)
+#7 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(170): yii\data\ActiveDataProvider->prepareTotalCount()
+#8 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\ActiveDataProvider.php(105): yii\data\BaseDataProvider->getTotalCount()
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(102): yii\data\ActiveDataProvider->prepareModels()
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(115): yii\data\BaseDataProvider->prepare()
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(156): yii\data\BaseDataProvider->getModels()
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\widgets\BaseListView.php(133): yii\data\BaseDataProvider->getCount()
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Widget.php(149): yii\widgets\BaseListView->run()
+#14 D:\xampp\htdocs\pet-paradise\protected\views\site\feed.php(8): yii\base\Widget::widget(Array)
+#15 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(348): require('D:\\xampp\\htdocs...')
+#16 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(258): yii\base\View->renderPhpFile('D:\\xampp\\htdocs...', Array)
+#17 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(157): yii\base\View->renderFile('D:\\xampp\\htdocs...', Array, Object(app\controllers\SiteController))
+#18 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(413): yii\base\View->render('feed', Array, Object(app\controllers\SiteController))
+#19 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(395): yii\base\Controller->render('feed', Array)
+#20 D:\xampp\htdocs\pet-paradise\protected\controllers\SiteController.php(174): app\components\TController->render('feed', Array)
+#21 [internal function]: app\controllers\SiteController->actionFeed()
+#22 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#23 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#24 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('feed', Array)
+#25 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/feed', Array)
+#26 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#27 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#28 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.created_by_id' in 'where clause'
+The SQL being executed was: SELECT COUNT(*) FROM `tbl_post` WHERE (`p`.`created_by_id`=4) AND (`p`.`state_id`=1) in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Schema.php:676
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1325): yii\db\Schema->convertException(Object(PDOException), 'SELECT COUNT(*)...')
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(1186): yii\db\Command->internalExecute('SELECT COUNT(*)...')
+#2 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Command.php(443): yii\db\Command->queryInternal('fetchColumn', 0)
+#3 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Query.php(497): yii\db\Command->queryScalar()
+#4 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\ActiveQuery.php(373): yii\db\Query->queryScalar('COUNT(*)', Object(yii\db\Connection))
+#5 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\db\Query.php(368): yii\db\ActiveQuery->queryScalar('COUNT(*)', Object(yii\db\Connection))
+#6 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\ActiveDataProvider.php(168): yii\db\Query->count('*', NULL)
+#7 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(170): yii\data\ActiveDataProvider->prepareTotalCount()
+#8 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\ActiveDataProvider.php(105): yii\data\BaseDataProvider->getTotalCount()
+#9 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(102): yii\data\ActiveDataProvider->prepareModels()
+#10 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(115): yii\data\BaseDataProvider->prepare()
+#11 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\data\BaseDataProvider.php(156): yii\data\BaseDataProvider->getModels()
+#12 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\widgets\BaseListView.php(133): yii\data\BaseDataProvider->getCount()
+#13 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Widget.php(149): yii\widgets\BaseListView->run()
+#14 D:\xampp\htdocs\pet-paradise\protected\views\site\feed.php(8): yii\base\Widget::widget(Array)
+#15 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(348): require('D:\\xampp\\htdocs...')
+#16 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(258): yii\base\View->renderPhpFile('D:\\xampp\\htdocs...', Array)
+#17 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\View.php(157): yii\base\View->renderFile('D:\\xampp\\htdocs...', Array, Object(app\controllers\SiteController))
+#18 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(413): yii\base\View->render('feed', Array, Object(app\controllers\SiteController))
+#19 D:\xampp\htdocs\pet-paradise\protected\components\TController.php(395): yii\base\Controller->render('feed', Array)
+#20 D:\xampp\htdocs\pet-paradise\protected\controllers\SiteController.php(174): app\components\TController->render('feed', Array)
+#21 [internal function]: app\controllers\SiteController->actionFeed()
+#22 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#23 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#24 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('feed', Array)
+#25 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/feed', Array)
+#26 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#27 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#28 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'p.created_by_id' in 'where clause'
+)
+
+2026-04-30 17:04:07 [::1][4][nnsdj5g7tbrcq6m35bsinablkg][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'nnsdj5g7tbrcq6m35bsinablkg'
+    '_user_AdminProject' => '6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[4,\"2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185\",2592000]\";}'
+    '_csrf_AdminProject' => 'bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"n2iCeanvPVMRjEpZM39agsSC8C-X_S1C\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 4
+    '__authKey' => '2JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185'
+    '__expire' => 1777635247
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=nnsdj5g7tbrcq6m35bsinablkg; _user_AdminProject=6782298c94ae206ef5a279a86b5474c7fccba6fb8ff03814a0c8dd07ac11b6bba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B4%2C%222JwMvYkkNzDlNmW6h5j05JKAEctqKM4K_1765642185%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=bc0103c06418ffac44dd1772925fbf9e1e4b3ec7e1fc1b31b99949fa6f2b2b3ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%22n2iCeanvPVMRjEpZM39agsSC8C-X_S1C%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55410'
+    'REDIRECT_URL' => '/pet-paradise/feed'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/feed'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777548847.6577
+    'REQUEST_TIME' => 1777548847
+]
+2026-04-30 17:05:30 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "assets/743f223/ui/i18n/datepicker-en.js". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('assets/743f223/...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:05:30 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777635330
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'script'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55447'
+    'REDIRECT_URL' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777548930.1453
+    'REQUEST_TIME' => 1777548930
+]
+2026-04-30 17:06:28 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "assets/743f223/ui/i18n/datepicker-en.js". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('assets/743f223/...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:06:27 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777635388
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'script'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55455'
+    'REDIRECT_URL' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777548987.9549
+    'REQUEST_TIME' => 1777548987
+]
+2026-04-30 17:07:06 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "assets/743f223/ui/i18n/datepicker-en.js". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('assets/743f223/...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:07:05 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777635426
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_SEC_CH_UA' => '\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'script'
+    'HTTP_REFERER' => 'http://localhost/pet-paradise/dashboard/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55471'
+    'REDIRECT_URL' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/assets/743f223/ui/i18n/datepicker-en.js'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549025.5751
+    'REQUEST_TIME' => 1777549025
+]
+2026-04-30 17:16:03 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:16:03 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777635963
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '55897'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549563.1532
+    'REQUEST_TIME' => 1777549563
+]
+2026-04-30 17:18:36 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:18:36 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777636116
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '56153'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549716.1731
+    'REQUEST_TIME' => 1777549716
+]
+2026-04-30 17:21:23 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:21:23 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777636283
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '56244'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549883.3514
+    'REQUEST_TIME' => 1777549883
+]
+2026-04-30 17:21:31 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:21:31 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777636291
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '56255'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549891.1174
+    'REQUEST_TIME' => 1777549891
+]
+2026-04-30 17:22:03 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map". in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('themes/base/scs...', Array)
+#1 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#2 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\xampp\htdocs\pet-paradise\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(app\components\TRequest))
+#1 D:\xampp\htdocs\pet-paradise\index.php(10): yii\base\Application->run()
+#2 {main}
+2026-04-30 17:22:02 [::1][1][d5uj1euot8ac9v02dvogs6hcgo][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_session_AdminProject' => 'd5uj1euot8ac9v02dvogs6hcgo'
+    '_user_AdminProject' => '93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a:2:{i:0;s:18:\"_user_AdminProject\";i:1;s:57:\"[1,\"yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117\",2592000]\";}'
+    '_csrf_AdminProject' => 'eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea:2:{i:0;s:18:\"_csrf_AdminProject\";i:1;s:32:\"4gB2QuU62FF5nP3BlqJupGYJLKDSlxRP\";}'
+    'language' => '662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a:2:{i:0;s:8:\"language\";i:1;s:2:\"en\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117'
+    '__expire' => 1777636323
+    'ADMIN_MODE' => false
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_session_AdminProject=d5uj1euot8ac9v02dvogs6hcgo; _user_AdminProject=93e59e107550256db47924c34da6f54dd602fdee1a98d2adbb1ccbfb0ef8c2b3a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_user_AdminProject%22%3Bi%3A1%3Bs%3A57%3A%22%5B1%2C%22yAGptBNHikTqeIhEBHo1HHu00ZoekpJZ_1755682117%22%2C2592000%5D%22%3B%7D; _csrf_AdminProject=eeb0788e8efa753b5ed095f979d4018f8850b9ebb3beeb835220037e68d53c1ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_csrf_AdminProject%22%3Bi%3A1%3Bs%3A32%3A%224gB2QuU62FF5nP3BlqJupGYJLKDSlxRP%22%3B%7D; language=662e635d21d94ba70a201c5badef04b668a21c9400d116df165d762e1ac5f804a%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22en%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Dell\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Dell\\AppData\\Roaming\\npm;C:\\Users\\Dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Dell\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/pet-paradise/index.php'
+    'REMOTE_PORT' => '56273'
+    'REDIRECT_URL' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/pet-paradise/themes/base/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/pet-paradise/index.php'
+    'PHP_SELF' => '/pet-paradise/index.php'
+    'REQUEST_TIME_FLOAT' => 1777549922.8738
+    'REQUEST_TIME' => 1777549922
+]

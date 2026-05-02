@@ -31,11 +31,11 @@ use app\models\User;
 	<?php echo $form->field($model, 'title')->textInput(['maxlength' => 256]) ?>
 
 
-	<?php echo  $form->field($model, 'content')->textarea(['rows' => 6]); ?>
+	<?php echo  $form->field($model, 'content')->textarea(['rows' => 6,'minlength' => 150]); ?>
 
 
 
-	<?php /*echo $form->field($model, 'keywords')->textInput(['maxlength' => 255]) */ ?>
+	<?php echo $form->field($model, 'keywords')->textInput(['maxlength' => 255])  ?>
 
 
 	<?php echo $form->field($model, 'image_file')->fileInput()  ?>

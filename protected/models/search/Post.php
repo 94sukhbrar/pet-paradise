@@ -1,8 +1,10 @@
 <?php
+
 /**
  *@copyright : Amusoftech Pvt. Ltd. < www.amusoftech.com >
  *@author    : Amu < er.amu@live.com >
  */
+
 namespace app\models\search;
 
 use Yii;
@@ -34,8 +36,9 @@ class Post extends PostModel
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
-    public function beforeValidate(){
-            return true;
+    public function beforeValidate()
+    {
+        return true;
     }
     /**
      * Creates data provider instance with search query applied
@@ -47,22 +50,25 @@ class Post extends PostModel
     public function search($params)
     {
         $query = PostModel::find();
-
-		        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-						'defaultOrder' => [
-								'id' => SORT_DESC
-						]
-				]
+                'defaultOrder' => [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
+
+
+        if ((Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) && (Yii::$app->controller->id === 'post')) {
+            $query = $query->andFilterWhere(['created_by_id' => Yii::$app->user->identity->id]);
+        }
+        if (Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'feed') {
+            $query = $query->andFilterWhere(['state_id' => Post::STATE_ACTIVE]);
+        }
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
-        }
-
-         if (Yii::$app->user->identity->role_id !== User::ROLE_ADMIN) {
-            $query = $query->andFilterWhere(['p.created_by_id' => Yii::$app->user->identity->id]);
         }
         $query->andFilterWhere([
             'id' => $this->id,

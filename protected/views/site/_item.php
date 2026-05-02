@@ -19,9 +19,9 @@ if (Yii::$app->controller->id === 'pet') {
         <div class="card post-card shadow-sm">
             <?= $model->displayImage($model->image_file, $options = ['class' => 'card-img-top'], $defaultImg = 'pp1.png'); ?>
             <div class="card-body">
-                <h5 class="card-title"><?= $model->title ?></h5>
+                <h5 class="card-title" data-bs-toggle="tooltip" title="<?= $model->title ?>"><?= \yii\helpers\StringHelper::truncate($model->title, 18) ?></h5>
                 <p class="card-text text-muted">
-                    <?= \yii\helpers\StringHelper::truncateWords($model->content, 20) ?>
+                    <?= \yii\helpers\StringHelper::truncate(strip_tags($model->content), 150) ?>
                 </p>
                 <a href="<?= Url::toRoute(['post/detail', 'id' => $model->id]) ?>" class="btn btn-primary btn-sm">Read More</a>
             </div>

@@ -24,7 +24,7 @@ use yii\widgets\Pjax;
 	'filterModel' => $searchModel,
 	'tableOptions' => ['class' => 'table table-bordered'],
 	'columns' => [
-		// ['class' => 'yii\grid\SerialColumn','header'=>'<a>S.No.<a/>'],
+		['class' => 'yii\grid\SerialColumn','header'=>'<a>S.No.<a/>'],
 		[
 			'name' => 'check',
 			'class' => 'yii\grid\CheckboxColumn',
